@@ -1,0 +1,30 @@
+package com.hexaware.fastx_busticketsystem.dto;
+
+import java.time.LocalDate;
+
+import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Data
+public class BookingDto {
+	
+	@Positive(message="ID should be positive value")
+	private int bookingId;
+	
+	@Positive(message="ID should be positive value")
+    private int userId;
+	
+	@Positive(message="ID should be positive value")
+    private int tripId;
+	
+	@FutureOrPresent(message="Booking date cannot be past")
+    private LocalDate bookingDate;
+	
+	@Pattern(regexp = "Confirmed|Unconfiremd")
+    private String status;
+
+}
