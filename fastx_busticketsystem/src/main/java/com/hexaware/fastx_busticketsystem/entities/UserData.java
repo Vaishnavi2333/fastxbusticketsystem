@@ -13,11 +13,10 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "userData")
+@Table(name = "user_data")
 public class UserData {
 
     @Id
-    
     private int userdataId;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -56,7 +55,7 @@ public class UserData {
         return userdataId;
     }
 
-    public void setUserdata_id(int userdataId) {
+    public void setUserdataId(int userdataId) {
         this.userdataId = userdataId;
     }
 
@@ -104,7 +103,7 @@ public class UserData {
         return contactNumber;
     }
 
-    public void setContact_number(String contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 

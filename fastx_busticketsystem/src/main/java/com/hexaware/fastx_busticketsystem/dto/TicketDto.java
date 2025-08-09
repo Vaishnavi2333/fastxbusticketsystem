@@ -14,8 +14,8 @@ public class TicketDto {
 	@Positive(message="ID should be positive value")
 	private int ticketId;
 	
-	@Positive(message="ID should be positive value")
-    private int bookingId;
+	//@Positive(message="ID should be positive value")
+    //private int bookingId;
 	
 	@Size(min=1,max=50)
     private int seatNumber;

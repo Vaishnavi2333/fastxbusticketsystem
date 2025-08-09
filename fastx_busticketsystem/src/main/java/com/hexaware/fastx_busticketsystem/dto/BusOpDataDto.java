@@ -21,8 +21,9 @@ public class BusOpDataDto {
 	@Positive(message="ID should be positive value")
 	private int busOpdataId;
 	
-	@Positive(message="ID should be positive value")
-    private int busOpId;
+	/*
+	 * @Positive(message="ID should be positive value") private int busOpId;
+	 */
 	
 	@NotNull
     private String name;

@@ -2,39 +2,65 @@ package com.hexaware.fastx_busticketsystem.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hexaware.fastx_busticketsystem.dto.RouteDto;
 import com.hexaware.fastx_busticketsystem.entities.Route;
+import com.hexaware.fastx_busticketsystem.exception.RouteNotFoundException;
+import com.hexaware.fastx_busticketsystem.repository.RouteRepo;
 
+
+@Service
 public class RouteServiceImpl implements IRouteService {
+	
+	@Autowired
+	RouteRepo repo;
 
 	@Override
-	public Route addRoute(Route route) {
-		// TODO Auto-generated method stub
-		return null;
-		
+	public Route addRoute(RouteDto routeDto) {
+		Route route = new Route();
+		route.setRouteId(routeDto.getRouteId());
+		route.setRouteName(routeDto.getRouteName());
+		route.setOrigin(routeDto.getOrigin());
+		route.setDestination(routeDto.getDestination());
+		route.setDistanceKm(routeDto.getDistanceKm());
+		route.setEstimatedTime(routeDto.getEstimatedTime());
+		return repo.save(route);
 	}
 
 	@Override
-	public Route updateRoute(int routeId, Route updatedRoute) {
-		// TODO Auto-generated method stub
-		return null;
+	public Route updateRoute(RouteDto routeDto) throws RouteNotFoundException {
+		 Route existing = repo.findById(routeDto.getRouteId())
+		            .orElseThrow(() -> new RouteNotFoundException("Route not found with id: " + routeDto.getRouteId()));
+
+		        existing.setRouteName(routeDto.getRouteName());
+		        existing.setOrigin(routeDto.getOrigin());
+		        existing.setDestination(routeDto.getDestination());
+		        existing.setDistanceKm(routeDto.getDistanceKm());
+		        existing.setEstimatedTime(routeDto.getEstimatedTime());
+
+		        return repo.save(existing);
 	}
 
 	@Override
-	public void deleteRoute(int routeId) {
-		// TODO Auto-generated method stub
+	public void deleteRoute(int routeId) throws RouteNotFoundException {
+		 Route existing = repo.findById(routeId)
+		            .orElseThrow(() -> new RouteNotFoundException("Route not found with id: " + routeId));
+		        repo.delete(existing);
 		
 	}
 
 	@Override
 	public List<Route> getAllRoutes() {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.findAll();
 	}
 
 	@Override
-	public Route getRouteById(int routeId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Route getRouteById(int routeId) throws RouteNotFoundException {
+		 return repo.findById(routeId)
+		            .orElseThrow(() -> new RouteNotFoundException("Route not found with id: " + routeId));
+		    }
 
+	
 }

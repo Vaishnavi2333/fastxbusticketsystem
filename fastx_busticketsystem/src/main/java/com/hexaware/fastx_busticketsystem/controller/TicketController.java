@@ -1,16 +1,55 @@
 package com.hexaware.fastx_busticketsystem.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hexaware.fastx_busticketsystem.dto.TicketDto;
+import com.hexaware.fastx_busticketsystem.entities.Ticket;
+import com.hexaware.fastx_busticketsystem.exception.TicketNotFoundException;
 import com.hexaware.fastx_busticketsystem.repository.TicketRepo;
+import com.hexaware.fastx_busticketsystem.service.ITicketService;
+
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 @RequestMapping
 public class TicketController {
 	
 	@Autowired
-	TicketRepo repo;
+	ITicketService service;
+	
+	@PostMapping("/generate")
+    public Ticket generateTicket(@RequestBody TicketDto ticketDto) {
+        return service.generateTicket(ticketDto);
+    }
+
+    @PutMapping("/update")
+    public Ticket updateTicket(@RequestBody TicketDto ticketDto) throws TicketNotFoundException {
+        return service.updateTicket(ticketDto);
+    }
+
+    @DeleteMapping("/cancel/{ticketId}")
+    public String cancelTicket(@PathVariable int ticketId) throws TicketNotFoundException {
+        service.cancelTicket(ticketId);
+        return "Ticket with id " + ticketId + " cancelled successfully.";
+    }
+
+    @GetMapping("/getbyid/{ticketId}")
+    public Ticket getTicketById(@PathVariable int ticketId) throws TicketNotFoundException {
+        return service.getTicketById(ticketId);
+    }
+
+    @GetMapping("/booking/{bookingId}")
+    public List<Ticket> getTicketsByBookingId(@PathVariable int bookingId) {
+        return service.getTicketsByBookingId(bookingId);
+    }
 
 }

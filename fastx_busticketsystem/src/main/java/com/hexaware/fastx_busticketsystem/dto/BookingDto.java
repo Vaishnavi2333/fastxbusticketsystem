@@ -15,11 +15,12 @@ public class BookingDto {
 	@Positive(message="ID should be positive value")
 	private int bookingId;
 	
-	@Positive(message="ID should be positive value")
-    private int userId;
-	
-	@Positive(message="ID should be positive value")
-    private int tripId;
+	/*
+	 * @Positive(message="ID should be positive value") private int userId;
+	 */
+	/*
+	 * @Positive(message="ID should be positive value") private int tripId;
+	 */
 	
 	@FutureOrPresent(message="Booking date cannot be past")
     private LocalDate bookingDate;

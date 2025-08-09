@@ -11,13 +11,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+
 @Entity
+@Table(name="trip")
 public class Trip {
 	
 	@Id
 	private int tripId;
-    private int busId;
-    private int routeId;
     private LocalDate date;
     private LocalTime departureTime;
     private LocalTime arrivalTime;
@@ -35,13 +37,13 @@ public class Trip {
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
     private List<Booking> bookings = new ArrayList<>();
     
-    
-	public Trip(int tripId, int busId, int routeId, LocalDate date, LocalTime departureTime, LocalTime arrivalTime,
+    public Trip() {
+    	
+    }
+	public Trip(int tripId,  LocalDate date, LocalTime departureTime, LocalTime arrivalTime,
 			double fare, String status) {
 		super();
 		this.tripId = tripId;
-		this.busId = busId;
-		this.routeId = routeId;
 		this.date = date;
 		this.departureTime = departureTime;
 		this.arrivalTime = arrivalTime;
@@ -54,18 +56,7 @@ public class Trip {
 	public void setTripId(int tripId) {
 		this.tripId = tripId;
 	}
-	public int getBusId() {
-		return busId;
-	}
-	public void setBusId(int busId) {
-		this.busId = busId;
-	}
-	public int getRouteId() {
-		return routeId;
-	}
-	public void setRouteId(int routeId) {
-		this.routeId = routeId;
-	}
+	
 	public LocalDate getDate() {
 		return date;
 	}

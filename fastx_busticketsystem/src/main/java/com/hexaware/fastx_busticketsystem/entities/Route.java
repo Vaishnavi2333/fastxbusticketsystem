@@ -9,7 +9,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
 @Entity
+@Table(name="route")
 public class Route {
 	
 	@Id
@@ -26,6 +29,10 @@ public class Route {
     @ManyToOne
     @JoinColumn(name = "admin_id")
     private AdminLogin admin;
+    
+    public Route() {
+    	
+    }
 
 	public Route(int routeId, String routeName, String origin, String destination, double distanceKm,
 			LocalTime estimatedTime) {

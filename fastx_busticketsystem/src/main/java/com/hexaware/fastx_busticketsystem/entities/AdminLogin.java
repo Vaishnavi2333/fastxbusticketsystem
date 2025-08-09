@@ -6,8 +6,10 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="admin_login")
 public class AdminLogin {
 		
         @Id
@@ -20,8 +22,10 @@ public class AdminLogin {
 	    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
 	    private List<BusOpData> managedOperators;
 	    
-	    
-	   
+		/*
+		 * @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL) private
+		 * List<UserData> managedUsers;
+		 */
 	    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
 	    private List<Route> managedRoutes;
 

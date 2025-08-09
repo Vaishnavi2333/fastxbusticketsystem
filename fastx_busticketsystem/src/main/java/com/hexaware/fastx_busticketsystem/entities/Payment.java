@@ -5,13 +5,14 @@ import java.time.LocalDate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="payment")
 public class Payment {
 	
 	 @Id
 	 private int paymentId;
-	 private int bookingId;
 	 private double amount;
 	 private LocalDate paymentDate;
 	 private String paymentMethod;
@@ -20,12 +21,15 @@ public class Payment {
 	 @OneToOne(mappedBy = "payment")
 	 private Booking booking;
 	 
+	 public Payment() {
+		 
+	 }
 	 
-	 public Payment(int paymentId, int bookingId, double amount, LocalDate paymentDate, String paymentMethod,
+	 
+	 public Payment(int paymentId,  double amount, LocalDate paymentDate, String paymentMethod,
 			String status) {
 		super();
 		this.paymentId = paymentId;
-		this.bookingId = bookingId;
 		this.amount = amount;
 		this.paymentDate = paymentDate;
 		this.paymentMethod = paymentMethod;
@@ -36,12 +40,6 @@ public class Payment {
 	 }
 	 public void setPaymentId(int paymentId) {
 		 this.paymentId = paymentId;
-	 }
-	 public int getBookingId() {
-		 return bookingId;
-	 }
-	 public void setBookingId(int bookingId) {
-		 this.bookingId = bookingId;
 	 }
 	 public double getAmount() {
 		 return amount;

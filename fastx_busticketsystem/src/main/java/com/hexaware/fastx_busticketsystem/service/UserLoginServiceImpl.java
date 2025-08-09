@@ -1,31 +1,63 @@
 package com.hexaware.fastx_busticketsystem.service;
 
-import com.hexaware.fastx_busticketsystem.entities.UserLogin;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.hexaware.fastx_busticketsystem.dto.UserLoginDto;
+import com.hexaware.fastx_busticketsystem.entities.UserLogin;
+import com.hexaware.fastx_busticketsystem.exception.UserAlreadyExistsException;
+import com.hexaware.fastx_busticketsystem.exception.UserNotFoundException;
+import com.hexaware.fastx_busticketsystem.repository.UserLoginRepo;
+
+
+@Service
 public class UserLoginServiceImpl implements IUserLoginService {
+	
+	@Autowired
+	UserLoginRepo repo;
 
 	@Override
-	public boolean register(UserLogin login) {
+	public boolean register(UserLoginDto loginDto) throws UserAlreadyExistsException {
+		
+		if (repo.existsByUsername(loginDto.getUsername())) {
+	        throw new UserAlreadyExistsException("User '" + loginDto.getUsername() + "' already exists");
+	        
+	    }
+		
 	
-		return false;
+		UserLogin login = new UserLogin();
+		
+		login.setUserId(loginDto.getUserId());
+		login.setUsername(loginDto.getUsername());
+		login.setPassword(loginDto.getPassword());
+		
+		repo.save(login);
+		return true;
 	}
 
 	@Override
-	public boolean login(String username, String password) {
-	
-		return false;
+	public boolean login(String username, String password) throws UserNotFoundException {
+		UserLogin user = repo.findByUsername(username);
+	    if (user == null) {
+	        throw new UserNotFoundException("User with username '" + username + "' not found");
+	    }
+		
+		
+		return true;
 	}
 
 	@Override
 	public boolean existsByUsername(String username) {
 		
-		return false;
-	}
+		
+        return repo.existsByUsername(username);
+    }
 
 	@Override
 	public UserLogin getByUsername(String username) {
 		
-		return null;
+		return repo.findByUsername(username);
 	}
+
 
 }

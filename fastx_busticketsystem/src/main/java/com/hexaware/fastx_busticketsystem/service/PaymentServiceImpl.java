@@ -1,31 +1,53 @@
 package com.hexaware.fastx_busticketsystem.service;
 
-import com.hexaware.fastx_busticketsystem.entities.Payment;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.hexaware.fastx_busticketsystem.dto.PaymentDto;
+import com.hexaware.fastx_busticketsystem.entities.Payment;
+import com.hexaware.fastx_busticketsystem.exception.PaymentNotFoundException;
+import com.hexaware.fastx_busticketsystem.repository.PaymentRepo;
+
+
+@Service
 public class PaymentServiceImpl implements IPaymentService {
+	
+	@Autowired
+	PaymentRepo repo;
 
 	@Override
-	public Payment makePayment(Payment payment) {
-		// TODO Auto-generated method stub
-		return null;
+	public Payment makePayment(PaymentDto paymentDto) {
+		Payment pay = new Payment();
+		pay.setPaymentId(paymentDto.getPaymentId());
+		pay.setAmount(paymentDto.getAmount());
+		pay.setPaymentDate(paymentDto.getPaymentDate());
+		pay.setPaymentMethod(paymentDto.getPaymentMethod());
+		pay.setStatus(paymentDto.getStatus());
+		
+		return repo.save(pay);
 	}
 
 	@Override
 	public Payment getPaymentById(int paymentId) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.findById(paymentId)
+		        .orElseThrow(() -> new PaymentNotFoundException("Payment not found with id: " + paymentId));
 	}
 
 	@Override
 	public Payment getPaymentByBookingId(int bookingId) {
-		// TODO Auto-generated method stub
-		return null;
+		 return repo.findByBookingId(bookingId)
+			        .orElseThrow(() -> new PaymentNotFoundException("Payment not found for booking id: " + bookingId));
 	}
 
 	@Override
 	public void refundPayment(int paymentId) {
-		// TODO Auto-generated method stub
+		Payment payment = repo.findById(paymentId)
+		        .orElseThrow(() -> new PaymentNotFoundException("Payment not found with id: " + paymentId));
+		    payment.setStatus("Refunded");
+		    repo.save(payment);
 		
 	}
+
+	
 
 }

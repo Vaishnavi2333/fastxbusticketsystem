@@ -11,13 +11,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="busop_data")
 public class BusOpData {
 	
 	@Id
 	private int busOpdataId;
-    private int busOpId;
     private String name;
     private String companyName;
     private String licenceNumber;
@@ -42,11 +43,10 @@ public class BusOpData {
     }
     
     
-	public BusOpData(int busOpdataId, int busOpId, String name, String companyName, String licenceNumber, String gender,
+	public BusOpData(int busOpdataId,  String name, String companyName, String licenceNumber, String gender,
 			LocalDate dateOfBirth, String email, String contactNumber, String address, BusOpLogin busOpLogin) {
 		super();
 		this.busOpdataId = busOpdataId;
-		this.busOpId = busOpId;
 		this.name = name;
 		this.companyName = companyName;
 		this.licenceNumber = licenceNumber;
@@ -59,11 +59,10 @@ public class BusOpData {
 	}
 
 
-	public BusOpData(int busOpdataId, int busOpId, String name, String companyName, String licenceNumber, String gender,
+	public BusOpData(int busOpdataId, String name, String companyName, String licenceNumber, String gender,
 			LocalDate dateOfBirth, String email, String contactNumber, String address) {
 		super();
 		this.busOpdataId = busOpdataId;
-		this.busOpId = busOpId;
 		this.name = name;
 		this.companyName = companyName;
 		this.licenceNumber = licenceNumber;
@@ -79,12 +78,7 @@ public class BusOpData {
 	public void setBusOpdataId(int busOpdataId) {
 		this.busOpdataId = busOpdataId;
 	}
-	public int getBusOpId() {
-		return busOpId;
-	}
-	public void setBusOpId(int busOpId) {
-		this.busOpId = busOpId;
-	}
+	
 	public String getName() {
 		return name;
 	}

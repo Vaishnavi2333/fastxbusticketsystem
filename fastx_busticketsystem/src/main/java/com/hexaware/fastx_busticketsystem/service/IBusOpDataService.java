@@ -2,18 +2,20 @@ package com.hexaware.fastx_busticketsystem.service;
 
 import java.util.List;
 
+import com.hexaware.fastx_busticketsystem.dto.BusOpDataDto;
 import com.hexaware.fastx_busticketsystem.entities.BusOpData;
+import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException;
 
 public interface IBusOpDataService {
 	
-	 BusOpData createOperatorData(BusOpData operatorData);
+	 BusOpData addOperatorData(BusOpDataDto dto );
 	 
-	 BusOpData updateOperatorData(BusOpData operatorData);
+	 BusOpData updateOperatorData(BusOpDataDto dto) throws BusOperatorNotFoundException;
 	    
-	 BusOpData getOperatorDataById(int operatorId);
+	 BusOpData getOperatorDataById(int operatorId) throws BusOperatorNotFoundException;
 	    
 	 List<BusOpData> getAllOperators();
 	    
-	 boolean deleteOperatorData(int operatorId);
+	 public String deleteOperatorData(int operatorId) throws BusOperatorNotFoundException;
 
 }

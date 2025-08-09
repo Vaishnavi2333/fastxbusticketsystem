@@ -6,6 +6,7 @@ import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name="bus")
 public class Bus {
 
     @Id
@@ -21,7 +22,7 @@ public class Bus {
     @JoinColumn(name = "busopdata_id")  
     private BusOpData busOpData;
     
-    @OneToOne(mappedBy = "bus",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "bus",cascade = CascadeType.ALL)
     private List<BusAmenity> amenities = new ArrayList<>();
     
     @OneToMany(mappedBy = "bus", cascade = CascadeType.ALL)

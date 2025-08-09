@@ -2,38 +2,70 @@ package com.hexaware.fastx_busticketsystem.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hexaware.fastx_busticketsystem.dto.BusOpDataDto;
 import com.hexaware.fastx_busticketsystem.entities.BusOpData;
+import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException;
+import com.hexaware.fastx_busticketsystem.repository.BusOpDataRepo;
 
+
+@Service
 public class BusOpDataServiceImpl implements IBusOpDataService{
+	
+	@Autowired
+	BusOpDataRepo repo;
 
 	@Override
-	public BusOpData createOperatorData(BusOpData operatorData) {
-		// TODO Auto-generated method stub
-		return null;
+	public BusOpData addOperatorData(BusOpDataDto dto) {
+		BusOpData busop = new BusOpData();
+		busop.setBusOpdataId(dto.getBusOpdataId());
+		busop.setName(dto.getName());
+		busop.setGender(dto.getGender());
+		busop.setCompanyName(dto.getCompanyName());
+		busop.setLicenceNumber(dto.getLicenceNumber());
+		busop.setEmail(dto.getEmail());
+		busop.setContactNumber(dto.getContactNumber());
+		busop.setDateOfBirth(dto.getDateOfBirth());
+		busop.setAddress(dto.getAddress());
+		return repo.save(busop);
 	}
+	 @Override
+	    public BusOpData updateOperatorData(BusOpDataDto dto) throws BusOperatorNotFoundException {
+	        BusOpData existing = repo.findById(dto.getBusOpdataId())
+	            .orElseThrow(() -> new BusOperatorNotFoundException("Operator not found with id: " + dto.getBusOpdataId()));
 
-	@Override
-	public BusOpData updateOperatorData(BusOpData operatorData) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	        existing.setName(dto.getName());
+	        existing.setGender(dto.getGender());
+	        existing.setCompanyName(dto.getCompanyName());
+	        existing.setLicenceNumber(dto.getLicenceNumber());
+	        existing.setEmail(dto.getEmail());
+	        existing.setContactNumber(dto.getContactNumber());
+	        existing.setDateOfBirth(dto.getDateOfBirth());
+	        existing.setAddress(dto.getAddress());
 
-	@Override
-	public BusOpData getOperatorDataById(int operatorId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	        return repo.save(existing);
+	    }
 
-	@Override
-	public List<BusOpData> getAllOperators() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	    @Override
+	    public BusOpData getOperatorDataById(int operatorId) throws BusOperatorNotFoundException {
+	        return repo.findById(operatorId)
+	            .orElseThrow(() -> new BusOperatorNotFoundException("Operator not found with id: " + operatorId));
+	    }
 
-	@Override
-	public boolean deleteOperatorData(int operatorId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	    @Override
+	    public List<BusOpData> getAllOperators() {
+	        return repo.findAll();
+	    }
+
+	    @Override
+	    public String deleteOperatorData(int operatorId) throws BusOperatorNotFoundException {
+	        BusOpData existing = repo.findById(operatorId)
+	            .orElseThrow(() -> new BusOperatorNotFoundException("Operator not found with id: " + operatorId));
+	        repo.delete(existing);
+	        return "Operator with id " + operatorId + " deleted successfully.";
+	    }
+
 
 }

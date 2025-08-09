@@ -11,12 +11,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
 @Entity
+@Table(name="booking")
 public class Booking {
 	@Id
 	private int bookingId;
-    private int userId;
-    private int tripId;
     private LocalDate bookingDate;
     private String status;
     
@@ -41,13 +42,15 @@ public class Booking {
     @JoinColumn(name = "admin_id")
     private AdminLogin admin;
     
-	public Booking(int bookingId, int userId, int tripId, LocalDate bookingDate, String status) {
+	public Booking(int bookingId,  LocalDate bookingDate, String status) {
 		super();
 		this.bookingId = bookingId;
-		this.userId = userId;
-		this.tripId = tripId;
+		
 		this.bookingDate = bookingDate;
 		this.status = status;
+	}
+	public Booking() {
+		// TODO Auto-generated constructor stub
 	}
 	public int getBookingId() {
 		return bookingId;
@@ -55,18 +58,8 @@ public class Booking {
 	public void setBookingId(int bookingId) {
 		this.bookingId = bookingId;
 	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	public int getTripId() {
-		return tripId;
-	}
-	public void setTripId(int tripId) {
-		this.tripId = tripId;
-	}
+	
+	
 	public LocalDate getBookingDate() {
 		return bookingDate;
 	}

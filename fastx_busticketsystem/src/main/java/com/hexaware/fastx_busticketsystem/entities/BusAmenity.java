@@ -1,54 +1,46 @@
 package com.hexaware.fastx_busticketsystem.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "bus_amenity")
 public class BusAmenity {
 
     @Id
     
-    private int id;  
-
-    private String amenityName;
-
+    private int busamenityId; 
+    
     @ManyToOne
     @JoinColumn(name = "bus_id")
     private Bus bus;
 
-    public BusAmenity() {
-    }
-
-    public BusAmenity(String amenityName) {
-        this.amenityName = amenityName;
-    }
+   private String amenityName;
+    public BusAmenity() {}
+	public BusAmenity(int busamenityId, Bus bus, String amenityName) {
+		super();
+		this.busamenityId = busamenityId;
+		this.bus = bus;
+		this.amenityName = amenityName;
+	}
+	public int getBusamenityId() {
+		return busamenityId;
+	}
+	public void setBusamenityId(int busamenityId) {
+		this.busamenityId = busamenityId;
+	}
+	public Bus getBus() {
+		return bus;
+	}
+	public void setBus(Bus bus) {
+		this.bus = bus;
+	}
+	public String getAmenityName() {
+		return amenityName;
+	}
+	public void setAmenityName(String amenityName) {
+		this.amenityName = amenityName;
+	}
+	
 
    
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getAmenityName() {
-        return amenityName;
-    }
-
-    public void setAmenityName(String amenityName) {
-        this.amenityName = amenityName;
-    }
-
-    public Bus getBus() {
-        return bus;
-    }
-
-    public void setBus(Bus bus) {
-        this.bus = bus;
-    }
 }
-

@@ -3,7 +3,7 @@ package com.hexaware.fastx_busticketsystem.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "userLogin")
+@Table(name = "user_login")
 public class UserLogin {
 
     @Id

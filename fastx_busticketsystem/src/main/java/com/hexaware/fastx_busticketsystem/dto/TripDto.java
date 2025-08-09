@@ -17,12 +17,11 @@ import lombok.NoArgsConstructor;
 public class TripDto {
 	@Positive(message="ID should be positive value")
 	private int tripId;
-	
-	@Positive(message="ID should be positive value")
-    private int busId;
-	
-	@Positive(message="ID should be positive value")
-    private int routeId;
+	/*
+	 * @Positive(message="ID should be positive value") private int busId;
+	 * 
+	 * @Positive(message="ID should be positive value") private int routeId;
+	 */
 	
 	@Future
     private LocalDate date;

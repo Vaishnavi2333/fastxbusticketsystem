@@ -5,8 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="busop_login")
 public class BusOpLogin {
 	
     @Id
@@ -18,7 +20,9 @@ public class BusOpLogin {
 	@JoinColumn(name= "busopdata_id")
 	private BusOpData busopdata;
 	
-
+	public BusOpLogin() {
+		
+	}
 
 	public BusOpLogin(int busOpId, String username, String password) {
 		super();

@@ -4,13 +4,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="ticket")
 public class Ticket {
 	
 	@Id
 	private int ticketId;
-    private int bookingId;
     private int seatNumber;
     private double fare;
     
@@ -18,10 +19,12 @@ public class Ticket {
     @JoinColumn(name = "booking_id") 
     private Booking booking;
     
-	public Ticket(int ticketId, int bookingId, int seatNumber, double fare) {
+    public Ticket() {
+    	
+    }
+	public Ticket(int ticketId, int seatNumber, double fare) {
 		super();
 		this.ticketId = ticketId;
-		this.bookingId = bookingId;
 		this.seatNumber = seatNumber;
 		this.fare = fare;
 	}
@@ -31,12 +34,7 @@ public class Ticket {
 	public void setTicketId(int ticketId) {
 		this.ticketId = ticketId;
 	}
-	public int getBookingId() {
-		return bookingId;
-	}
-	public void setBookingId(int bookingId) {
-		this.bookingId = bookingId;
-	}
+	
 	public int getSeatNumber() {
 		return seatNumber;
 	}

@@ -2,17 +2,19 @@ package com.hexaware.fastx_busticketsystem.service;
 
 import java.util.List;
 
+import com.hexaware.fastx_busticketsystem.dto.UserDataDto;
 import com.hexaware.fastx_busticketsystem.entities.UserData;
+import com.hexaware.fastx_busticketsystem.exception.UserNotFoundException;
 
 public interface IUserDataService {
 	
-	public UserData createUser(UserData user);
+	public UserData createUser(UserDataDto userDto);
 	
-    public UserData updateUser(UserData user);
+    public UserData updateUser(UserDataDto userDto) throws UserNotFoundException;
     
-    public boolean deleteUser(int userId);
+    public String deleteUser(int userId) throws UserNotFoundException;
     
-    public UserData getUserById(int userId);
+    public UserData getUserById(int userId) throws UserNotFoundException;
     
     public List<UserData> getAllUsers();
     
