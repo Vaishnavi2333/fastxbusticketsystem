@@ -35,7 +35,7 @@ public class PaymentServiceImpl implements IPaymentService {
 
 	@Override
 	public Payment getPaymentByBookingId(int bookingId) {
-		 return repo.findByBookingId(bookingId)
+		 return repo.findByBooking_BookingId(bookingId)
 			        .orElseThrow(() -> new PaymentNotFoundException("Payment not found for booking id: " + bookingId));
 	}
 

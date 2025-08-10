@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,21 +17,21 @@ import com.hexaware.fastx_busticketsystem.entities.Trip;
 import com.hexaware.fastx_busticketsystem.exception.TripNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.ITripService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 
 @RestController
-@RequestMapping
+@RequestMapping("/trip")
 public class TripController {
 	
 	@Autowired
 	ITripService service;
 	
-	  @PostMapping
+	  @PostMapping("/addtrip")
 	    public Trip addTrip(@RequestBody TripDto tripDto) {
 	        return service.addTrip(tripDto);
 	    }
 
-	    @PutMapping
+	    @PutMapping("/updatetrip")
 	    public Trip updateTrip(@RequestBody TripDto tripDto) throws TripNotFoundException {
 	        return service.updateTrip(tripDto);
 	    }
@@ -46,7 +47,7 @@ public class TripController {
 	        return service.getTripById(tripId);
 	    }
 
-	    @GetMapping
+	    @GetMapping("/getalltrips")
 	    public List<Trip> getAllTrips() {
 	        return service.getAllTrips();
 	    }

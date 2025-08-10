@@ -51,7 +51,7 @@ public class TicketServiceImpl implements ITicketService{
 
 	@Override
 	public List<Ticket> getTicketsByBookingId(int bookingId) {
-	    return repo.findByBookingId(bookingId);
+	    return repo.findByBookingBookingId(bookingId);
 	}
 
 }

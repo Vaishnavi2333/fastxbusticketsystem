@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.hexaware.fastx_busticketsystem.dto.UserDataDto;
 import com.hexaware.fastx_busticketsystem.entities.UserData;
+import com.hexaware.fastx_busticketsystem.entities.UserLogin;
 import com.hexaware.fastx_busticketsystem.exception.UserNotFoundException;
 import com.hexaware.fastx_busticketsystem.repository.UserDataRepo;
+import com.hexaware.fastx_busticketsystem.repository.UserLoginRepo;
 
 
 @Service
@@ -16,17 +18,27 @@ public class UserDataServiceImpl implements IUserDataService{
 	
 	@Autowired
 	UserDataRepo userRepo;
+	
+	@Autowired
+	UserLoginRepo userLoginRepo;
 
 	@Override
 	public UserData createUser(UserDataDto userDto) {
 		UserData user = new UserData();
         user.setUserdataId(userDto.getUserdataId());
+        
         user.setName(userDto.getName());
         user.setGender(userDto.getGender());
         user.setEmail(userDto.getEmail());
         user.setDateOfBirth(userDto.getDateOfBirth());
         user.setContactNumber(userDto.getContactNumber());
         user.setAddress(userDto.getAddress());
+        
+        UserLogin userLogin = userLoginRepo.findById(userDto.getUserLoginId())
+                .orElseThrow(() -> new RuntimeException("UserLogin not found with id: " + userDto.getUserLoginId()));
+
+            
+            user.setUserLogin(userLogin);
         
         return userRepo.save(user);
         

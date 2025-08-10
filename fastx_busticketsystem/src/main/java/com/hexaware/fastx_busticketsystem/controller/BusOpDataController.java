@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,10 +17,12 @@ import com.hexaware.fastx_busticketsystem.entities.BusOpData;
 import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IBusOpDataService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+
+
 
 @RestController
-@RequestMapping
+@RequestMapping("/busopdata")
 public class BusOpDataController {
 	
 	@Autowired

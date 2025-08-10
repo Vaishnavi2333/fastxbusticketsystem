@@ -6,4 +6,8 @@ import com.hexaware.fastx_busticketsystem.entities.AdminLogin;
 
 public interface AdminLoginRepo extends JpaRepository<AdminLogin,Integer>{
 
+	public boolean existsByUsername(String username);
+
+	public AdminLogin findByUsername(String username);
+
 }

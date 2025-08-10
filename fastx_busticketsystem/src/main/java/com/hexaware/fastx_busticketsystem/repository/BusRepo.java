@@ -8,6 +8,7 @@ import com.hexaware.fastx_busticketsystem.entities.Bus;
 
 public interface BusRepo extends JpaRepository<Bus,Integer>{
 	
-	List<Bus> findByOperatorId(int operatorId);
+	List<Bus> findByBusOpData_BusOpdataId(int busOpdataId);
+
 
 }

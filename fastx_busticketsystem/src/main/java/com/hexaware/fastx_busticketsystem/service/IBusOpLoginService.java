@@ -2,16 +2,17 @@ package com.hexaware.fastx_busticketsystem.service;
 
 import com.hexaware.fastx_busticketsystem.dto.BusOpLoginDto;
 import com.hexaware.fastx_busticketsystem.entities.BusOpLogin;
+import com.hexaware.fastx_busticketsystem.exception.BusOperatorAlreadyExistsException;
+import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException;
 
 public interface IBusOpLoginService {
 	
-	public BusOpLogin registerOperator(BusOpLoginDto dto);
+	public  boolean registerBusOp(BusOpLoginDto loginDto) throws BusOperatorAlreadyExistsException;
 
-	    
-	public BusOpLogin authenticateOperator(String username, String password);
-	  
-	public   boolean logoutOperator(int operatorId);
-	
-	  public   BusOpLogin getOperatorLoginById(int id);
+	  public   boolean loginBusOp(String username, String password) throws BusOperatorNotFoundException;
+
+	   public  boolean existsByUsername(String username);
+
+	 public  BusOpLogin getByUsername(String username);
 
 }

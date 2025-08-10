@@ -64,7 +64,10 @@ public class BusServiceImpl implements IBusService {
 
 	@Override
 	public List<Bus> getBusesByOperatorId(int operatorId) {
-		return repo.findByOperatorId(operatorId);
+		return repo.findByBusOpData_BusOpdataId(operatorId);
+		
+		
+
 	}
 
 	

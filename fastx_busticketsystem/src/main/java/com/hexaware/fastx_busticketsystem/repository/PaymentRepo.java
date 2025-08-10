@@ -8,6 +8,7 @@ import com.hexaware.fastx_busticketsystem.entities.Payment;
 
 public interface PaymentRepo extends JpaRepository<Payment,Integer> {
 	
-	Optional<Payment> findByBookingId(int bookingId);
+	Optional<Payment> findByBooking_BookingId(int bookingId);
+
 
 }

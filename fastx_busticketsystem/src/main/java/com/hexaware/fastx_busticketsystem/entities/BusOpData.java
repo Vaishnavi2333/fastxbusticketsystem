@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -17,7 +18,8 @@ import jakarta.persistence.Table;
 @Table(name="busop_data")
 public class BusOpData {
 	
-	@Id
+	 @Id
+	 @Column(name = "bus_opdata_id")
 	private int busOpdataId;
     private String name;
     private String companyName;
@@ -28,7 +30,7 @@ public class BusOpData {
     private String contactNumber;
     private String address;
     
-    @OneToOne(mappedBy = "busopdata",cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "busOpData",cascade = CascadeType.ALL)
     private BusOpLogin busOpLogin;
     
     @OneToMany(mappedBy = "busOpData", cascade = CascadeType.ALL)

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,11 +18,11 @@ import com.hexaware.fastx_busticketsystem.exception.BusAmenityNotFoundException;
 import com.hexaware.fastx_busticketsystem.exception.BusNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IBusAmenityService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping
+@RequestMapping("/busamenity")
 public class BusAmenityController {
 	
 	@Autowired
@@ -48,7 +49,7 @@ public class BusAmenityController {
 	        return service.getAllBusAmenity();
 	    }
 
-	    @GetMapping("/{id}")
+	    @GetMapping("/getbyid/{id}")
 	    public BusAmenity getBusAmenityById(@PathVariable("id") int id) {
 	        return service.getBusAmenityById(id);
 	    }

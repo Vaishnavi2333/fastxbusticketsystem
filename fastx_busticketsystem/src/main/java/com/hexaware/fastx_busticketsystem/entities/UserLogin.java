@@ -6,13 +6,15 @@ import jakarta.persistence.*;
 @Table(name = "user_login")
 public class UserLogin {
 
-    @Id
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    @Column(name = "user_id")
     private int userId;
 
-    
+	@Column(name = "username", nullable = false, unique = true)
     private String username;
 
-   
+	 @Column(name = "password", nullable = false)
     private String password;
 
     @OneToOne(mappedBy = "userLogin", cascade = CascadeType.ALL)

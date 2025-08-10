@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.hexaware.fastx_busticketsystem.dto.BusOpLoginDto;
 import com.hexaware.fastx_busticketsystem.entities.BusOpLogin;
+import com.hexaware.fastx_busticketsystem.exception.BusOperatorAlreadyExistsException;
+import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException;
 import com.hexaware.fastx_busticketsystem.repository.BusOpLoginRepo;
 
 
@@ -13,50 +15,36 @@ public class BusOpLoginServiceImpl implements IBusOpLoginService {
 	
 	@Autowired
 	BusOpLoginRepo repo;
-	/*
-	 * @Override public BusOpLogin registerOperator(BusOpLoginDto dto) { BusOpLogin
-	 * busop = new BusOpLogin(); busop.setBusOpId(dto.getBusOpId());
-	 * busop.setUsername(dto.getUsername()); busop.setPassword(dto.getPassword());
-	 * 
-	 * return repo.save(busop); }
-	 * 
-	 * @Override public BusOpLogin authenticateOperator(String username, String
-	 * password) { // TODO Auto-generated method stub return null; }
-	 * 
-	 * @Override public boolean logoutOperator(int operatorId) { // TODO
-	 * Auto-generated method stub return false; }
-	 * 
-	 * @Override public BusOpLogin getOperatorLoginById(int id) { return
-	 * repo.findById(id) .orElseThrow(() -> new
-	 * RuntimeException("Operator login not found with id: " + id)); }
-	 */
 
 	@Override
-	public BusOpLogin registerOperator(BusOpLoginDto dto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public boolean registerBusOp(BusOpLoginDto loginDto) throws BusOperatorAlreadyExistsException {
+        if (repo.existsByUsername(loginDto.getUsername())) {
+            throw new BusOperatorAlreadyExistsException("Username already exists: " + loginDto.getUsername());
+        }
+        BusOpLogin busop = new BusOpLogin();
+       // busop.setBusOpId(loginDto.getBusOpId());
+        busop.setUsername(loginDto.getUsername());
+        busop.setPassword(loginDto.getPassword());
+        repo.save(busop);
+        return true;
+    }
 
-	@Override
-	public BusOpLogin authenticateOperator(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public boolean loginBusOp(String username, String password) throws BusOperatorNotFoundException {
+        BusOpLogin busop = repo.findByUsername(username)
+                .orElseThrow(() -> new BusOperatorNotFoundException("Operator not found with username: " + username));
+        return busop.getPassword().equals(password);
+    }
 
-	@Override
-	public boolean logoutOperator(int operatorId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean existsByUsername(String username) {
+        return repo.existsByUsername(username);
+    }
 
-	@Override
-	public BusOpLogin getOperatorLoginById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-	
+    @Override
+    public BusOpLogin getByUsername(String username) {
+        return repo.findByUsername(username).orElse(null);
+    }
 
 
 }

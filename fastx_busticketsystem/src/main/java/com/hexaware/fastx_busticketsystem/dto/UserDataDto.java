@@ -16,19 +16,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class UserDataDto {
-	@Positive(message="ID should be positive value")
-	private int userdataId;
+	    @Positive(message="ID should be positive value")
+	    private int userdataId;
 	
-	@NotNull(message="Name cannot be null")
-	 private String name;
+	    @Positive(message="User login ID should be positive")
+        private int userLoginId;
 	
-	   @Pattern(regexp="Male|Female|Other")
+	    @NotNull(message="Name cannot be null")
+	    private String name;
+	
+	    @Pattern(regexp="Male|Female|Other")
 	    private String gender;
 	   
-	   @Past(message = "Date of birth must be in the past")
+	    @Past(message = "Date of birth must be in the past")
 	    private LocalDate dateOfBirth;
 	   
-	   @Email
+	    @Email
 	    private String email;
 
 		@Pattern(regexp = "[1-9][0-9]{9}")
@@ -37,6 +40,8 @@ public class UserDataDto {
 		@NotBlank
 		@Size(min = 5, max = 255, message = "Address must be between 5 and 255 characters")
 	    private String address;
+		
+		
 
 
 }

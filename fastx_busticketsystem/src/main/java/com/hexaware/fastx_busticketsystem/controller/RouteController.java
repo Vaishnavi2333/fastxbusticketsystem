@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,10 +17,10 @@ import com.hexaware.fastx_busticketsystem.entities.Route;
 import com.hexaware.fastx_busticketsystem.exception.RouteNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IRouteService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 
 @RestController
-@RequestMapping
+@RequestMapping("/route")
 public class RouteController {
 	
 	@Autowired
@@ -41,12 +42,12 @@ public class RouteController {
         return "Route with ID " + routeId + " deleted successfully";
     }
 
-    @GetMapping("/all")
+    @GetMapping("/getall")
     public List<Route> getAllRoutes() {
         return service.getAllRoutes();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getbyid/{id}")
     public Route getRouteById(@PathVariable("id") int routeId) throws RouteNotFoundException {
         return service.getRouteById(routeId);
     }

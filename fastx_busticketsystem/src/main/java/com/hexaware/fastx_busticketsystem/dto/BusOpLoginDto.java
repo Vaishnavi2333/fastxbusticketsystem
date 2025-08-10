@@ -9,16 +9,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class BusOpLoginDto {
-	
-	@Positive(message="ID should be positive value")
-	private int busOpId;
-	
-	@NotNull
-	@Size(min = 5, max = 14)
-	private String username;
-	
-	@NotNull
-	 @Size(min = 8 , max = 14,message="Password should not be less than 8 characters ")
-	private String password;
 
+   // @Positive(message = "ID should be a positive value")
+	/* private int busOpId; */
+
+   @NotNull(message = "Username cannot be null")
+   @Size(min = 5, max = 14, message = "Username must be between 5 and 14 characters")
+    private String username;
+
+    @NotNull(message = "Password cannot be null")
+    @Size(min = 8, max = 14, message = "Password should be between 8 and 14 characters")
+    private String password;
 }

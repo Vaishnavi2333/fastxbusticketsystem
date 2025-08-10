@@ -8,6 +8,6 @@ import com.hexaware.fastx_busticketsystem.entities.Booking;
 
 public interface BookingRepo extends JpaRepository<Booking,Integer> {
 	
-	List<Booking> findByUserUserId(int userId);
+	List<Booking> findByUser_UserdataId(int userdataId);
 
 }

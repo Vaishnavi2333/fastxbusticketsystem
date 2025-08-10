@@ -27,5 +27,17 @@ public class BookingDto {
 	
 	@Pattern(regexp = "Confirmed|Unconfiremd")
     private String status;
+	
+	@Positive(message="ID should be positive value")
+     private int userId;    
+    
+	@Positive(message="ID should be positive value") 
+	private int tripId;    
+    
+	@Positive(message="ID should be positive value")
+     private int paymentId; 
+    
+	@Positive(message="ID should be positive value")
+      private int adminId;  
 
 }

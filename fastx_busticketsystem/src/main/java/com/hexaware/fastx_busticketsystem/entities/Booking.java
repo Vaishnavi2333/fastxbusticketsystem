@@ -16,6 +16,8 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="booking")
 public class Booking {
+	
+	
 	@Id
 	private int bookingId;
     private LocalDate bookingDate;
@@ -50,7 +52,7 @@ public class Booking {
 		this.status = status;
 	}
 	public Booking() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	public int getBookingId() {
 		return bookingId;

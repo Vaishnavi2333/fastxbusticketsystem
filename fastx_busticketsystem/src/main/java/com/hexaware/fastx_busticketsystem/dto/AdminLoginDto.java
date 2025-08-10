@@ -12,11 +12,15 @@ import lombok.NoArgsConstructor;
 @Data
 public class AdminLoginDto {
 	
-	@NotNull
-	@NotEmpty
-	@Min(value = 1)
-	@Max(value = 9)
-	private int adminId;
+	/*
+	 * @NotNull
+	 * 
+	 * @NotEmpty
+	 * 
+	 * @Min(value = 1)
+	 * 
+	 * @Max(value = 9) private int adminId;
+	 */
 	
 	@NotNull
 	@NotEmpty(message="Admin name is cannot be empty")

@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 public class BusAmenity {
 
     @Id
-    
     private int busamenityId; 
     
     @ManyToOne

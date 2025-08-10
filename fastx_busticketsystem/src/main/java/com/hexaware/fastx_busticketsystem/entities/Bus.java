@@ -19,7 +19,7 @@ public class Bus {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "busopdata_id")  
+    @JoinColumn(name = "operator_id")
     private BusOpData busOpData;
     
     @OneToMany(mappedBy = "bus",cascade = CascadeType.ALL)

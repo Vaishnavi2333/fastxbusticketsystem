@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +17,7 @@ import com.hexaware.fastx_busticketsystem.entities.Bus;
 import com.hexaware.fastx_busticketsystem.exception.BusNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IBusService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 import jakarta.validation.Valid;
 
 @RestController
@@ -27,7 +28,7 @@ public class BusController {
 	IBusService service;
 	
 	@PostMapping("/add")
-    public Bus addBus(@RequestBody @Valid BusDto busDto) {
+    public Bus addBus(@Valid @RequestBody  BusDto busDto) {
         return service.addBus(busDto);
     }
 
@@ -42,17 +43,17 @@ public class BusController {
         return "Bus with id " + id + " deleted successfully";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getbusbyid/{id}")
     public Bus getBusById(@PathVariable("id") int id) throws BusNotFoundException {
         return service.getBusById(id);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/getallbus")
     public List<Bus> getAllBuses() {
         return service.getAllBuses();
     }
 
-    @GetMapping("/operator/{operatorId}")
+    @GetMapping("/getbusbyoperator/{operatorId}")
     public List<Bus> getBusesByOperatorId(@PathVariable("operatorId") int operatorId) {
         return service.getBusesByOperatorId(operatorId);
     }

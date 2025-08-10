@@ -11,8 +11,8 @@ public interface IUserLoginService {
 
 	public boolean login(String username, String password) throws UserNotFoundException; 
 
-	public boolean existsByUsername(String username);   
-
-	public UserLogin getByUsername(String username);
+	public boolean existsByUsername(String username);
+	
+	
 
 }

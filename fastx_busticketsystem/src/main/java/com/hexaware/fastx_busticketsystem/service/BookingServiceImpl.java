@@ -59,7 +59,7 @@ public class BookingServiceImpl implements IBookingService{
 
 	@Override
 	public List<Booking> getBookingsByUserId(int userId) {
-		 return bookingRepo.findByUserUserId(userId); 
+		 return bookingRepo.findByUser_UserdataId(userId); 
 	}
 
 

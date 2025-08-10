@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hexaware.fastx_busticketsystem.dto.UserLoginDto;
@@ -14,10 +16,10 @@ import com.hexaware.fastx_busticketsystem.exception.UserNotFoundException;
 import com.hexaware.fastx_busticketsystem.repository.UserLoginRepo;
 import com.hexaware.fastx_busticketsystem.service.IUserLoginService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/userlogin")
 public class UserLoginController {
 	
 	@Autowired
@@ -30,22 +32,11 @@ public class UserLoginController {
     }
 	
 	@PostMapping("/login")
-	public String login(String username,String password) throws UserNotFoundException {
-		
-		service.login(username, password);
-        return "Login successful";
-		
+	public String login(@RequestParam String username, @RequestParam String password) throws UserNotFoundException {
+	    boolean success = service.login(username, password);
+	    return success ? "Login successful" : "Invalid credentials";
 	}
 	
-	@GetMapping("/exists/{username}")
-    public boolean existsByUsername(@PathVariable String username) {
-        return service.existsByUsername(username);
-    }
-	
-	 @GetMapping("/{username}")
-	    public UserLogin getUserByUsername(@PathVariable String username) {
-	        return service.getByUsername(username);
-	    }
 	
 	
 

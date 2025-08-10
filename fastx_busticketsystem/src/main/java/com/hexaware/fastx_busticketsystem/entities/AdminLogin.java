@@ -4,6 +4,8 @@ import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -13,7 +15,7 @@ import jakarta.persistence.Table;
 public class AdminLogin {
 		
         @Id
-        
+        @GeneratedValue(strategy = GenerationType.IDENTITY) 
         private int adminId;
 		private String username;
 		private String password;
@@ -22,11 +24,11 @@ public class AdminLogin {
 	    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
 	    private List<BusOpData> managedOperators;
 	    
-		/*
-		 * @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL) private
-		 * List<UserData> managedUsers;
-		 */
-	    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
+		
+		 @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL) 
+		 private List<UserData> managedUsers;
+		 
+		 @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
 	    private List<Route> managedRoutes;
 
 	    
@@ -38,6 +40,9 @@ public class AdminLogin {
 			this.adminId = adminId;
 			this.username = username;
 			this.password = password;
+		}
+		public AdminLogin() {
+			
 		}
 		public int getAdminId() {
 			return adminId;

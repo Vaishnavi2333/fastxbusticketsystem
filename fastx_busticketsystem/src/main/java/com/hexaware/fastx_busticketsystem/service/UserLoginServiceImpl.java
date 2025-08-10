@@ -18,21 +18,24 @@ public class UserLoginServiceImpl implements IUserLoginService {
 
 	@Override
 	public boolean register(UserLoginDto loginDto) throws UserAlreadyExistsException {
-		
+	
+
 		if (repo.existsByUsername(loginDto.getUsername())) {
 	        throw new UserAlreadyExistsException("User '" + loginDto.getUsername() + "' already exists");
 	        
 	    }
 		
 	
-		UserLogin login = new UserLogin();
 		
-		login.setUserId(loginDto.getUserId());
-		login.setUsername(loginDto.getUsername());
-		login.setPassword(loginDto.getPassword());
-		
-		repo.save(login);
-		return true;
+		  UserLogin login = new UserLogin();
+		  
+		  
+		  login.setUsername(loginDto.getUsername());
+		  login.setPassword(loginDto.getPassword());
+		 
+		  repo.save(login);
+		 
+			 return true; 
 	}
 
 	@Override
@@ -46,18 +49,14 @@ public class UserLoginServiceImpl implements IUserLoginService {
 		return true;
 	}
 
-	@Override
+	
 	public boolean existsByUsername(String username) {
 		
 		
         return repo.existsByUsername(username);
     }
 
-	@Override
-	public UserLogin getByUsername(String username) {
-		
-		return repo.findByUsername(username);
-	}
+	
 
 
 }

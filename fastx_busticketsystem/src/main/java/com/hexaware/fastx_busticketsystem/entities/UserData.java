@@ -5,9 +5,9 @@ import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -26,7 +26,10 @@ public class UserData {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Booking> bookings;
     
-    
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private AdminLogin admin;
+
     private String name;
     private String gender;
     private LocalDate dateOfBirth;

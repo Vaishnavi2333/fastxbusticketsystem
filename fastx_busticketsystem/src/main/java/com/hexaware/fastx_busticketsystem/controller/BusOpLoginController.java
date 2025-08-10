@@ -1,16 +1,49 @@
 package com.hexaware.fastx_busticketsystem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hexaware.fastx_busticketsystem.repository.BusOpLoginRepo;
+import com.hexaware.fastx_busticketsystem.dto.BusOpLoginDto;
+import com.hexaware.fastx_busticketsystem.entities.BusOpLogin;
+import com.hexaware.fastx_busticketsystem.exception.BusOperatorAlreadyExistsException;
+import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException;
+import com.hexaware.fastx_busticketsystem.service.IBusOpLoginService;
+
+
+import io.swagger.v3.oas.models.media.MediaType;
+import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping
+@RequestMapping("/busoplogin")
 public class BusOpLoginController {
 	
 	@Autowired
-	BusOpLoginRepo repo;
+	IBusOpLoginService service;
+	
+	 @PostMapping(value = "/register")
+	    public String register(@RequestBody BusOpLoginDto loginDto) throws BusOperatorAlreadyExistsException {
+	        service.registerBusOp(loginDto);
+	        return "Bus Operator registered successfully";
+	    }
 
+	    @PostMapping("/login")
+	    public String login( @RequestBody BusOpLoginDto loginDto) throws BusOperatorNotFoundException {
+	        boolean success = service.loginBusOp(loginDto.getUsername(), loginDto.getPassword());
+	        return success ? "Login successful" : "Invalid credentials";
+	    }
+
+	    @GetMapping("/exists/{username}")
+	    public boolean existsByUsername(@PathVariable String username) {
+	        return service.existsByUsername(username);
+	    }
+
+	    @GetMapping("/{username}")
+	    public BusOpLogin getOperatorByUsername(@PathVariable String username) {
+	        return service.getByUsername(username);
+	    }
 }
