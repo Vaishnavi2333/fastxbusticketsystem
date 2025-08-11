@@ -18,7 +18,9 @@ import com.hexaware.fastx_busticketsystem.exception.BusAmenityNotFoundException;
 import com.hexaware.fastx_busticketsystem.exception.BusNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IBusAmenityService;
 
-
+/*Autor:Vaishnavi Suresh Vaidyanath
+Modified Date:10-Aug-2025
+Description:Controller Class for BusAmenity*/
 import jakarta.validation.Valid;
 
 @RestController

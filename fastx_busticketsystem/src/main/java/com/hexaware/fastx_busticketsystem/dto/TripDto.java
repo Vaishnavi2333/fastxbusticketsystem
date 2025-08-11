@@ -18,14 +18,8 @@ public class TripDto {
 	@Positive(message="ID should be positive value")
 	private int tripId;
 	
-	  @Positive(message="ID should be positive value") 
-	  private int busId;
-	  
-	  @Positive(message="ID should be positive value")
-	  private int routeId;
 	 
-	
-	@Future
+	@Future(message="Trip date should be in future ")
     private LocalDate date;
 	
 	@NotNull(message = "Departure time is required")
@@ -41,5 +35,12 @@ public class TripDto {
     
     @Pattern(regexp = "Confirmed|Unconfirmed")
     private String status;
+    
+
+	  @Positive(message="ID should be positive value") 
+	  private int busId;
+	  
+	  @Positive(message="ID should be positive value")
+	  private int routeId;
 
 }

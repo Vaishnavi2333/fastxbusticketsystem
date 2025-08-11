@@ -17,7 +17,7 @@ public class TicketDto {
 	@Positive(message="ID should be positive value")
     private int bookingId;
 	
-	@Size(min=1,max=50)
+	@Size(min=1,max=50,message="Mention correct seat number within the range")
     private int seatNumber;
 	
 	@NotNull

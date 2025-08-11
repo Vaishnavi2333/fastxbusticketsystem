@@ -10,6 +10,11 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*
+Autor:Vaishnavi Suresh Vaidyanath
+Modified Date:08-Aug-2025
+Description:Dto Class for AdminLogin
+*/
 
 @NoArgsConstructor
 @Data
@@ -22,11 +27,11 @@ public class RouteDto {
 	    private String routeName;
 
 	    @NotBlank(message = "Origin cannot be blank")
-	    @Size(max = 100, message = "Origin name cannot exceed 100 characters")
+	    @Size(max = 20, message = "Origin name cannot exceed 20 characters")
 	    private String origin;
 
 	    @NotBlank(message = "Destination cannot be blank")
-	    @Size(max = 100, message = "Destination name cannot exceed 100 characters")
+	    @Size(max = 120, message = "Destination name cannot exceed 20 characters")
 	    private String destination;
 
 	    @Positive(message = "Distance (in km) must be a positive value")

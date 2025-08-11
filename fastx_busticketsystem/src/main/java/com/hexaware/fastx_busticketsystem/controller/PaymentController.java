@@ -13,7 +13,9 @@ import com.hexaware.fastx_busticketsystem.dto.PaymentDto;
 import com.hexaware.fastx_busticketsystem.entities.Payment;
 import com.hexaware.fastx_busticketsystem.service.IPaymentService;
 
-;
+/*Autor:Vaishnavi Suresh Vaidyanath
+Modified Date:10-Aug-2025
+Description:Controller Class for Payment*/
 
 @RestController
 @RequestMapping("/payment")

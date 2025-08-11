@@ -17,7 +17,9 @@ import com.hexaware.fastx_busticketsystem.entities.Trip;
 import com.hexaware.fastx_busticketsystem.exception.TripNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.ITripService;
 
-
+/*Autor:Vaishnavi Suresh Vaidyanath
+Modified Date:10-Aug-2025
+Description:Controller Class for Trip*/
 
 @RestController
 @RequestMapping("/trip")

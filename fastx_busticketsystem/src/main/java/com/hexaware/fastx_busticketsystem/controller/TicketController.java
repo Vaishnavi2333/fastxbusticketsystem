@@ -18,7 +18,9 @@ import com.hexaware.fastx_busticketsystem.exception.TicketNotFoundException;
 import com.hexaware.fastx_busticketsystem.repository.TicketRepo;
 import com.hexaware.fastx_busticketsystem.service.ITicketService;
 
-;
+/*Autor:Vaishnavi Suresh Vaidyanath
+Modified Date:10-Aug-2025
+Description:Controller Class for Ticket*/
 
 @RestController
 @RequestMapping("/ticket")

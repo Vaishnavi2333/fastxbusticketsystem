@@ -17,8 +17,10 @@ import com.hexaware.fastx_busticketsystem.entities.BusOpData;
 import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IBusOpDataService;
 
-
-
+/*Autor:Vaishnavi Suresh Vaidyanath
+Modified Date:10-Aug-2025
+Description:Controller Class for Bus Operator Data
+*/
 
 
 @RestController

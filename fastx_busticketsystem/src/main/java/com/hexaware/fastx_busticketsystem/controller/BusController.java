@@ -16,7 +16,10 @@ import com.hexaware.fastx_busticketsystem.dto.BusDto;
 import com.hexaware.fastx_busticketsystem.entities.Bus;
 import com.hexaware.fastx_busticketsystem.exception.BusNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IBusService;
-
+/*
+Autor:Vaishnavi Suresh Vaidyanath
+Modified Date:10-Aug-2025
+Description:Controller Class for Bus*/
 
 import jakarta.validation.Valid;
 

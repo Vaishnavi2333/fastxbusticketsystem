@@ -16,8 +16,10 @@ import com.hexaware.fastx_busticketsystem.dto.BookingDto;
 import com.hexaware.fastx_busticketsystem.entities.Booking;
 import com.hexaware.fastx_busticketsystem.exception.BookingNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IBookingService;
-
-
+/*
+Autor:Vaishnavi Suresh Vaidyanath
+Modified Date:10-Aug-2025
+Description:Controller Class for Booking*/
 import jakarta.validation.Valid;
 
 @RestController

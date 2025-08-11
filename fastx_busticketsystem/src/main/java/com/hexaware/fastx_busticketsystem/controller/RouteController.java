@@ -17,7 +17,9 @@ import com.hexaware.fastx_busticketsystem.entities.Route;
 import com.hexaware.fastx_busticketsystem.exception.RouteNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IRouteService;
 
-
+/*Autor:Vaishnavi Suresh Vaidyanath
+Modified Date:10-Aug-2025
+Description:Controller Class for Route*/
 
 @RestController
 @RequestMapping("/route")
