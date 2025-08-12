@@ -2,17 +2,16 @@ package com.hexaware.fastx_busticketsystem.service;
 
 import com.hexaware.fastx_busticketsystem.dto.UserLoginDto;
 import com.hexaware.fastx_busticketsystem.entities.UserLogin;
+import com.hexaware.fastx_busticketsystem.exception.InvalidCredentialsException;
 import com.hexaware.fastx_busticketsystem.exception.UserAlreadyExistsException;
 import com.hexaware.fastx_busticketsystem.exception.UserNotFoundException;
 
 public interface IUserLoginService {
-	
-	public boolean register(UserLoginDto loginDto) throws UserAlreadyExistsException;          
+    
+    boolean register(UserLoginDto loginDto) throws UserAlreadyExistsException;          
 
-	public boolean login(String username, String password) throws UserNotFoundException; 
+   
+    String login(String username, String password) throws UserNotFoundException;
 
-	public boolean existsByUsername(String username);
-	
-	
-
+    boolean existsByUsername(String username);
 }

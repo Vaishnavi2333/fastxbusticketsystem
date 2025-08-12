@@ -1,12 +1,12 @@
 package com.hexaware.fastx_busticketsystem.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.hexaware.fastx_busticketsystem.dto.AdminLoginDto;
-import com.hexaware.fastx_busticketsystem.dto.BusDto;
 import com.hexaware.fastx_busticketsystem.dto.RouteDto;
+import com.hexaware.fastx_busticketsystem.entities.AdminLogin;
 import com.hexaware.fastx_busticketsystem.entities.Booking;
-import com.hexaware.fastx_busticketsystem.entities.Bus;
 import com.hexaware.fastx_busticketsystem.entities.BusOpData;
 import com.hexaware.fastx_busticketsystem.entities.Route;
 import com.hexaware.fastx_busticketsystem.entities.UserData;
@@ -21,7 +21,7 @@ public interface IAdminLoginService {
 	
     public boolean registerAdmin(AdminLoginDto adminDto) throws AdminAlreadyExistsException;
     
-    public boolean loginAdmin(String username, String password) throws AdminNotFoundException;
+    public String loginAdmin(String username, String password) throws AdminNotFoundException;
 	
 	void deleteUser(int userId) throws UserNotFoundException;
 	
@@ -43,4 +43,6 @@ public interface IAdminLoginService {
     void deleteRoute(int routeId) throws RouteNotFoundException;
     
     List<Route> getAllRoutes();
+    
+    Optional<AdminLogin> findByUsername(String username);
 }

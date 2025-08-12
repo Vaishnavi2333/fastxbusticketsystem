@@ -7,12 +7,12 @@ import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException
 
 public interface IBusOpLoginService {
 	
-	public  boolean registerBusOp(BusOpLoginDto loginDto) throws BusOperatorAlreadyExistsException;
+	String registerBusOp(BusOpLoginDto loginDto) throws BusOperatorAlreadyExistsException;
 
-	  public   boolean loginBusOp(String username, String password) throws BusOperatorNotFoundException;
+    String loginBusOp(String username, String password) throws BusOperatorNotFoundException;
 
-	   public  boolean existsByUsername(String username);
+    boolean existsByUsername(String username);
 
-	 public  BusOpLogin getByUsername(String username);
+    BusOpLogin getByUsername(String username);
 
 }

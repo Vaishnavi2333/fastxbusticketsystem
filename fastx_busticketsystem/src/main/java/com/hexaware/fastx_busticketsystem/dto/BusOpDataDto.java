@@ -24,12 +24,16 @@ Description:Dto Class for Bus operator data
 @Data
 public class BusOpDataDto {
 	
+	 
+	   
+	
 	@Positive(message="ID should be positive value")
 	private int busOpdataId;
 	
 	/*
 	 * @Positive(message="ID should be positive value") private int busOpId;
 	 */
+	 private Integer busOpLoginId;
 	
 	@NotNull
     private String name;
@@ -58,5 +62,14 @@ public class BusOpDataDto {
 	@NotBlank
 	@Size(min = 5, max = 255, message = "Address must be between 5 and 255 characters")
     private String address;
+	
+	public Integer getBusOpLoginId() {
+        return busOpLoginId;
+    }
+
+    public void setBusOpLoginId(Integer busOpLoginId) {
+        this.busOpLoginId = busOpLoginId;
+    }
+
 
 }

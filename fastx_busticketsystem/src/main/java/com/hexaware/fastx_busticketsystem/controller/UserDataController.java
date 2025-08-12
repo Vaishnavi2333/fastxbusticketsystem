@@ -3,6 +3,7 @@ package com.hexaware.fastx_busticketsystem.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,17 +39,20 @@ public class UserDataController {
         return service.updateUser(userDto);
     }
 	
+	 @PreAuthorize("hasRole('ADMIN')")
 	 @DeleteMapping("/deleteuser/{userId}")
 	    public String deleteUser(@PathVariable int userId) throws UserNotFoundException {
 	        service.deleteUser(userId);
 	        return "User with ID " + userId + " deleted successfully";
 	    }
 	 
+	 @PreAuthorize("hasRole('ADMIN')")
 	 @GetMapping("/getuser/{userId}")
 	    public UserData getUserById(@PathVariable int userId) throws UserNotFoundException {
 	        return service.getUserById(userId);
 	    }
 	 
+	 @PreAuthorize("hasRole('ADMIN')")
 	 @GetMapping("/allusers")
 	    public List<UserData> getAllUsers() {
 	        return service.getAllUsers();

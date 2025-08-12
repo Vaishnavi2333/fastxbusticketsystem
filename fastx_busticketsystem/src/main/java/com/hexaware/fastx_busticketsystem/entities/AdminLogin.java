@@ -86,6 +86,12 @@ public class AdminLogin {
 	    public void setManagedBookings(List<Booking> managedBookings) {
 	        this.managedBookings = managedBookings;
 	    }
+		public AdminLogin orElse(Object object) {
+			 
+			
+			
+			return null;
+		}
 		
 
 	}

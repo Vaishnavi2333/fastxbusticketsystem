@@ -17,15 +17,14 @@ import com.hexaware.fastx_busticketsystem.repository.UserLoginRepo;
 public class UserDataServiceImpl implements IUserDataService{
 	
 	@Autowired
-	UserDataRepo userRepo;
-	
-	@Autowired
-	UserLoginRepo userLoginRepo;
+    private UserDataRepo userRepo;
 
-	@Override
-	public UserData createUser(UserDataDto userDto) {
-		UserData user = new UserData();
-        user.setUserdataId(userDto.getUserdataId());
+    @Autowired
+    private UserLoginRepo userLoginRepo;
+
+    @Override
+    public UserData createUser(UserDataDto userDto) {
+        UserData user = new UserData();
         
         user.setName(userDto.getName());
         user.setGender(userDto.getGender());
@@ -33,55 +32,56 @@ public class UserDataServiceImpl implements IUserDataService{
         user.setDateOfBirth(userDto.getDateOfBirth());
         user.setContactNumber(userDto.getContactNumber());
         user.setAddress(userDto.getAddress());
-        
+
         UserLogin userLogin = userLoginRepo.findById(userDto.getUserLoginId())
                 .orElseThrow(() -> new RuntimeException("UserLogin not found with id: " + userDto.getUserLoginId()));
 
-            
-            user.setUserLogin(userLogin);
-        
+        user.setUserLogin(userLogin);
+
         return userRepo.save(user);
-        
-   
+    }
 
+    @Override
+    public UserData updateUser(UserDataDto userDto) throws UserNotFoundException {
+        UserData user = userRepo.findById(userDto.getUserdataId())
+                .orElseThrow(() -> new UserNotFoundException("UserData with ID " + userDto.getUserdataId() + " not found"));
 
-        
-	}
-
-	@Override
-	public UserData updateUser(UserDataDto userDto) throws UserNotFoundException {
-		UserData user =userRepo.findById(userDto.getUserdataId())
-	            .orElseThrow(() -> new UserNotFoundException("User with ID " + userDto.getUserdataId() + " not found"));
-		user.setName(userDto.getName());
+        user.setName(userDto.getName());
         user.setGender(userDto.getGender());
         user.setEmail(userDto.getEmail());
         user.setDateOfBirth(userDto.getDateOfBirth());
         user.setContactNumber(userDto.getContactNumber());
         user.setAddress(userDto.getAddress());
-        
-		
-		return userRepo.save(user);
-	}
 
-	@Override
-	public String deleteUser(int userId) throws UserNotFoundException {
-		UserData user =userRepo.findById(userId)
-	            .orElseThrow(() -> new UserNotFoundException("User with ID " + userId + " not found"));
-		userRepo.delete(user);
-		return "Deleted Successfully";
-	}
+        return userRepo.save(user);
+    }
 
-	@Override
-	public UserData getUserById(int userId) throws UserNotFoundException {
-		return userRepo.findById(userId)
-	            .orElseThrow(() -> new UserNotFoundException("User with ID " + userId + " not found"));
-	}
+    @Override
+    public String deleteUser(int userLoginId) throws UserNotFoundException {
+       
+        UserData userData = userRepo.findByUserLogin_UserId(userLoginId)
+                .orElseThrow(() -> new UserNotFoundException("UserData for UserLogin id " + userLoginId + " not found"));
 
-	@Override
-	public List<UserData> getAllUsers() {
-		
-		return userRepo.findAll();
-	}
+    
+        userRepo.delete(userData);
 
-	
+        UserLogin userLogin = userLoginRepo.findById(userLoginId)
+                .orElseThrow(() -> new UserNotFoundException("UserLogin with id " + userLoginId + " not found"));
+
+        userLoginRepo.delete(userLogin);
+
+        return "Deleted Successfully";
+    }
+
+    @Override
+    public UserData getUserById(int userLoginId) throws UserNotFoundException {
+        return userRepo.findByUserLogin_UserId(userLoginId)
+                .orElseThrow(() -> new UserNotFoundException("UserData for UserLogin id " + userLoginId + " not found"));
+    }
+
+    @Override
+    public List<UserData> getAllUsers() {
+        return userRepo.findAll();
+    }
 }
+	

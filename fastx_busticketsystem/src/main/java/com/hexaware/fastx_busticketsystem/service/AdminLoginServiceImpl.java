@@ -1,8 +1,11 @@
 package com.hexaware.fastx_busticketsystem.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.hexaware.fastx_busticketsystem.dto.AdminLoginDto;
@@ -48,6 +51,15 @@ public class AdminLoginServiceImpl implements IAdminLoginService {
 	    
 	    @Autowired
 	    BookingRepo bookingRepo;
+	    
+	    @Autowired
+	    private JwtService jwtService;
+
+	    @Autowired
+	    private AppUserDetailsService appUserDetailsService;
+
+	    @Autowired
+	    private PasswordEncoder passwordEncoder;
 
 	    @Override
 	    public Route addRoute(RouteDto routeDto) {
@@ -111,32 +123,49 @@ public class AdminLoginServiceImpl implements IAdminLoginService {
 	        return routeRepo.findAll();
 	    }
 
-		@Override
-		public boolean registerAdmin(AdminLoginDto adminDto) throws AdminAlreadyExistsException {
-			
-			 if (adminRepo.existsByUsername(adminDto.getUsername())) {
-			        throw new AdminAlreadyExistsException("Admin with username '" + adminDto.getUsername() + "' already exists");
-			    }
-			    
-			  
-			    AdminLogin admin = new AdminLogin();
-			    admin.setUsername(adminDto.getUsername());
-			    admin.setPassword(adminDto.getPassword()); 
-			    
-			    adminRepo.save(admin);
-			    return true;
-		}
+	    @Override
+	    public boolean registerAdmin(AdminLoginDto adminDto) throws AdminAlreadyExistsException {
 
-		@Override
-		public boolean loginAdmin(String username, String password) throws AdminNotFoundException {
-			
-			AdminLogin admin = adminRepo.findByUsername(username);
-		    if (admin == null) {
-		        throw new AdminNotFoundException("Admin with username '" + username + "' not found");
-		    }
-		    
-		    return true;
-		}
+	        if (adminRepo.existsByUsername(adminDto.getUsername())) {
+	            throw new AdminAlreadyExistsException(
+	                "Admin with username '" + adminDto.getUsername() + "' already exists"
+	            );
+	        }
+
+	        AdminLogin admin = new AdminLogin();
+	        admin.setUsername(adminDto.getUsername());
+
+	        // Encode password before saving
+	        admin.setPassword(passwordEncoder.encode(adminDto.getPassword()));
+
+	        adminRepo.save(admin);
+	        return true;
+	    }
+
+	    @Override
+	    public String loginAdmin(String username, String password) throws AdminNotFoundException {
+
+	       
+	        AdminLogin admin = adminRepo.findByUsername(username)
+	                .orElseThrow(() -> new AdminNotFoundException(
+	                        "Admin with username '" + username + "' not found"));
+
+	        
+	        if (!passwordEncoder.matches(password, admin.getPassword())) {
+	            throw new RuntimeException("Invalid password");
+	        }
+
+	       
+	        UserDetails userDetails = appUserDetailsService.loadUserByUsername(username);
+
+	        
+	        return jwtService.generateToken(userDetails);
+	    }
+
+	    @Override
+	    public Optional<AdminLogin> findByUsername(String username) {
+	        return adminRepo.findByUsername(username);
+	    }
 
 		
 }

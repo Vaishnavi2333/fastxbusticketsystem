@@ -49,13 +49,9 @@ public class AdminController {
 	  }
 
 	  @PostMapping("/login")
-	  public String loginAdmin(@RequestParam String username, @RequestParam String password) throws AdminNotFoundException{
-	      boolean loggedIn = service.loginAdmin(username, password);
-	      if (loggedIn) {
-	          return "Admin login successful";
-	      } else {
-	          return "Admin login failed";
-	      }
+	  public String loginAdmin(@RequestParam String username, @RequestParam String password) throws AdminNotFoundException {
+	      return service.loginAdmin(username, password);  
+	      
 	  }
 	  
 	  @PostMapping("/addroute")

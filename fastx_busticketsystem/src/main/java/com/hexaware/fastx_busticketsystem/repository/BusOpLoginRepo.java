@@ -10,6 +10,8 @@ public interface BusOpLoginRepo extends JpaRepository<BusOpLogin,Integer>{
 	
 	
 	boolean existsByUsername(String username);
+	
+
 	Optional<BusOpLogin> findByUsername(String username);
 
 

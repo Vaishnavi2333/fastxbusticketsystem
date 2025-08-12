@@ -34,11 +34,11 @@ public class BusOpLoginController {
 	        return "Bus Operator registered successfully";
 	    }
 
-	    @PostMapping("/login")
-	    public String login( @RequestBody BusOpLoginDto loginDto) throws BusOperatorNotFoundException {
-	        boolean success = service.loginBusOp(loginDto.getUsername(), loginDto.getPassword());
-	        return success ? "Login successful" : "Invalid credentials";
-	    }
+	 @PostMapping("/login")
+	 public String login(@RequestBody BusOpLoginDto loginDto) throws BusOperatorNotFoundException {
+	     return service.loginBusOp(loginDto.getUsername(), loginDto.getPassword()); 
+	     // Returns JWT token if valid; throws exception if not
+	 }
 
 	    @GetMapping("/exists/{username}")
 	    public boolean existsByUsername(@PathVariable String username) {
