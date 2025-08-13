@@ -16,12 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hexaware.fastx_busticketsystem.dto.UserDataDto;
 import com.hexaware.fastx_busticketsystem.entities.UserData;
 import com.hexaware.fastx_busticketsystem.exception.UserNotFoundException;
-import com.hexaware.fastx_busticketsystem.repository.UserDataRepo;
 import com.hexaware.fastx_busticketsystem.service.IUserDataService;
 
+import jakarta.validation.Valid;
+
 /*Autor:Vaishnavi Suresh Vaidyanath
-Modified Date:10-Aug-2025
+Modified Date:12-Aug-2025
 Description:Controller Class for User data*/
+
+
 @RestController
 @RequestMapping("/userdata")
 public class UserDataController {
@@ -29,13 +32,15 @@ public class UserDataController {
 	@Autowired
 	IUserDataService service;
 	
+	@PreAuthorize("hasRole('USER')")
 	@PostMapping("/createuser")
-	public UserData createUser(@RequestBody UserDataDto userDto) {
+	public UserData createUser(@Valid @RequestBody UserDataDto userDto) throws UserNotFoundException {
         return service.createUser(userDto);
     }
 	
+	@PreAuthorize("hasRole('USER')")
 	@PutMapping("/updateuser")
-    public UserData updateUser(@RequestBody UserDataDto userDto) throws UserNotFoundException {
+    public UserData updateUser(@Valid @RequestBody UserDataDto userDto) throws UserNotFoundException {
         return service.updateUser(userDto);
     }
 	

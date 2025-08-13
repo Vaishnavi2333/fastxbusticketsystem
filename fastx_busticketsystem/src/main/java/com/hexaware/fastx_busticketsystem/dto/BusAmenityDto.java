@@ -15,9 +15,8 @@ Description:Dto Class for BusAmenity
 @Data
 public class BusAmenityDto {
  
-	 @Positive(message = "Busamenity ID should be positive value")
-	private int busamenityId;
-	
+
+	private int busamenityId; 
 	
     @Positive(message = "Bus ID should be positive value")
     private int busId;  

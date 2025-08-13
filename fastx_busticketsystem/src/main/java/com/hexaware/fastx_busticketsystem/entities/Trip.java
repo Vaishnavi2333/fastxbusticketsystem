@@ -13,6 +13,11 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="trip")
@@ -26,6 +31,8 @@ public class Trip {
     private double fare;
     private String status;
     
+   
+    
     @ManyToOne
 	@JoinColumn(name = "route_id")
 	private Route route;
@@ -37,7 +44,15 @@ public class Trip {
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
     private List<Booking> bookings = new ArrayList<>();
     
-    public Trip() {
+   
+
+    public Bus getBus() {
+		return bus;
+	}
+	public void setBus(Bus bus) {
+		this.bus = bus;
+	}
+	public Trip() {
     	
     }
 	public Trip(int tripId,  LocalDate date, LocalTime departureTime, LocalTime arrivalTime,
@@ -111,6 +126,8 @@ public class Trip {
 	    bookings.remove(booking);
 	    booking.setTrip(null);
 	}
+	
+	
     
 
 }

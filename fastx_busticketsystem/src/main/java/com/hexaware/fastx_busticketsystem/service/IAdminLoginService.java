@@ -23,26 +23,7 @@ public interface IAdminLoginService {
     
     public String loginAdmin(String username, String password) throws AdminNotFoundException;
 	
-	void deleteUser(int userId) throws UserNotFoundException;
 	
-    List<UserData> getAllUsers();
-
-    
-    void deleteBusOperator(int operatorId) throws BusOperatorNotFoundException;
-    
-    List<BusOpData> getAllBusOperators();
-
-    
-    void deleteBooking(int bookingId) throws BookingNotFoundException;
-    
-    List<Booking> getAllBookings();
-
-   
-    Route addRoute(RouteDto routeDto);
-    
-    void deleteRoute(int routeId) throws RouteNotFoundException;
-    
-    List<Route> getAllRoutes();
     
     Optional<AdminLogin> findByUsername(String username);
 }

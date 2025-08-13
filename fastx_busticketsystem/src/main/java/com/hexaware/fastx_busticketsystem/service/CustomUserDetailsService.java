@@ -45,7 +45,7 @@ public class CustomUserDetailsService implements UserDetailsService {
        
         Optional<BusOpLogin> busOpOpt = busOpLoginRepo.findByUsername(username);
         if (busOpOpt.isPresent()) {
-            return new CustomUserDetails(busOpOpt.get(), "ROLE_BUSOP");
+            return new CustomUserDetails(busOpOpt.get(), "ROLE_BUS_OPERATOR");
         }
 
         throw new UsernameNotFoundException("User not found with username: " + username);

@@ -18,7 +18,7 @@ import java.util.function.Function;
 public class JwtService {
 
     private static final String SECRET = "Gx7r9v0yXk2Qe8MzH4cJp6sVt1BbPz9wFqRmY8LzNaQh3UdK"; 
-    private static final long EXPIRATION_MILLIS = 1000L * 60 * 60; // 1 hour
+    private static final long EXPIRATION_MILLIS = 1000L * 60 * 60; 
 
     private Key getSignKey() {
         byte[] keyBytes = Decoders.BASE64.decode(java.util.Base64.getEncoder().encodeToString(SECRET.getBytes()));

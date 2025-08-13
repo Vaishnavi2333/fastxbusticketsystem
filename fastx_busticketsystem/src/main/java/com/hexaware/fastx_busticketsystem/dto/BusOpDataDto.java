@@ -23,16 +23,11 @@ Description:Dto Class for Bus operator data
 @NoArgsConstructor
 @Data
 public class BusOpDataDto {
-	
-	 
 	   
 	
 	@Positive(message="ID should be positive value")
 	private int busOpdataId;
 	
-	/*
-	 * @Positive(message="ID should be positive value") private int busOpId;
-	 */
 	 private Integer busOpLoginId;
 	
 	@NotNull

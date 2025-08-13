@@ -3,6 +3,7 @@ package com.hexaware.fastx_busticketsystem.entities;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,91 +11,67 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+import jakarta.persistence.*;
+
 @Entity
-@Table(name="admin_login")
+@Table(name = "admin_login")
 public class AdminLogin {
-		
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY) 
-        private int adminId;
-		private String username;
-		private String password;
-		
-		
-	    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
-	    private List<BusOpData> managedOperators;
-	    
-		
-		 @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL) 
-		 private List<UserData> managedUsers;
-		 
-		 @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
-	    private List<Route> managedRoutes;
 
-	    
-	    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
-	    private List<Booking> managedBookings;
-	    
-		public AdminLogin(int adminId, String username, String password) {
-			super();
-			this.adminId = adminId;
-			this.username = username;
-			this.password = password;
-		}
-		public AdminLogin() {
-			
-		}
-		public int getAdminId() {
-			return adminId;
-		}
-		public void setAdminId(int adminId) {
-			this.adminId = adminId;
-		}
-		public String getUsername() {
-			return username;
-		}
-		public void setUsername(String username) {
-			this.username = username;
-		}
-		public String getPassword() {
-			return password;
-		}
-		public void setPassword(String password) {
-			this.password = password;
-		}
-		
-		public List<BusOpData> getManagedOperators() {
-	        return managedOperators;
-	    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int adminId;
 
-	    public void setManagedOperators(List<BusOpData> managedOperators) {
-	        this.managedOperators = managedOperators;
-	    }
+    @Column(nullable = false, unique = true)
+    private String username;
 
-	    public List<Route> getManagedRoutes() {
-	        return managedRoutes;
-	    }
+    @Column(nullable = false)
+    private String password;
 
-	    public void setManagedRoutes(List<Route> managedRoutes) {
-	        this.managedRoutes = managedRoutes;
-	    }
+   
+    @Column(nullable = false)
+    private String role = "ROLE_ADMIN"; 
 
-	    public List<Booking> getManagedBookings() {
-	        return managedBookings;
-	    }
+    public AdminLogin() {
+    }
 
-	    public void setManagedBookings(List<Booking> managedBookings) {
-	        this.managedBookings = managedBookings;
-	    }
-		public AdminLogin orElse(Object object) {
-			 
-			
-			
-			return null;
-		}
-		
+    public AdminLogin(int adminId, String username, String password) {
+        this.adminId = adminId;
+        this.username = username;
+        this.password = password;
+    }
 
-	}
+    public int getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+}
 
 
 

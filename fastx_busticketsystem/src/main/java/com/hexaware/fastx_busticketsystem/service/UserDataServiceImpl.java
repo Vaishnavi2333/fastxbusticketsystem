@@ -23,20 +23,20 @@ public class UserDataServiceImpl implements IUserDataService{
     private UserLoginRepo userLoginRepo;
 
     @Override
-    public UserData createUser(UserDataDto userDto) {
+    public UserData createUser(UserDataDto userDto) throws UserNotFoundException {
+    	
+        UserLogin userLogin = userLoginRepo.findById(userDto.getUserdataId())
+                .orElseThrow(() -> new UserNotFoundException("UserLogin not found with id: " + userDto.getUserdataId()));
+
+       
         UserData user = new UserData();
-        
+        user.setUserLogin(userLogin);  
         user.setName(userDto.getName());
         user.setGender(userDto.getGender());
         user.setEmail(userDto.getEmail());
         user.setDateOfBirth(userDto.getDateOfBirth());
         user.setContactNumber(userDto.getContactNumber());
         user.setAddress(userDto.getAddress());
-
-        UserLogin userLogin = userLoginRepo.findById(userDto.getUserLoginId())
-                .orElseThrow(() -> new RuntimeException("UserLogin not found with id: " + userDto.getUserLoginId()));
-
-        user.setUserLogin(userLogin);
 
         return userRepo.save(user);
     }

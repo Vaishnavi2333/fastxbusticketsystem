@@ -20,35 +20,12 @@ class AdminLoginServiceImplTest {
 	@Autowired
 	IAdminLoginService service;
 
-	@Disabled
-	@Test
-	void testAddRoute() {
-		RouteDto routeDto = new RouteDto();
-	    routeDto.setRouteName("Chennai-Mumbai");
-	    routeDto.setOrigin("Chennai");
-	    routeDto.setDestination("Mumbai");
-	    routeDto.setDistanceKm(120);
-	    routeDto.setEstimatedTime(LocalTime.of(1, 0));
-	    
-	    Route savedRoute = service.addRoute(routeDto);
-	}
-
-	@Disabled
-	@Test
-	void testDeleteBooking() {
-		int bookingId = 1; 
-	    
-	    assertDoesNotThrow(() -> {
-	        service.deleteBooking(bookingId);
-	    });
-	}
-
 	
 	@Test
 	void testRegisterAdmin() throws AdminAlreadyExistsException {
 		AdminLoginDto adminDto = new AdminLoginDto();
-	    adminDto.setUsername("adminUser");
-	    adminDto.setPassword("adminPass123");
+	    adminDto.setUsername("adminUser1");
+	    adminDto.setPassword("adminPass1234");
 	    
 	    boolean registered = service.registerAdmin(adminDto);
 	    assertTrue(registered);

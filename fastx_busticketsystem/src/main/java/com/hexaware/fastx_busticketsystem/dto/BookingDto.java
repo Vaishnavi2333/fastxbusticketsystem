@@ -1,9 +1,9 @@
 package com.hexaware.fastx_busticketsystem.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 
-import jakarta.validation.constraints.FutureOrPresent;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,33 +16,25 @@ Description:Dto Class for Booking*/
 @NoArgsConstructor
 @Data
 public class BookingDto {
-	
-	@Positive(message="ID should be positive value")
 	private int bookingId;
-	
-	/*
-	 * @Positive(message="ID should be positive value") private int userId;
-	 */
-	/*
-	 * @Positive(message="ID should be positive value") private int tripId;
-	 */
-	
-	@FutureOrPresent(message="Booking date cannot be past")
+
+    @NotNull(message = "Booking date cannot be null")
     private LocalDate bookingDate;
-	
-	@Pattern(regexp = "Confirmed|Unconfiremd")
+
+    @NotNull(message = "Booking status cannot be null")
     private String status;
-	
-	@Positive(message="ID should be positive value")
-     private int userId;    
-    
-	@Positive(message="ID should be positive value") 
-	private int tripId;    
-    
-	@Positive(message="ID should be positive value")
-     private int paymentId; 
-    
-	@Positive(message="ID should be positive value")
-      private int adminId;  
+
+    @NotNull(message = "User ID cannot be null")
+    private int userId;
+
+    @NotNull(message = "Trip ID cannot be null")
+    private int tripId;
+
+    @Positive(message = "Total price must be positive")
+    private double totalPrice;
+
+    private List<String> selectedSeats;
+
+    private int paymentId;
 
 }

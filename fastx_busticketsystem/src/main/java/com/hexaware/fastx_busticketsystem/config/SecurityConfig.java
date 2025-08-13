@@ -43,7 +43,7 @@ public class SecurityConfig {
     
     @Bean
     public UserDetailsService userDetailsService() {
-        return new AppUserDetailsService();  // Replace with your implementation
+        return new AppUserDetailsService();  
     }
 
     

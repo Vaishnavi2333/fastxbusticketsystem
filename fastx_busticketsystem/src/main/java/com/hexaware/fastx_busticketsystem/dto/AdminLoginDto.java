@@ -1,9 +1,6 @@
 package com.hexaware.fastx_busticketsystem.dto;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,23 +12,16 @@ Description:Dto Class for AdminLogin*/
 @NoArgsConstructor
 @Data
 public class AdminLoginDto {
-	
-	/*
-	 * @NotNull
-	 * 
-	 * @NotEmpty
-	 * 
-	 * @Min(value = 1)
-	 * 
-	 * @Max(value = 9) private int adminId;
-	 */
-	
-	@NotNull
-	@NotEmpty(message="Admin name is cannot be empty")
-	private String username;
-	 
-	 @NotEmpty
-	 @Size(min = 8 , max = 14,message="Password should not be less than 8 characters ")
-	 private String password;
 
+    private int adminId;
+
+    @NotBlank(message = "Admin name cannot be empty") 
+    private String username;
+
+    @NotBlank(message = "Password cannot be empty")
+    @Size(min = 8, max = 14, message = "Password should be between 8 and 14 characters")
+    private String password;
+
+    
+    private String role = "ROLE_ADMIN";
 }

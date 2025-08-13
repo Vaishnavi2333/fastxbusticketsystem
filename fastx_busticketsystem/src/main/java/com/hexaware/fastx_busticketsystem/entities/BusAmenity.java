@@ -7,38 +7,47 @@ import jakarta.persistence.*;
 public class BusAmenity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int busamenityId; 
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bus_id")
     private Bus bus;
 
-   private String amenityName;
+    private String amenityName;
+   
+
     public BusAmenity() {}
-	public BusAmenity(int busamenityId, Bus bus, String amenityName) {
-		super();
-		this.busamenityId = busamenityId;
-		this.bus = bus;
-		this.amenityName = amenityName;
-	}
+
+    public BusAmenity(Bus bus, String amenityName) {
+        this.bus = bus;
+        this.amenityName = amenityName;
+    }
+
 	public int getBusamenityId() {
 		return busamenityId;
 	}
+
 	public void setBusamenityId(int busamenityId) {
 		this.busamenityId = busamenityId;
 	}
+
 	public Bus getBus() {
 		return bus;
 	}
+
 	public void setBus(Bus bus) {
 		this.bus = bus;
 	}
+
 	public String getAmenityName() {
 		return amenityName;
 	}
+
 	public void setAmenityName(String amenityName) {
 		this.amenityName = amenityName;
 	}
+	
 	
 
    

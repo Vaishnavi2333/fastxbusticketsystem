@@ -1,5 +1,6 @@
 package com.hexaware.fastx_busticketsystem.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.hexaware.fastx_busticketsystem.dto.BusDto;
@@ -10,6 +11,8 @@ public interface IBusService {
 	
 	public Bus addBus(BusDto busDto);
 	
+	public List<BusDto> searchBusesByOriginDestinationAndDate(String origin, String destination, LocalDate date);
+	
     public Bus updateBus( BusDto busDto) throws BusNotFoundException;
     
     public void deleteBus(int busId) throws BusNotFoundException;
@@ -19,6 +22,8 @@ public interface IBusService {
     public List<Bus> getAllBuses();
     
     public List<Bus> getBusesByOperatorId(int operatorId);
+
+	
     
 
 }

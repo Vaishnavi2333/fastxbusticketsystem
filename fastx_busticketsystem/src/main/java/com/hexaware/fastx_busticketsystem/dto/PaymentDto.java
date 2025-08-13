@@ -19,13 +19,11 @@ Description:Dto Class for Payment
 @NoArgsConstructor
 @Data
 public class PaymentDto {
+
+
+    private int bookingId;
 	
-	@Positive(message="ID should be positive value")
-	 private int paymentId;
 	
-		/*
-		 * @Positive(message="ID should be positive value") private int bookingId;
-		 */
 	
 	@NotNull(message = "Amount is required")
 	@DecimalMin(value = "0.01", message = "Amount must be greater than 0")

@@ -17,8 +17,7 @@ Description:Dto Class for Bus operator login
 @Data
 public class BusOpLoginDto {
 
-   // @Positive(message = "ID should be a positive value")
-	/* private int busOpId; */
+  
 
    @NotNull(message = "Username cannot be null")
    @Size(min = 5, max = 14, message = "Username must be between 5 and 14 characters")

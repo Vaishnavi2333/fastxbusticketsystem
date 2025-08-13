@@ -8,7 +8,7 @@ import com.hexaware.fastx_busticketsystem.exception.UserNotFoundException;
 
 public interface IUserDataService {
 	
-	public UserData createUser(UserDataDto userDto);
+	public UserData createUser(UserDataDto userDto) throws UserNotFoundException;
 	
     public UserData updateUser(UserDataDto userDto) throws UserNotFoundException;
     

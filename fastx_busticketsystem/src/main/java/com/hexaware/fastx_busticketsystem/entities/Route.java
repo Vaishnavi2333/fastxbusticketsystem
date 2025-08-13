@@ -1,6 +1,7 @@
 package com.hexaware.fastx_busticketsystem.entities;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -25,6 +26,11 @@ public class Route {
     
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
 	private List<Trip> trips;
+    
+    
+    @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
+    private List<Bus> buses = new ArrayList<>();
+    
     
     @ManyToOne
     @JoinColumn(name = "admin_id")
@@ -88,6 +94,14 @@ public class Route {
 	public void setTrips(List<Trip> trips) {
 		this.trips = trips;
 	}
+	
+	public List<Bus> getBuses() {
+        return buses;
+    }
+
+    public void setBuses(List<Bus> buses) {
+        this.buses = buses;
+    }
 	
     
 

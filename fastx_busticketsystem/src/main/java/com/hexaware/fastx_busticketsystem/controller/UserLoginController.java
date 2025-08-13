@@ -35,7 +35,7 @@ public class UserLoginController {
 	
 	@PostMapping("/login")
 	public String login(@RequestParam String username, @RequestParam String password) throws UserNotFoundException {
-	    return service.login(username, password); // returns JWT token
+	    return service.login(username, password);
 	}
 	
 	

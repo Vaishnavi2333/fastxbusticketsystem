@@ -23,26 +23,24 @@ public class BusOpDataServiceImpl implements IBusOpDataService{
 	BusOpLoginRepo busOpLoginRepo;
 
 	@Override
-	public BusOpData addOperatorData(BusOpDataDto dto) {
-	    BusOpData busop = new BusOpData();
-	    busop.setBusOpdataId(dto.getBusOpdataId());
-	    busop.setName(dto.getName());
-	    busop.setGender(dto.getGender());
-	    busop.setCompanyName(dto.getCompanyName());
-	    busop.setLicenceNumber(dto.getLicenceNumber());
-	    busop.setEmail(dto.getEmail());
-	    busop.setContactNumber(dto.getContactNumber());
-	    busop.setDateOfBirth(dto.getDateOfBirth());
-	    busop.setAddress(dto.getAddress());
+	public BusOpData addOperatorData(BusOpDataDto dto) throws BusOperatorNotFoundException {
+		
+        BusOpLogin login = busOpLoginRepo.findById(dto.getBusOpLoginId())
+                .orElseThrow(() -> new BusOperatorNotFoundException("BusOpLogin not found with id: " + dto.getBusOpLoginId()));
 
-	    
-	    if (dto.getBusOpLoginId() != null) {
-	        BusOpLogin login = busOpLoginRepo.findById(dto.getBusOpLoginId())
-	            .orElseThrow(() -> new RuntimeException("BusOpLogin not found"));
-	        busop.setBusOpLogin(login);
-	    }
+       
+        BusOpData busOpData = new BusOpData();
+        busOpData.setBusOpLogin(login);
+        busOpData.setName(dto.getName());
+        busOpData.setGender(dto.getGender());
+        busOpData.setCompanyName(dto.getCompanyName());
+        busOpData.setLicenceNumber(dto.getLicenceNumber());
+        busOpData.setEmail(dto.getEmail());
+        busOpData.setContactNumber(dto.getContactNumber());
+        busOpData.setDateOfBirth(dto.getDateOfBirth());
+        busOpData.setAddress(dto.getAddress());
 
-	    return repo.save(busop);
+        return repo.save(busOpData);
 	}
 	 @Override
 	    public BusOpData updateOperatorData(BusOpDataDto dto) throws BusOperatorNotFoundException {

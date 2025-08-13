@@ -18,18 +18,14 @@ Description:Dto Class for User login
 @NoArgsConstructor
 @Data
 public class UserLoginDto {
-	
-	/*
-	 * @Positive(message="Userid should only be positive") private int userId;
-	 */
 
-    @NotNull
+    @NotNull(message = "Username cannot be null")
     private String username;
 
     @NotNull
-	@Size(min = 8 , max = 14,message="Password should not be less than 8 characters ")
+    @Size(min = 8, max = 14, message = "Password should be between 8 and 14 characters")
     private String password;
-  
+
     
-    
+    private String role = "ROLE_USER";
 }

@@ -3,6 +3,7 @@ package com.hexaware.fastx_busticketsystem.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +19,7 @@ import com.hexaware.fastx_busticketsystem.exception.RouteNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IRouteService;
 
 /*Autor:Vaishnavi Suresh Vaidyanath
-Modified Date:10-Aug-2025
+Modified Date:12-Aug-2025
 Description:Controller Class for Route*/
 
 @RestController
@@ -28,27 +29,32 @@ public class RouteController {
 	@Autowired
 	IRouteService service;
 	
+	@PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
 	@PostMapping("/add")
     public Route addRoute(@RequestBody RouteDto routeDto) {
         return service.addRoute(routeDto);
     }
 
+	@PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
     @PutMapping("/update")
     public Route updateRoute(@RequestBody RouteDto routeDto) throws RouteNotFoundException {
         return service.updateRoute(routeDto);
     }
 
+	 @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
     @DeleteMapping("/delete/{id}")
     public String deleteRoute(@PathVariable("id") int routeId) throws RouteNotFoundException {
         service.deleteRoute(routeId);
         return "Route with ID " + routeId + " deleted successfully";
     }
 
+	@PreAuthorize("hasAnyRole('ADMIN','USER','BUS_OPERATOR')")
     @GetMapping("/getall")
     public List<Route> getAllRoutes() {
         return service.getAllRoutes();
     }
 
+	 @PreAuthorize("hasAnyRole('ADMIN','USER','BUS_OPERATOR')")
     @GetMapping("/getbyid/{id}")
     public Route getRouteById(@PathVariable("id") int routeId) throws RouteNotFoundException {
         return service.getRouteById(routeId);

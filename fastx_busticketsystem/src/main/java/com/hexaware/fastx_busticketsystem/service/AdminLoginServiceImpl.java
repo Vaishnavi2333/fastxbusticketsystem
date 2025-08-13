@@ -34,7 +34,7 @@ import com.hexaware.fastx_busticketsystem.repository.UserDataRepo;
 @Service
 public class AdminLoginServiceImpl implements IAdminLoginService {
 	
-	 @Autowired
+	    @Autowired
 	    AdminLoginRepo adminRepo;
 
 	    @Autowired
@@ -61,67 +61,7 @@ public class AdminLoginServiceImpl implements IAdminLoginService {
 	    @Autowired
 	    private PasswordEncoder passwordEncoder;
 
-	    @Override
-	    public Route addRoute(RouteDto routeDto) {
-	    	
-	    	Route route = new Route();
-	    	route.setRouteId(routeDto.getRouteId());
-	    	route.setRouteName(routeDto.getRouteName());
-	    	route.setOrigin(routeDto.getOrigin());
-	    	route.setDestination(routeDto.getDestination());
-	    	route.setDistanceKm(routeDto.getDistanceKm());
-	    	route.setEstimatedTime(route.getEstimatedTime());
-	    	
-	        return routeRepo.save(route); 
-	    }
-
-	    @Override
-	    public void deleteUser(int userId) throws UserNotFoundException {
-	        UserData user = userRepo.findById(userId)
-	            .orElseThrow(() -> new UserNotFoundException("User not found with id: " + userId));
-	        userRepo.delete(user);
-	    }
-
-	    @Override
-	    public List<UserData> getAllUsers() {
-	        return userRepo.findAll();
-	    }
-
-	    @Override
-	    public void deleteBusOperator(int operatorId) throws BusOperatorNotFoundException {
-	        BusOpData operator = busOpRepo.findById(operatorId)
-	            .orElseThrow(() -> new BusOperatorNotFoundException("Bus Operator not found with id: " + operatorId));
-	        busOpRepo.delete(operator);
-	    }
-
-	    @Override
-	    public List<BusOpData> getAllBusOperators() {
-	        return busOpRepo.findAll();
-	    }
-
-	    @Override
-	    public void deleteBooking(int bookingId) throws BookingNotFoundException {
-	        Booking booking = bookingRepo.findById(bookingId)
-	            .orElseThrow(() -> new BookingNotFoundException("Booking not found with id: " + bookingId));
-	        bookingRepo.delete(booking);
-	    }
-
-	    @Override
-	    public List<Booking> getAllBookings() {
-	        return bookingRepo.findAll();
-	    }
-
-	    @Override
-	    public void deleteRoute(int routeId) throws RouteNotFoundException {
-	        Route route = routeRepo.findById(routeId)
-	            .orElseThrow(() -> new RouteNotFoundException("Route not found with id: " + routeId));
-	        routeRepo.delete(route);
-	    }
-
-	    @Override
-	    public List<Route> getAllRoutes() {
-	        return routeRepo.findAll();
-	    }
+	    
 
 	    @Override
 	    public boolean registerAdmin(AdminLoginDto adminDto) throws AdminAlreadyExistsException {
@@ -135,7 +75,7 @@ public class AdminLoginServiceImpl implements IAdminLoginService {
 	        AdminLogin admin = new AdminLogin();
 	        admin.setUsername(adminDto.getUsername());
 
-	        // Encode password before saving
+	        
 	        admin.setPassword(passwordEncoder.encode(adminDto.getPassword()));
 
 	        adminRepo.save(admin);

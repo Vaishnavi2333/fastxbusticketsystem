@@ -1,8 +1,13 @@
 package com.hexaware.fastx_busticketsystem.dto;
 
+import java.time.LocalTime;
+import java.util.List;
+
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -33,5 +38,15 @@ public class BusDto {
 	 
      @Pattern(regexp = "Available|Unavailable",message="Status should be either available or unavailable")
      private String status;
+     @PositiveOrZero(message = "Fare cannot be negative")
+     private double fare;
 
+     @NotNull(message = "Departure time cannot be null")
+     private LocalTime departureTime;
+
+     @NotNull(message = "Arrival time cannot be null")
+     private LocalTime arrivalTime;
+
+     @NotEmpty(message = "Amenities list cannot be empty")
+     private List<BusAmenityDto> amenities;
 }

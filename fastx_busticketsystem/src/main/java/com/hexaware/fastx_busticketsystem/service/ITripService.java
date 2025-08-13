@@ -19,5 +19,7 @@ public interface ITripService {
     List<Trip> getAllTrips();
     
     List<Trip> getTripsByRoute(int routeId);
+    
+    List<Trip> getTripsByBusOperator(int operatorId);
 
 }

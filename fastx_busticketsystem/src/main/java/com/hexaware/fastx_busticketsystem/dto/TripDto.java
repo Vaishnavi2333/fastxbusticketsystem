@@ -3,10 +3,8 @@ package com.hexaware.fastx_busticketsystem.dto;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,32 +16,28 @@ Description:Dto Class for Trip
 @NoArgsConstructor
 @Data
 public class TripDto {
-	@Positive(message="ID should be positive value")
-	private int tripId;
-	
-	 
-	@Future(message="Trip date should be in future ")
+
+    @Positive(message = "Trip ID should be positive")
+    private int tripId;
+
+    @NotNull(message = "Trip date is required")
     private LocalDate date;
-	
-	@NotNull(message = "Departure time is required")
-	private LocalTime departureTime;
 
-	@NotNull(message = "Arrival time is required")
-	private LocalTime arrivalTime;
-	
-	@NotNull
-	@Positive
-	@DecimalMin(value = "0.01", message = "Fare must be greater than 0")
+    @NotNull(message = "Departure time is required")
+    private LocalTime departureTime;
+
+    @NotNull(message = "Arrival time is required")
+    private LocalTime arrivalTime;
+
+    @Positive(message = "Fare must be greater than zero")
     private double fare;
-    
-    @Pattern(regexp = "Confirmed|Unconfirmed")
+
+    @NotBlank(message = "Status is required")
     private String status;
-    
 
-	  @Positive(message="ID should be positive value") 
-	  private int busId;
-	  
-	  @Positive(message="ID should be positive value")
-	  private int routeId;
+    @Positive(message = "Bus ID must be positive")
+    private int busId;
 
+    @Positive(message = "Route ID must be positive")
+    private int routeId;
 }

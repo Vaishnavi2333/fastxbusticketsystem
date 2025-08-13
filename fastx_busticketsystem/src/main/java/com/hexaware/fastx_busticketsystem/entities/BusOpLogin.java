@@ -1,13 +1,15 @@
 package com.hexaware.fastx_busticketsystem.entities;
 
 import jakarta.persistence.*;
+
+
 @Entity
 @Table(name = "bus_op_login")
 public class BusOpLogin {
 
     @Id
-    @Column(name = "bus_op_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    @Column(name = "bus_op_id")
     private int busOpId;
 
     @Column(name = "username")
@@ -16,9 +18,9 @@ public class BusOpLogin {
     @Column(name = "password")
     private String password;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "busopdata_id", referencedColumnName = "bus_opdata_id") 
+    @OneToOne(mappedBy = "busOpLogin", cascade = CascadeType.ALL)
     private BusOpData busOpData;
+    
     public BusOpLogin() {
     }
 

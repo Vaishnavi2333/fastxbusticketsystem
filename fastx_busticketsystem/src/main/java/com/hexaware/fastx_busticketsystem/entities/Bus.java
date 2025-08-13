@@ -1,5 +1,6 @@
 package com.hexaware.fastx_busticketsystem.entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,12 @@ public class Bus {
     private String busType;
     private int capacity;
     private String status;
+    
+    
+    @ManyToOne
+    @JoinColumn(name="route_id")
+    private Route route;
+
 
     @ManyToOne
     @JoinColumn(name = "operator_id")
@@ -34,18 +41,26 @@ public class Bus {
      
     }
 
-    public Bus(int busId, String busNumber, String busName, String busType, int capacity, String status) {
-        super();
-        this.busId = busId;
-        this.busNumber = busNumber;
-        this.busName = busName;
-        this.busType = busType;
-        this.capacity = capacity;
-        this.status = status;
-    }
 
-  
-    public int getBusId() {
+
+	public Bus(int busId, String busNumber, String busName, String busType, int capacity, String status, BusOpData busOpData, List<BusAmenity> amenities, List<Trip> trips) {
+		super();
+		this.busId = busId;
+		this.busNumber = busNumber;
+		this.busName = busName;
+		this.busType = busType;
+		this.capacity = capacity;
+		this.status = status;
+		
+		this.busOpData = busOpData;
+		this.amenities = amenities;
+		this.trips = trips;
+	}
+
+
+
+
+	public int getBusId() {
         return busId;
     }
 
@@ -101,6 +116,26 @@ public class Bus {
         this.busOpData = busOpData;
     }
     
+
+
+
+
+	public List<BusAmenity> getAmenities() {
+		return amenities;
+	}
+
+
+
+
+	
+
+
+	public void setAmenities(List<BusAmenity> amenities) {
+		this.amenities = amenities;
+	}
+
+
+    
     public void addBusAmenity(BusAmenity busAmenity) {
         amenities.add(busAmenity);
         busAmenity.setBus(this); 
@@ -117,6 +152,14 @@ public class Bus {
 
     public void setTrips(List<Trip> trips) {
         this.trips = trips;
+    }
+    
+    public Route getRoute() {
+        return route;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
     }
 }
 

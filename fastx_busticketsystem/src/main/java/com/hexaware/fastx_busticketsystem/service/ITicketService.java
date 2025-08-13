@@ -5,10 +5,12 @@ import java.util.List;
 import com.hexaware.fastx_busticketsystem.dto.TicketDto;
 import com.hexaware.fastx_busticketsystem.entities.Ticket;
 import com.hexaware.fastx_busticketsystem.exception.TicketNotFoundException;
+import com.hexaware.fastx_busticketsystem.exception.TripNotFoundException;
 
 public interface ITicketService {
 	
-	Ticket generateTicket(TicketDto ticketDto);
+
+Ticket generateTicket(TicketDto ticketDto);
 	
     Ticket updateTicket(TicketDto ticketDto) throws TicketNotFoundException;
     
@@ -17,5 +19,4 @@ public interface ITicketService {
     Ticket getTicketById(int ticketId) throws TicketNotFoundException;
     
     List<Ticket> getTicketsByBookingId(int bookingId);
-
 }

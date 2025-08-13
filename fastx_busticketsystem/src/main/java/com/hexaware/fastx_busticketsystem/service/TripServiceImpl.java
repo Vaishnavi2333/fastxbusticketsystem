@@ -1,5 +1,7 @@
 package com.hexaware.fastx_busticketsystem.service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,68 +9,110 @@ import org.springframework.stereotype.Service;
 
 import com.hexaware.fastx_busticketsystem.dto.TripDto;
 import com.hexaware.fastx_busticketsystem.dto.UserDataDto;
+import com.hexaware.fastx_busticketsystem.entities.Bus;
+import com.hexaware.fastx_busticketsystem.entities.Route;
 import com.hexaware.fastx_busticketsystem.entities.Trip;
 import com.hexaware.fastx_busticketsystem.entities.UserData;
 import com.hexaware.fastx_busticketsystem.exception.TripNotFoundException;
+import com.hexaware.fastx_busticketsystem.repository.BusRepo;
+import com.hexaware.fastx_busticketsystem.repository.RouteRepo;
 import com.hexaware.fastx_busticketsystem.repository.TripRepo;
-
 
 @Service
 public class TripServiceImpl implements ITripService {
 
-	@Autowired
-	TripRepo repo;
+    @Autowired
+    private TripRepo repo;
 
+    @Autowired
+    private BusRepo busRepo;
 
-	@Override
-	public Trip addTrip(TripDto tripDto) {
-		Trip trip = new Trip();
-		trip.setTripId(tripDto.getTripId());
-		trip.setDate(tripDto.getDate());
-		trip.setDepartureTime(trip.getDepartureTime());
-		trip.setFare(tripDto.getFare());
-		trip.setStatus(tripDto.getStatus());
-		return repo.save(trip);
-	}
+    @Autowired
+    private RouteRepo routeRepo;
 
-	 @Override
-	    public Trip updateTrip(TripDto tripDto) throws TripNotFoundException {
-	        Trip existingTrip = repo.findById(tripDto.getTripId())
-	                .orElseThrow(() -> new TripNotFoundException("Trip not found with id: " + tripDto.getTripId()));
+    @Override
+    public Trip addTrip(TripDto tripDto) {
+        if (tripDto.getDate().isBefore(LocalDate.now())) {
+            throw new RuntimeException("Trip date cannot be in the past");
+        }
 
-	        existingTrip.setDate(tripDto.getDate());
-	        existingTrip.setDepartureTime(tripDto.getDepartureTime());
-	        existingTrip.setFare(tripDto.getFare());
-	        existingTrip.setStatus(tripDto.getStatus());
+        Trip trip = new Trip();
+        trip.setDate(tripDto.getDate());
+        trip.setDepartureTime(tripDto.getDepartureTime());
+        trip.setArrivalTime(tripDto.getArrivalTime());
+        trip.setFare(tripDto.getFare());
+        trip.setStatus(tripDto.getStatus());
 
-	        return repo.save(existingTrip);
-	    }
+        Bus bus = busRepo.findById(tripDto.getBusId())
+                .orElseThrow(() -> new RuntimeException("Bus not found with ID: " + tripDto.getBusId()));
+        trip.setBus(bus);
 
-	    @Override
-	    public void deleteTrip(int tripId) throws TripNotFoundException {
-	        Trip existingTrip = repo.findById(tripId)
-	                .orElseThrow(() -> new TripNotFoundException("Trip not found with id: " + tripId));
-	        repo.delete(existingTrip);
-	    }
+        Route route = routeRepo.findById(tripDto.getRouteId())
+                .orElseThrow(() -> new RuntimeException("Route not found with ID: " + tripDto.getRouteId()));
+        trip.setRoute(route);
 
-	    @Override
-	    public Trip getTripById(int tripId) throws TripNotFoundException {
-	        return repo.findById(tripId)
-	                .orElseThrow(() -> new TripNotFoundException("Trip not found with id: " + tripId));
-	    }
+        return repo.save(trip);
+    }
 
-	    @Override
-	    public List<Trip> getAllTrips() {
-	        return repo.findAll();
-	    }
+    @Override
+    public Trip updateTrip(TripDto tripDto) throws TripNotFoundException {
+        Trip existingTrip = repo.findById(tripDto.getTripId())
+                .orElseThrow(() -> new TripNotFoundException("Trip not found with id: " + tripDto.getTripId()));
 
-	    @Override
-	    public List<Trip> getTripsByRoute(int routeId) {
-	        
-	        return repo.findByRouteRouteId(routeId);
-	    }
-	}
+        existingTrip.setDate(tripDto.getDate());
+        existingTrip.setDepartureTime(tripDto.getDepartureTime());
+        existingTrip.setArrivalTime(tripDto.getArrivalTime());
+        existingTrip.setFare(tripDto.getFare());
+        existingTrip.setStatus(tripDto.getStatus());
 
+        
+        if (tripDto.getBusId() != 0) {
+            Bus bus = busRepo.findById(tripDto.getBusId())
+                    .orElseThrow(() -> new RuntimeException("Bus not found with ID: " + tripDto.getBusId()));
+            existingTrip.setBus(bus);
+        }
 
+       
+        if (tripDto.getRouteId() != 0) {
+            Route route = routeRepo.findById(tripDto.getRouteId())
+                    .orElseThrow(() -> new RuntimeException("Route not found with ID: " + tripDto.getRouteId()));
+            existingTrip.setRoute(route);
+        }
 
+        return repo.save(existingTrip);
+    }
 
+    @Override
+    public void deleteTrip(int tripId) throws TripNotFoundException {
+        Trip existingTrip = repo.findById(tripId)
+                .orElseThrow(() -> new TripNotFoundException("Trip not found with id: " + tripId));
+        repo.delete(existingTrip);
+    }
+
+    @Override
+    public Trip getTripById(int tripId) throws TripNotFoundException {
+        return repo.findById(tripId)
+                .orElseThrow(() -> new TripNotFoundException("Trip not found with id: " + tripId));
+    }
+
+    @Override
+    public List<Trip> getAllTrips() {
+        return repo.findAll();
+    }
+
+    @Override
+    public List<Trip> getTripsByRoute(int routeId) {
+        return repo.findByRouteRouteId(routeId);
+    }
+
+    @Override
+    public List<Trip> getTripsByBusOperator(int operatorId) {
+       
+        List<Bus> buses = busRepo.findByBusOpData_BusOpdataId(operatorId);
+        List<Trip> trips = new ArrayList<>();
+        for (Bus bus : buses) {
+            trips.addAll(repo.findByBusBusId(bus.getBusId()));
+        }
+        return trips;
+    }
+}

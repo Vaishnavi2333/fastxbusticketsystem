@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.hexaware.fastx_busticketsystem.dto.TicketDto;
 import com.hexaware.fastx_busticketsystem.entities.Ticket;
 import com.hexaware.fastx_busticketsystem.exception.TicketNotFoundException;
+import com.hexaware.fastx_busticketsystem.exception.TripNotFoundException;
 import com.hexaware.fastx_busticketsystem.repository.TicketRepo;
 
 

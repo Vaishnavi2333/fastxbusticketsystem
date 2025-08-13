@@ -8,7 +8,7 @@ import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException
 
 public interface IBusOpDataService {
 	
-	 BusOpData addOperatorData(BusOpDataDto dto );
+	 BusOpData addOperatorData(BusOpDataDto dto ) throws BusOperatorNotFoundException;
 	 
 	 BusOpData updateOperatorData(BusOpDataDto dto) throws BusOperatorNotFoundException;
 	    

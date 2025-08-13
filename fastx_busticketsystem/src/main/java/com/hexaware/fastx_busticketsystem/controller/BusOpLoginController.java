@@ -15,7 +15,7 @@ import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException
 import com.hexaware.fastx_busticketsystem.service.IBusOpLoginService;
 
 /*Autor:Vaishnavi Suresh Vaidyanath
-Modified Date:10-Aug-2025
+Modified Date:12-Aug-2025
 Description:Controller Class for Bus operator login*/
 
 import io.swagger.v3.oas.models.media.MediaType;
@@ -45,7 +45,7 @@ public class BusOpLoginController {
 	        return service.existsByUsername(username);
 	    }
 
-	    @GetMapping("/{username}")
+	    @GetMapping("getbyname/{username}")
 	    public BusOpLogin getOperatorByUsername(@PathVariable String username) {
 	        return service.getByUsername(username);
 	    }

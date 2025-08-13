@@ -3,6 +3,7 @@ package com.hexaware.fastx_busticketsystem.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,8 +18,10 @@ import com.hexaware.fastx_busticketsystem.entities.BusOpData;
 import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IBusOpDataService;
 
+import jakarta.validation.Valid;
+
 /*Autor:Vaishnavi Suresh Vaidyanath
-Modified Date:10-Aug-2025
+Modified Date:12-Aug-2025
 Description:Controller Class for Bus Operator Data
 */
 
@@ -31,12 +34,12 @@ public class BusOpDataController {
 	IBusOpDataService service;
 	
 	 @PostMapping("/add")
-	    public BusOpData addOperator(@RequestBody BusOpDataDto dto) {
+	    public BusOpData addOperator(@Valid @RequestBody BusOpDataDto dto) throws BusOperatorNotFoundException {
 	        return service.addOperatorData(dto);
 	    }
 
 	    @PutMapping("/update")
-	    public BusOpData updateOperator(@RequestBody BusOpDataDto dto) throws BusOperatorNotFoundException {
+	    public BusOpData updateOperator(@Valid @RequestBody BusOpDataDto dto) throws BusOperatorNotFoundException {
 	        return service.updateOperatorData(dto);
 	    }
 
@@ -50,6 +53,7 @@ public class BusOpDataController {
 	        return service.getAllOperators();
 	    }
 
+	    @PreAuthorize("hasRole('ADMIN')")
 	    @DeleteMapping("/delete/{operatorId}")
 	    public String deleteOperator(@PathVariable int operatorId) throws BusOperatorNotFoundException {
 	        return service.deleteOperatorData(operatorId);

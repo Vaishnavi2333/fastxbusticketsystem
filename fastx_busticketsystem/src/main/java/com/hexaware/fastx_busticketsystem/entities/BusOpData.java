@@ -5,13 +5,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -19,11 +16,14 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="busop_data")
 public class BusOpData {
-	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "bus_opdata_id")
-	private int busOpdataId;
+    private int busOpdataId;  
+
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "bus_opdata_id") 
+    private BusOpLogin busOpLogin;
+
     private String name;
     private String companyName;
     private String licenceNumber;
@@ -32,16 +32,11 @@ public class BusOpData {
     private String email;
     private String contactNumber;
     private String address;
-    
-    @OneToOne(mappedBy = "busOpData",cascade = CascadeType.ALL)
-    private BusOpLogin busOpLogin;
-    
+
     @OneToMany(mappedBy = "busOpData", cascade = CascadeType.ALL)
     private Set<Bus> buses = new HashSet<>();
     
-    @ManyToOne
-    @JoinColumn(name = "admin_id")
-    private AdminLogin admin;
+    
 
     public BusOpData() {
        
