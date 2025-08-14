@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 
 
 
-/*Autor:Vaishnavi Suresh Vaidyanath
+/*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:08-Aug-2025
 Description:Dto Class for Bus
 */
@@ -38,6 +38,7 @@ public class BusDto {
 	 
      @Pattern(regexp = "Available|Unavailable",message="Status should be either available or unavailable")
      private String status;
+     
      @PositiveOrZero(message = "Fare cannot be negative")
      private double fare;
 

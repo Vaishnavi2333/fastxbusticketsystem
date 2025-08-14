@@ -16,6 +16,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:07-Aug-2025
+Description:Ticket Entity Class*/
 
 @Entity
 @Table(name="ticket")

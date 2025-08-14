@@ -13,6 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 
+
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:13-Aug-2025
+Description:  AppUserDetails Service Class*/
 @Service
 public class AppUserDetailsService implements UserDetailsService {
 
@@ -34,7 +39,7 @@ public class AppUserDetailsService implements UserDetailsService {
 
         BusOpLogin busOp = busOpRepo.findByUsername(username).orElse(null);
         if (busOp != null) {
-            return new AppUserDetails(busOp.getUsername(), busOp.getPassword(), "ROLE_BUSOP");
+            return new AppUserDetails(busOp.getUsername(), busOp.getPassword(), "ROLE_BUS_OPERATOR");
         }
 
         AdminLogin admin = adminRepo.findByUsername(username).orElse(null);

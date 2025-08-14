@@ -3,6 +3,8 @@ package com.hexaware.fastx_busticketsystem.entities;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -12,6 +14,11 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
+
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:07-Aug-2025
+Description:Userdata Entity Class*/
 @Entity
 @Table(name = "user_data")
 public class UserData {
@@ -20,10 +27,12 @@ public class UserData {
     private int userdataId;
 
     @OneToOne
+    @JsonIgnore  
     @MapsId         
     @JoinColumn(name = "user_id")
     private UserLogin userLogin;
 
+    @JsonIgnore  
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Booking> bookings;
     

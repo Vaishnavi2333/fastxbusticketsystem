@@ -11,6 +11,10 @@ import com.hexaware.fastx_busticketsystem.repository.BookingRepo;
 import com.hexaware.fastx_busticketsystem.repository.PaymentRepo;
 
 
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:09-Aug-2025
+Description:  Payment Service Implementation Class*/
+
 @Service
 public class PaymentServiceImpl implements IPaymentService {
 
@@ -30,8 +34,9 @@ public class PaymentServiceImpl implements IPaymentService {
         pay.setPaymentDate(paymentDto.getPaymentDate());
         pay.setPaymentMethod(paymentDto.getPaymentMethod());
         pay.setStatus("Paid");
+       pay.setBooking(paymentDto.getBooking());
 
-       
+       // pay.setPaymentDate(LocalDate.now());
         Payment savedPayment = repo.save(pay);
 
         

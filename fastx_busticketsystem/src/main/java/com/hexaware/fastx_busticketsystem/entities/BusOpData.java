@@ -13,6 +13,12 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
+
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:07-Aug-2025
+Description:Bus Operator Data Entity Class*/
+
 @Entity
 @Table(name="busop_data")
 public class BusOpData {

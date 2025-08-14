@@ -19,9 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hexaware.fastx_busticketsystem.dto.BusDto;
 import com.hexaware.fastx_busticketsystem.entities.Bus;
 import com.hexaware.fastx_busticketsystem.exception.BusNotFoundException;
+import com.hexaware.fastx_busticketsystem.service.IBookingService;
 import com.hexaware.fastx_busticketsystem.service.IBusService;
 /*
-Autor:Vaishnavi Suresh Vaidyanath
+Author:Vaishnavi Suresh Vaidyanath
 Modified Date:12-Aug-2025
 Description:Controller Class for Bus*/
 
@@ -30,22 +31,27 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/bus")
 public class BusController {
-    
+
     @Autowired
     private IBusService service;
 
-    
-    @PreAuthorize("hasRole('BUS_OPERATOR')")
+    @Autowired
+    private IBookingService bookingService;
+
+   
+    @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
     @PostMapping("/add")
-    public Bus addBus(@Valid @RequestBody BusDto busDto) {
+    public BusDto addBus(@Valid @RequestBody BusDto busDto) {
         return service.addBus(busDto);
     }
 
-    @PreAuthorize("hasRole('BUS_OPERATOR')")
+    
+    @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'ADMIN')")
     @PutMapping("/update")
-    public Bus updateBus(@Valid @RequestBody BusDto busDto) throws BusNotFoundException {
+    public BusDto updateBus(@Valid @RequestBody BusDto busDto) throws BusNotFoundException {
         return service.updateBus(busDto);
     }
+
 
     @PreAuthorize("hasRole('BUS_OPERATOR')")
     @DeleteMapping("/delete/{id}")
@@ -55,28 +61,40 @@ public class BusController {
     }
 
    
+    @PreAuthorize("hasRole('USER')")
+    @GetMapping("/available-seats/{tripId}")
+    public List<String> getAvailableSeats(@PathVariable int tripId) {
+        return bookingService.getAvailableSeats(tripId);
+    }
+
+   
+    @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'ADMIN')")
     @GetMapping("/getbusbyid/{id}")
-    public Bus getBusById(@PathVariable("id") int id) throws BusNotFoundException {
+    public BusDto getBusById(@PathVariable("id") int id) throws BusNotFoundException {
         return service.getBusById(id);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+   
+    @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'ADMIN')")
     @GetMapping("/getallbus")
-    public List<Bus> getAllBuses() {
+    public List<BusDto> getAllBuses() {
         return service.getAllBuses();
     }
 
-    @GetMapping("/getbusbyoperator/{operatorId}")
+
     @PreAuthorize("hasRole('BUS_OPERATOR')")
-    public List<Bus> getBusesByOperatorId(@PathVariable("operatorId") int operatorId) {
+    @GetMapping("/getbusbyoperator/{operatorId}")
+    public List<BusDto> getBusesByOperatorId(@PathVariable("operatorId") int operatorId) {
         return service.getBusesByOperatorId(operatorId);
     }
 
+   
     @PreAuthorize("hasRole('USER')")
-    @GetMapping("/search")
-    public List<BusDto> searchBuses(@RequestParam String origin,
-                                    @RequestParam String destination,
-                                    @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
+    @GetMapping("/search/{origin}/{destination}/{date}")
+    public List<BusDto> searchBuses(
+            @PathVariable String origin,
+            @PathVariable String destination,
+            @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return service.searchBusesByOriginDestinationAndDate(origin, destination, date);
     }
 }

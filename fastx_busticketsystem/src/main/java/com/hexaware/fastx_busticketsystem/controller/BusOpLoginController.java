@@ -14,7 +14,7 @@ import com.hexaware.fastx_busticketsystem.exception.BusOperatorAlreadyExistsExce
 import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IBusOpLoginService;
 
-/*Autor:Vaishnavi Suresh Vaidyanath
+/*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:12-Aug-2025
 Description:Controller Class for Bus operator login*/
 

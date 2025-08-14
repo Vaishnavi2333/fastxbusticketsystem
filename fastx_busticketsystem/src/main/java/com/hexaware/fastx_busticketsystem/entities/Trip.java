@@ -19,6 +19,10 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:07-Aug-2025
+Description:Trip Entity Class*/
 @Entity
 @Table(name="trip")
 public class Trip {

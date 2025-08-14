@@ -6,6 +6,11 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:07-Aug-2025
+Description:Booking Entity Class*/
 @Entity
 @Table(name = "booking")
 public class Booking {

@@ -23,6 +23,9 @@ import com.hexaware.fastx_busticketsystem.repository.TripRepo;
 import com.hexaware.fastx_busticketsystem.repository.UserDataRepo;
 
 
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:09-Aug-2025
+Description:  Booking Service Implementation Class*/
 @Service
 public class BookingServiceImpl implements IBookingService {
 
@@ -40,6 +43,15 @@ public class BookingServiceImpl implements IBookingService {
     
     @Autowired
     PaymentRepo paymentRepo;
+    
+    
+    public List<String> getAllSeats(int capacity) {
+        List<String> allSeats = new ArrayList<>();
+        for (int i = 1; i <= capacity; i++) {
+            allSeats.add("S" + i);
+        }
+        return allSeats;
+    }
 
     @Override
     public Booking addBooking(BookingDto bookingDto) {
@@ -101,20 +113,21 @@ public class BookingServiceImpl implements IBookingService {
     }
 
     @Override
-    public List<String> getAvailableSeats(int tripId, LocalDate date) {
+    public List<String> getAvailableSeats(int tripId) {
+        Trip trip = tripRepo.findById(tripId)
+                .orElseThrow(() -> new RuntimeException("Trip not found"));
+
+        int capacity = trip.getBus().getCapacity();  
+        List<String> allSeats = getAllSeats(capacity);
+
         List<String> bookedSeats = bookingRepo.findByTrip_TripId(tripId)
                 .stream()
                 .flatMap(b -> b.getSelectedSeats().stream())
                 .collect(Collectors.toList());
 
-        List<String> allSeats = IntStream.rangeClosed(1, 40)
-                .mapToObj(String::valueOf)
-                .collect(Collectors.toList());
-
-        allSeats.removeAll(bookedSeats);
+        allSeats.removeAll(bookedSeats); 
         return allSeats;
     }
-
     @Override
     public List<Booking> getBookingsByOperator(int operatorId) {
         

@@ -14,7 +14,7 @@ import com.hexaware.fastx_busticketsystem.service.IAdminLoginService;
 
 import lombok.extern.slf4j.Slf4j;
 
-/*Autor:Vaishnavi Suresh Vaidyanath
+/*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:10-Aug-2025
 Description:Controller Class for AdminLogin*/
 

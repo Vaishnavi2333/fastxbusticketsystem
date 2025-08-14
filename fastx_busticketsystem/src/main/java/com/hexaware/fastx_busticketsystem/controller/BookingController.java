@@ -24,7 +24,7 @@ import com.hexaware.fastx_busticketsystem.service.IBookingService;
 import jakarta.validation.Valid;
 
 
-/*Autor:Vaishnavi Suresh Vaidyanath
+/*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:12-Aug-2025
 Description:Controller class for Booking*/
 
@@ -60,18 +60,17 @@ public class BookingController {
     }
 
    
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+    @PreAuthorize("hasAnyRole('USER','ADMIN','BUS_OPERATOR')")
     @GetMapping("/user/{userId}")
     public List<Booking> getBookingsByUser(@PathVariable int userId) {
         return service.getBookingsByUserId(userId);
     }
 
    
+    @PostMapping("/book-seat")
     @PreAuthorize("hasRole('USER')")
-    @GetMapping("/available-seats/{tripId}")
-    public List<String> getAvailableSeats(@PathVariable int tripId,
-                                          @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
-        return service.getAvailableSeats(tripId, date);
+    public Booking bookSeats(@RequestBody BookingDto bookingDto) {
+        return service.addBooking(bookingDto);
     }
 
    

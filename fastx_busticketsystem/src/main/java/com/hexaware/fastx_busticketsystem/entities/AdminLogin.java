@@ -13,6 +13,12 @@ import jakarta.persistence.Table;
 
 import jakarta.persistence.*;
 
+
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:07-Aug-2025
+Description:AdminLogin Entity Class*/
+
 @Entity
 @Table(name = "admin_login")
 public class AdminLogin {

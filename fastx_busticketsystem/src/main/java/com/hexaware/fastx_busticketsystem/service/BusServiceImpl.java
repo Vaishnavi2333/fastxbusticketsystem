@@ -18,113 +18,128 @@ import com.hexaware.fastx_busticketsystem.repository.BusRepo;
 import com.hexaware.fastx_busticketsystem.repository.TripRepo;
 
 
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:09-Aug-2025
+Description:  Bus Service Implementation Class*/
+
 @Service
 public class BusServiceImpl implements IBusService {
-	
-	@Autowired
-	BusRepo repo;
-	
-	@Autowired 
-	TripRepo tripRepo;
 
-	@Override
-	public Bus addBus(BusDto busDto) {
-		Bus bus = new Bus();
-		bus.setBusId(busDto.getBusId());
-		bus.setBusName(busDto.getBusName());
-		bus.setBusNumber(bus.getBusNumber());
-		bus.setBusType(busDto.getBusType());
-		bus.setCapacity(busDto.getCapacity());
-		bus.setStatus(busDto.getStatus());
-		
-		bus.setAmenities(busDto.getAmenities().stream().map(a -> {
-		    BusAmenity amenity = new BusAmenity();
-		    amenity.setAmenityName(a.getAmenityName());
-		    amenity.setBus(bus);
-		    return amenity;
-		}).collect(Collectors.toList()));
-		
-		return repo.save(bus);
-	}
+    @Autowired
+    private BusRepo repo;
 
-	@Override
-	public Bus updateBus(BusDto busDto) throws BusNotFoundException {
-		Bus existingBus = repo.findById(busDto.getBusId())
-	            .orElseThrow(() -> new BusNotFoundException("Bus not found with id: " + busDto.getBusId()));
+    @Autowired
+    private TripRepo tripRepo;
 
-	        existingBus.setBusName(busDto.getBusName());
-	        existingBus.setBusNumber(busDto.getBusNumber());
-	        existingBus.setBusType(busDto.getBusType());
-	        existingBus.setCapacity(busDto.getCapacity());
-	        existingBus.setStatus(busDto.getStatus());
-	        
-	        existingBus.setAmenities(busDto.getAmenities().stream().map(a -> {
-	            BusAmenity amenity = new BusAmenity();
-	            amenity.setAmenityName(a.getAmenityName());
-	            amenity.setBus(existingBus);  
-	            return amenity;
-	        }).collect(Collectors.toList()));
-	       
-	        return repo.save(existingBus);
-	}
+   
+    private BusDto mapToDto(Bus bus, Trip trip) {
+        BusDto dto = new BusDto();
+        dto.setBusId(bus.getBusId());
+        dto.setBusNumber(bus.getBusNumber());
+        dto.setBusName(bus.getBusName());
+        dto.setBusType(bus.getBusType());
+        dto.setCapacity(bus.getCapacity());
+        dto.setStatus(bus.getStatus());
 
-	@Override
-	public void deleteBus(int busId) throws BusNotFoundException {
-		  Bus existingBus = repo.findById(busId)
-		            .orElseThrow(() -> new BusNotFoundException("Bus not found with id: " + busId));
-		        repo.delete(existingBus);
-	}
+        if (trip != null) {
+            dto.setFare(trip.getFare());
+            dto.setDepartureTime(trip.getDepartureTime());
+            dto.setArrivalTime(trip.getArrivalTime());
+        }
 
-	@Override
-	public Bus getBusById(int busId) throws BusNotFoundException {
-		return repo.findById(busId)
-	            .orElseThrow(() -> new BusNotFoundException("Bus not found with id: " + busId));
-	}
+        dto.setAmenities(
+            bus.getAmenities() != null ?
+            bus.getAmenities().stream().map(a -> {
+                BusAmenityDto adto = new BusAmenityDto();
+                adto.setBusamenityId(a.getBusamenityId());
+                adto.setAmenityName(a.getAmenityName());
+                return adto;
+            }).collect(Collectors.toList())
+            : new ArrayList<>()
+        );
 
-	@Override
-	public List<Bus> getAllBuses() {
-		
-		return repo.findAll();
-	}
+        return dto;
+    }
 
-	@Override
-	public List<Bus> getBusesByOperatorId(int operatorId) {
-		return repo.findByBusOpData_BusOpdataId(operatorId);
-		
-		
+    @Override
+    public BusDto addBus(BusDto busDto) {
+        Bus bus = new Bus();
+        bus.setBusId(busDto.getBusId());
+        bus.setBusName(busDto.getBusName());
+        bus.setBusNumber(busDto.getBusNumber());
+        bus.setBusType(busDto.getBusType());
+        bus.setCapacity(busDto.getCapacity());
+        bus.setStatus(busDto.getStatus());
 
-	}
-	@Override
-	public List<BusDto> searchBusesByOriginDestinationAndDate(String origin, String destination, LocalDate date) {
-	    List<Trip> trips = tripRepo.findTripsByOriginDestinationAndDate(origin, destination, date);
+        bus.setAmenities(
+            busDto.getAmenities().stream().map(a -> {
+                BusAmenity amenity = new BusAmenity();
+                amenity.setAmenityName(a.getAmenityName());
+                amenity.setBus(bus);
+                return amenity;
+            }).collect(Collectors.toList())
+        );
 
-	    return trips.stream().map(trip -> {
-	        Bus bus = trip.getBus();
-	        BusDto dto = new BusDto();
-	        dto.setBusId(bus.getBusId());
-	        dto.setBusName(bus.getBusName());
-	        dto.setBusType(bus.getBusType());
-	        dto.setCapacity(bus.getCapacity());
-	        dto.setFare(trip.getFare());
-	        dto.setDepartureTime(trip.getDepartureTime());
-	        dto.setArrivalTime(trip.getArrivalTime());
+        Bus savedBus = repo.save(bus);
+        return mapToDto(savedBus, null);
+    }
 
-	        List<BusAmenity> amenities = bus.getAmenities() != null ? bus.getAmenities() : new ArrayList<>();
-	        dto.setAmenities(
-	            amenities.stream()
-	                .map((BusAmenity a) -> {
-	                    BusAmenityDto amenityDto = new BusAmenityDto();
-	                    amenityDto.setBusamenityId(a.getBusamenityId());
-	                    amenityDto.setAmenityName(a.getAmenityName());
-	                    return amenityDto;
-	                })
-	                .collect(Collectors.toList())
-	        );
+    @Override
+    public BusDto updateBus(BusDto busDto) throws BusNotFoundException {
+        Bus existingBus = repo.findById(busDto.getBusId())
+                .orElseThrow(() -> new BusNotFoundException("Bus not found with id: " + busDto.getBusId()));
 
-	        return dto;
-	    }).collect(Collectors.toList());
-	}
-	
-	
+        existingBus.setBusName(busDto.getBusName());
+        existingBus.setBusNumber(busDto.getBusNumber());
+        existingBus.setBusType(busDto.getBusType());
+        existingBus.setCapacity(busDto.getCapacity());
+        existingBus.setStatus(busDto.getStatus());
 
+        existingBus.setAmenities(
+            busDto.getAmenities().stream().map(a -> {
+                BusAmenity amenity = new BusAmenity();
+                amenity.setAmenityName(a.getAmenityName());
+                amenity.setBus(existingBus);
+                return amenity;
+            }).collect(Collectors.toList())
+        );
+
+        Bus savedBus = repo.save(existingBus);
+        return mapToDto(savedBus, null);
+    }
+
+    @Override
+    public void deleteBus(int busId) throws BusNotFoundException {
+        Bus existingBus = repo.findById(busId)
+                .orElseThrow(() -> new BusNotFoundException("Bus not found with id: " + busId));
+        repo.delete(existingBus);
+    }
+
+    @Override
+    public BusDto getBusById(int busId) throws BusNotFoundException {
+        Bus bus = repo.findById(busId)
+                .orElseThrow(() -> new BusNotFoundException("Bus not found with id: " + busId));
+        return mapToDto(bus, null);
+    }
+
+    @Override
+    public List<BusDto> getAllBuses() {
+        return repo.findAll().stream()
+                .map(bus -> mapToDto(bus, null))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<BusDto> getBusesByOperatorId(int operatorId) {
+        return repo.findByBusOpData_BusOpdataId(operatorId).stream()
+                .map(bus -> mapToDto(bus, null))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<BusDto> searchBusesByOriginDestinationAndDate(String origin, String destination, LocalDate date) {
+        List<Trip> trips = tripRepo.findTripsByOriginDestinationAndDate(origin, destination, date);
+
+        return trips.stream().map(trip -> mapToDto(trip.getBus(), trip)).collect(Collectors.toList());
+    }
 }

@@ -2,6 +2,8 @@ package com.hexaware.fastx_busticketsystem.dto;
 
 import java.time.LocalDate;
 
+import com.hexaware.fastx_busticketsystem.entities.Booking;
+
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
@@ -11,7 +13,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /*
-Autor:Vaishnavi Suresh Vaidyanath
+Author:Vaishnavi Suresh Vaidyanath
 Modified Date:08-Aug-2025
 Description:Dto Class for Payment
 */
@@ -37,5 +39,7 @@ public class PaymentDto {
 	 
 	 @Pattern(regexp = "Paid|Pending")
 	 private String status;
+	 
+	 private Booking booking;
 
 }

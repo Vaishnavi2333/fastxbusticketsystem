@@ -2,6 +2,10 @@ package com.hexaware.fastx_busticketsystem.entities;
 
 import jakarta.persistence.*;
 
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:07-Aug-2025
+Description:User login Entity Class*/
 @Entity
 @Table(name = "user_login")
 public class UserLogin {

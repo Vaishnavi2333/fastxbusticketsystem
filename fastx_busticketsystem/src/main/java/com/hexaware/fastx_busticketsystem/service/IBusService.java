@@ -8,22 +8,25 @@ import com.hexaware.fastx_busticketsystem.entities.Bus;
 import com.hexaware.fastx_busticketsystem.exception.BusNotFoundException;
 
 public interface IBusService {
-	
-	public Bus addBus(BusDto busDto);
-	
-	public List<BusDto> searchBusesByOriginDestinationAndDate(String origin, String destination, LocalDate date);
-	
-    public Bus updateBus( BusDto busDto) throws BusNotFoundException;
-    
-    public void deleteBus(int busId) throws BusNotFoundException;
-    
-    public Bus getBusById(int busId) throws BusNotFoundException;
-    
-    public List<Bus> getAllBuses();
-    
-    public List<Bus> getBusesByOperatorId(int operatorId);
 
-	
     
+    BusDto addBus(BusDto busDto);
 
+    
+    BusDto updateBus(BusDto busDto) throws BusNotFoundException;
+
+   
+    void deleteBus(int busId) throws BusNotFoundException;
+
+   
+    BusDto getBusById(int busId) throws BusNotFoundException;
+
+   
+    List<BusDto> getAllBuses();
+
+  
+    List<BusDto> getBusesByOperatorId(int operatorId);
+
+   
+    List<BusDto> searchBusesByOriginDestinationAndDate(String origin, String destination, LocalDate date);
 }

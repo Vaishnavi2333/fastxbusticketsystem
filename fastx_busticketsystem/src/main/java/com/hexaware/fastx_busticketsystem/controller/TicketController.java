@@ -17,10 +17,11 @@ import com.hexaware.fastx_busticketsystem.dto.TicketDto;
 import com.hexaware.fastx_busticketsystem.entities.Ticket;
 import com.hexaware.fastx_busticketsystem.exception.TicketNotFoundException;
 import com.hexaware.fastx_busticketsystem.exception.TripNotFoundException;
-import com.hexaware.fastx_busticketsystem.repository.TicketRepo;
 import com.hexaware.fastx_busticketsystem.service.ITicketService;
 
-/*Autor:Vaishnavi Suresh Vaidyanath
+import jakarta.validation.Valid;
+
+/*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:12-Aug-2025
 Description:Controller Class for Ticket*/
 
@@ -33,13 +34,13 @@ public class TicketController {
 	
 	@PreAuthorize("hasRole('USER')")
 	@PostMapping("/generate")
-    public Ticket generateTicket(@RequestBody TicketDto ticketDto) {
+    public Ticket generateTicket(@Valid @RequestBody TicketDto ticketDto) {
         return service.generateTicket(ticketDto);
     }
 
 	@PreAuthorize("hasRole('USER')")
     @PutMapping("/update")
-    public Ticket updateTicket(@RequestBody TicketDto ticketDto) throws TicketNotFoundException {
+    public Ticket updateTicket(@Valid @RequestBody TicketDto ticketDto) throws TicketNotFoundException {
         return service.updateTicket(ticketDto);
     }
 

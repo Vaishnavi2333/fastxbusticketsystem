@@ -6,6 +6,14 @@ import java.util.List;
 
 import jakarta.persistence.*;
 
+
+
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:07-Aug-2025
+Description:Bus Entity Class*/
+
+
 @Entity
 @Table(name="bus")
 public class Bus {

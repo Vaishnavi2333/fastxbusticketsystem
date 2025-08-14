@@ -2,6 +2,14 @@ package com.hexaware.fastx_busticketsystem.entities;
 
 import jakarta.persistence.*;
 
+
+
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:07-Aug-2025
+Description:Busamenity Entity Class*/
+
+
 @Entity
 @Table(name = "bus_amenity")
 public class BusAmenity {

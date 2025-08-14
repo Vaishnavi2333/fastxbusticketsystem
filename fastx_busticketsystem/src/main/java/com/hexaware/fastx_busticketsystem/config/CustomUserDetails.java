@@ -12,6 +12,11 @@ import com.hexaware.fastx_busticketsystem.entities.UserLogin;
 import java.util.Collection;
 import java.util.Collections;
 
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:13-Aug-2025
+Description:CustomUser details Class*/
+
 public class CustomUserDetails implements UserDetails {
 
     private String username;

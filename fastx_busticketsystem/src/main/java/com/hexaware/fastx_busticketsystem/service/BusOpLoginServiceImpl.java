@@ -16,6 +16,10 @@ import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException
 import com.hexaware.fastx_busticketsystem.repository.BusOpDataRepo;
 import com.hexaware.fastx_busticketsystem.repository.BusOpLoginRepo;
 
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:09-Aug-2025
+Description:  Bus Operator Login Service Implementation Class*/
 	
 	@Service
 	public class BusOpLoginServiceImpl implements IBusOpLoginService {

@@ -11,6 +11,11 @@ import com.hexaware.fastx_busticketsystem.exception.UserAlreadyExistsException;
 import com.hexaware.fastx_busticketsystem.exception.UserNotFoundException;
 import com.hexaware.fastx_busticketsystem.repository.UserLoginRepo;
 
+
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:09-Aug-2025
+Description:  User Login Service Implementation Class*/
 @Service
 public class UserLoginServiceImpl implements IUserLoginService {
 

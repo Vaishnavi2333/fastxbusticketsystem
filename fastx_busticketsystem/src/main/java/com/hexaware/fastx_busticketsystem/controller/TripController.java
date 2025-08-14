@@ -18,7 +18,9 @@ import com.hexaware.fastx_busticketsystem.entities.Trip;
 import com.hexaware.fastx_busticketsystem.exception.TripNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.ITripService;
 
-/*Autor:Vaishnavi Suresh Vaidyanath
+import jakarta.validation.Valid;
+
+/*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:12-Aug-2025
 Description:Controller Class for Trip*/
 
@@ -31,21 +33,21 @@ public class TripController {
 
     
     @PostMapping("/addtrip")
-    @PreAuthorize("hasRole('BUSOPERATOR')")
-    public Trip addTrip(@RequestBody TripDto tripDto) {
+    @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
+    public Trip addTrip(@Valid @RequestBody TripDto tripDto) {
         return service.addTrip(tripDto);
     }
 
    
     @PutMapping("/updatetrip")
-    @PreAuthorize("hasRole('BUSOPERATOR')")
-    public Trip updateTrip(@RequestBody TripDto tripDto) throws TripNotFoundException {
+    @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
+    public Trip updateTrip(@Valid @RequestBody TripDto tripDto) throws TripNotFoundException {
         return service.updateTrip(tripDto);
     }
 
     
     @DeleteMapping("/delete/{tripId}")
-    @PreAuthorize("hasRole('BUSOPERATOR')")
+    @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
     public String deleteTrip(@PathVariable int tripId) throws TripNotFoundException {
         service.deleteTrip(tripId);
         return "Trip with ID " + tripId + " deleted successfully.";
@@ -53,13 +55,14 @@ public class TripController {
 
    
     @GetMapping("/getbyid/{tripId}")
+    @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
     public Trip getTripById(@PathVariable int tripId) throws TripNotFoundException {
         return service.getTripById(tripId);
     }
 
    
     @GetMapping("/getalltrips")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR','USER')")
     public List<Trip> getAllTrips() {
         return service.getAllTrips();
     }

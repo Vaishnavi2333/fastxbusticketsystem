@@ -18,7 +18,9 @@ import com.hexaware.fastx_busticketsystem.entities.Route;
 import com.hexaware.fastx_busticketsystem.exception.RouteNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IRouteService;
 
-/*Autor:Vaishnavi Suresh Vaidyanath
+import jakarta.validation.Valid;
+
+/*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:12-Aug-2025
 Description:Controller Class for Route*/
 
@@ -31,13 +33,13 @@ public class RouteController {
 	
 	@PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
 	@PostMapping("/add")
-    public Route addRoute(@RequestBody RouteDto routeDto) {
+    public Route addRoute(@Valid @RequestBody RouteDto routeDto) {
         return service.addRoute(routeDto);
     }
 
 	@PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
     @PutMapping("/update")
-    public Route updateRoute(@RequestBody RouteDto routeDto) throws RouteNotFoundException {
+    public Route updateRoute(@Valid @RequestBody RouteDto routeDto) throws RouteNotFoundException {
         return service.updateRoute(routeDto);
     }
 

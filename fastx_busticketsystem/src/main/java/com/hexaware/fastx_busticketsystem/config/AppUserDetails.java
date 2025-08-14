@@ -8,6 +8,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:13-Aug-2025
+Description:AppUser details class*/
+
+
 public class AppUserDetails implements UserDetails {
 
     private String username;

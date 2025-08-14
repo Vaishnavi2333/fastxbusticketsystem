@@ -16,6 +16,11 @@ import com.hexaware.fastx_busticketsystem.repository.AdminLoginRepo;
 import com.hexaware.fastx_busticketsystem.repository.BusOpLoginRepo;
 import com.hexaware.fastx_busticketsystem.repository.UserLoginRepo;
 
+
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:13-Aug-2025
+Description:  Custom User Details Implementation Class*/
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 

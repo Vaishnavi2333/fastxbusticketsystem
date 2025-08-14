@@ -20,7 +20,7 @@ import com.hexaware.fastx_busticketsystem.service.IUserDataService;
 
 import jakarta.validation.Valid;
 
-/*Autor:Vaishnavi Suresh Vaidyanath
+/*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:12-Aug-2025
 Description:Controller Class for User data*/
 

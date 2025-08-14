@@ -14,6 +14,9 @@ import com.hexaware.fastx_busticketsystem.repository.BusAmenityRepo;
 import com.hexaware.fastx_busticketsystem.repository.BusRepo;
 
 
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:09-Aug-2025
+Description:  Bus Amenity Service Implementation Class*/
 @Service
 public class BusAmenityServiceImpl implements IBusAmenityService {
 	

@@ -13,17 +13,29 @@ import com.hexaware.fastx_busticketsystem.entities.UserLogin;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @SpringBootTest
-class UserLoginServiceImplTest {
-	
-	@Autowired
-	IUserLoginService service;
 
-	@Disabled
-	@Test
-	void testRegister() throws Exception {
+class UserLoginServiceImplTest {
+
+    @Autowired
+    IUserLoginService service;
+
+    @Test
+    void testRegister() throws Exception {
+        log.info("Starting testRegister...");
+
+       
         UserLoginDto user = new UserLoginDto();
+        user.setUsername("Rani");
+        user.setPassword("rani12345");
+       
+
+        log.info("Registering user with username", user.getUsername());
+
         boolean result = service.register(user);
-        assertTrue(result);
+
+        log.info("Registration result", result);
+
+        assertTrue(result, "User registration should return true");
     }
 
 	@Disabled
@@ -37,4 +49,4 @@ class UserLoginServiceImplTest {
 		
 	}
 
-}
+	}

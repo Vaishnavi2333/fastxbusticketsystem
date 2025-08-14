@@ -24,8 +24,8 @@ class AdminLoginServiceImplTest {
 	@Test
 	void testRegisterAdmin() throws AdminAlreadyExistsException {
 		AdminLoginDto adminDto = new AdminLoginDto();
-	    adminDto.setUsername("adminUser1");
-	    adminDto.setPassword("adminPass1234");
+	    adminDto.setUsername("TomJerry");
+	    adminDto.setPassword("tomjerry1234");
 	    
 	    boolean registered = service.registerAdmin(adminDto);
 	    assertTrue(registered);

@@ -24,7 +24,7 @@ public interface IBookingService {
     public List<Booking> getBookingsByUserId(int userId);
 
     
-    public List<String> getAvailableSeats(int tripId, LocalDate date);
+    public List<String> getAvailableSeats(int tripId);
     
     List<Booking> getBookingsByOperator(int operatorId);
     void refundBookingByOperator(int bookingId);

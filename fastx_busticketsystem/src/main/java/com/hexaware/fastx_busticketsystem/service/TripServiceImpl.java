@@ -18,6 +18,11 @@ import com.hexaware.fastx_busticketsystem.repository.BusRepo;
 import com.hexaware.fastx_busticketsystem.repository.RouteRepo;
 import com.hexaware.fastx_busticketsystem.repository.TripRepo;
 
+
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:09-Aug-2025
+Description:  Trip Service Implementation Class*/
 @Service
 public class TripServiceImpl implements ITripService {
 
@@ -37,6 +42,7 @@ public class TripServiceImpl implements ITripService {
         }
 
         Trip trip = new Trip();
+        trip.setTripId(tripDto.getTripId());
         trip.setDate(tripDto.getDate());
         trip.setDepartureTime(tripDto.getDepartureTime());
         trip.setArrivalTime(tripDto.getArrivalTime());
