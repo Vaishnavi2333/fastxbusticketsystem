@@ -5,6 +5,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,16 +16,13 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-import jakarta.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-
 
 /*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:07-Aug-2025
 Description:Trip Entity Class*/
+
+
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 @Entity
 @Table(name="trip")
 public class Trip {
@@ -39,6 +39,7 @@ public class Trip {
     
     @ManyToOne
 	@JoinColumn(name = "route_id")
+    @JsonIgnoreProperties({"trips", "buses"})
 	private Route route;
     
     @ManyToOne

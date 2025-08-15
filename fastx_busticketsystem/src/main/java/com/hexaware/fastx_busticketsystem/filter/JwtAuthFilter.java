@@ -17,6 +17,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:13-Aug-2025
+Description: JWTAuthFilter class for jwt implementation*/
+
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
 

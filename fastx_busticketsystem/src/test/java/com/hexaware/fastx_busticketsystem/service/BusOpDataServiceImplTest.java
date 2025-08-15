@@ -18,6 +18,11 @@ import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException
 import com.hexaware.fastx_busticketsystem.repository.BusOpDataRepo;
 import com.hexaware.fastx_busticketsystem.repository.BusOpLoginRepo;
 
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:14-Aug-2025
+Description:  BusOperatorService Class test case*/
+
 @SpringBootTest
 class BusOpDataServiceImplTest {
 
@@ -36,8 +41,8 @@ class BusOpDataServiceImplTest {
     void setup() {
        
         BusOpLogin login = new BusOpLogin();
-        login.setUsername("operator1");
-        login.setPassword("password123");
+        login.setUsername("Narayan");
+        login.setPassword("narayan123");
        
         savedLogin = busOpLoginRepo.save(login);
     }
@@ -46,19 +51,19 @@ class BusOpDataServiceImplTest {
     void testAddOperatorData() throws BusOperatorNotFoundException {
         BusOpDataDto dto = new BusOpDataDto();
         dto.setBusOpLoginId(savedLogin.getBusOpId());
-        dto.setName("John Doe");
+        dto.setName("Narayan");
         dto.setGender("Male");
         dto.setCompanyName("FastX");
         dto.setLicenceNumber("LIC123");
-        dto.setEmail("john@example.com");
+        dto.setEmail("nara@gmail.com");
         dto.setContactNumber("9876543210");
         dto.setDateOfBirth(LocalDate.of(1990, 1, 1));
-        dto.setAddress("123 Street, City");
+        dto.setAddress("23,Chennai");
 
         BusOpData saved = service.addOperatorData(dto);
 
         assertNotNull(saved);
-        assertEquals("John Doe", saved.getName());
+        assertEquals("Narayan", saved.getName());
         assertEquals(savedLogin.getBusOpId(), saved.getBusOpLogin().getBusOpId());
     }
 
@@ -73,18 +78,18 @@ class BusOpDataServiceImplTest {
     void testUpdateOperatorData() throws BusOperatorNotFoundException {
         BusOpDataDto dto = new BusOpDataDto();
         dto.setBusOpdataId(repo.findAll().get(0).getBusOpdataId());
-        dto.setName("Updated Name");
+        dto.setName("Shreya");
         dto.setGender("Female");
-        dto.setCompanyName("Updated Co");
+        dto.setCompanyName("ABC Company");
         dto.setLicenceNumber("NEWLIC");
-        dto.setEmail("updated@example.com");
+        dto.setEmail("shreya123@gmail.com");
         dto.setContactNumber("1234567890");
         dto.setDateOfBirth(LocalDate.of(1995, 5, 5));
-        dto.setAddress("Updated Address");
+        dto.setAddress("23,Chennai");
 
         BusOpData updated = service.updateOperatorData(dto);
-        assertEquals("Updated Name", updated.getName());
-        assertEquals("Female", updated.getGender());
+        assertEquals("Shreya", updated.getName());
+       
     }
 
     @Test

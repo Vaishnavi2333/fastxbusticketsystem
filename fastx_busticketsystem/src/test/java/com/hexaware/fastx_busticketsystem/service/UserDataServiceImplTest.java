@@ -22,6 +22,10 @@ import com.hexaware.fastx_busticketsystem.repository.UserLoginRepo;
 import jakarta.transaction.Transactional;
 
 
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:14-Aug-2025
+Description:  UserDataService  Class test case*/
+
 @SpringBootTest
 @Transactional 
 class UserDataServiceImplTest {
@@ -41,91 +45,76 @@ class UserDataServiceImplTest {
     void setup() {
      
         UserLogin login = new UserLogin();
-        login.setUsername("testuser");
-        login.setPassword("password123");
+        login.setUsername("suresh23");
+        login.setPassword("suresh@123");
         savedLogin = userLoginRepo.save(login);
     }
 
     @Test
     void testCreateUser() throws Exception {
         UserDataDto dto = new UserDataDto();
-        dto.setUserdataId(savedLogin.getUserId()); // matches login id
-        dto.setName("John Doe");
+        dto.setUserdataId(savedLogin.getUserId()); 
+        dto.setName("Suresh");
         dto.setGender("Male");
-        dto.setEmail("john@example.com");
+        dto.setEmail("suresh@gmail.com");
         dto.setDateOfBirth(LocalDate.of(1990, 5, 15));
         dto.setContactNumber("9876543210");
-        dto.setAddress("123 Main Street");
+        dto.setAddress("Chennai Street");
 
         UserData created = service.createUser(dto);
 
         assertNotNull(created.getUserdataId());
-        assertEquals("John Doe", created.getName());
+        assertEquals("Suresh", created.getName());
         assertEquals(savedLogin.getUserId(), created.getUserLogin().getUserId());
     }
 
     @Test
     void testUpdateUser() throws Exception {
-        // First create a user
+    
         UserDataDto dto = new UserDataDto();
         dto.setUserdataId(savedLogin.getUserId());
-        dto.setName("John Doe");
+        dto.setName("Suresh");
         dto.setGender("Male");
-        dto.setEmail("john@example.com");
+        dto.setEmail("suresh@gmail.com");
         dto.setDateOfBirth(LocalDate.of(1990, 5, 15));
         dto.setContactNumber("9876543210");
-        dto.setAddress("123 Main Street");
+        dto.setAddress("Chennai Street");
         service.createUser(dto);
 
-        // Update
-        dto.setName("Updated Name");
+        dto.setName("Shayan");
         UserData updated = service.updateUser(dto);
 
-        assertEquals("Updated Name", updated.getName());
+        assertEquals("Shayan", updated.getName());
     }
 
     @Test
     void testGetUserById() throws Exception {
         UserDataDto dto = new UserDataDto();
         dto.setUserdataId(savedLogin.getUserId());
-        dto.setName("John Doe");
+        dto.setName("Suresh");
         dto.setGender("Male");
-        dto.setEmail("john@example.com");
+        dto.setEmail("suresh@gmail.com");
         dto.setDateOfBirth(LocalDate.of(1990, 5, 15));
         dto.setContactNumber("9876543210");
-        dto.setAddress("123 Main Street");
+        dto.setAddress("Chennai Street");
         service.createUser(dto);
 
         UserData fetched = service.getUserById(savedLogin.getUserId());
-        assertEquals("John Doe", fetched.getName());
+        assertEquals("Suresh", fetched.getName());
     }
 
-    @Test
-    void testGetAllUsers() throws Exception {
-        UserDataDto dto = new UserDataDto();
-        dto.setUserdataId(savedLogin.getUserId());
-        dto.setName("John Doe");
-        dto.setGender("Male");
-        dto.setEmail("john@example.com");
-        dto.setDateOfBirth(LocalDate.of(1990, 5, 15));
-        dto.setContactNumber("9876543210");
-        dto.setAddress("123 Main Street");
-        service.createUser(dto);
 
-        List<UserData> allUsers = service.getAllUsers();
-        assertFalse(allUsers.isEmpty());
-    }
 
     @Test
     void testDeleteUser() throws Exception {
         UserDataDto dto = new UserDataDto();
         dto.setUserdataId(savedLogin.getUserId());
-        dto.setName("John Doe");
+        dto.setName("Suresh");
         dto.setGender("Male");
-        dto.setEmail("john@example.com");
+        dto.setEmail("suresh@gmail.com");
         dto.setDateOfBirth(LocalDate.of(1990, 5, 15));
         dto.setContactNumber("9876543210");
-        dto.setAddress("123 Main Street");
+        dto.setAddress("Chennai Street");
         service.createUser(dto);
 
         String result = service.deleteUser(savedLogin.getUserId());

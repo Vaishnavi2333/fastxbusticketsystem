@@ -1,10 +1,18 @@
 package com.hexaware.fastx_busticketsystem.exception;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:09-Aug-2025
+Description: Global Exception Handler for all exceptions*/
 
 
 @RestControllerAdvice
@@ -44,6 +52,11 @@ public class GlobalExceptionHandler {
 	    public ResponseEntity<String> handleRouteNotFound(RouteNotFoundException ex) {
 	        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
 	    }
+	    
+	    @ExceptionHandler(SameOriginDestinationException.class)
+	    public ResponseEntity<String> handleSameOriginDestinationException(SameOriginDestinationException ex) {
+	        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+	    }
 
 	    @ExceptionHandler(TicketNotFoundException.class)
 	    public ResponseEntity<String> handleTicketNotFound(TicketNotFoundException ex) {
@@ -70,6 +83,13 @@ public class GlobalExceptionHandler {
 	    @ExceptionHandler(UserNotFoundException.class)
 	    public ResponseEntity<String> handleUserNotFound(UserNotFoundException ex) {
 	        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+	    }
+	    
+	    @ExceptionHandler(IllegalArgumentException.class)
+	    public ResponseEntity<Map<String, String>> handleIllegalArgument(IllegalArgumentException ex) {
+	        Map<String, String> error = new HashMap<>();
+	        error.put("error", ex.getMessage());
+	        return ResponseEntity.badRequest().body(error);
 	    }
 
 }

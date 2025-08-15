@@ -8,9 +8,6 @@ import com.hexaware.fastx_busticketsystem.entities.UserLogin;
 
 public interface UserLoginRepo extends JpaRepository<UserLogin,Integer>{
 	
-	
-   
-	
 	public Optional<UserLogin> findByUsername(String username);
 	 public   boolean existsByUsername(String username);
 

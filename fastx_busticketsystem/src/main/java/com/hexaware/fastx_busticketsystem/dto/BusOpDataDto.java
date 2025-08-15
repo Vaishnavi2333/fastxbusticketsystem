@@ -2,6 +2,8 @@ package com.hexaware.fastx_busticketsystem.dto;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -30,16 +32,16 @@ public class BusOpDataDto {
 	
 	 private Integer busOpLoginId;
 	
-	@NotNull
+	@NotNull(message="Name cannot be null")
     private String name;
 	
-	@NotNull
-	@NotEmpty
+	@NotNull(message="Company Name cannot be null")
+	@NotEmpty(message="Commpany name cannot be empty")
     private String companyName;
 	
 	@Pattern(regexp = "[A-Z]{2}[0-9]{2}\s[0-9]{7}")
-	@NotNull
-	@NotEmpty
+	@NotNull(message="Licence number cannot be null")
+	@NotEmpty(message="Licence number cannot be empty")
     private String licenceNumber;
 	
 	@Pattern(regexp="Male|Female|Other")
@@ -48,13 +50,13 @@ public class BusOpDataDto {
 	@Past(message = "Date of birth must be in the past")
     private LocalDate dateOfBirth;
 	
-	@Email
+	@Email(message="Enter the correct email address")
     private String email;
 	
 	@Pattern(regexp = "[1-9][0-9]{9}")
     private String contactNumber;
 	
-	@NotBlank
+	@NotBlank(message="Address cannot be blank")
 	@Size(min = 5, max = 255, message = "Address must be between 5 and 255 characters")
     private String address;
 	

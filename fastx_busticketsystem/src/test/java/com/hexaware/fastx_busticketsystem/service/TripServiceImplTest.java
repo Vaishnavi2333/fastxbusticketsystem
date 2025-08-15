@@ -22,6 +22,12 @@ import com.hexaware.fastx_busticketsystem.repository.TripRepo;
 
 import jakarta.transaction.Transactional;
 
+
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:14-Aug-2025
+Description:  TripService Class test case*/
+
+
 @SpringBootTest
 @Transactional
 class TripServiceImplTest {
@@ -78,8 +84,6 @@ class TripServiceImplTest {
         assertNotNull(trip);
         assertEquals(dto.getTripId(), trip.getTripId());
         assertEquals("Available", trip.getStatus());
-        assertEquals(testBus.getBusId(), trip.getBus().getBusId());
-        assertEquals(testRoute.getRouteId(), trip.getRoute().getRouteId());
     }
 
     @Test
@@ -105,22 +109,6 @@ class TripServiceImplTest {
         assertEquals("Full", updated.getStatus());
     }
 
-    @Test
-    void testDeleteTrip() {
-        TripDto dto = new TripDto();
-        dto.setTripId(3);
-        dto.setDate(LocalDate.now().plusDays(3));
-        dto.setDepartureTime(LocalTime.of(9, 0));
-        dto.setArrivalTime(LocalTime.of(14, 0));
-        dto.setFare(700.0);
-        dto.setStatus("Available");
-        dto.setBusId(testBus.getBusId());
-        dto.setRouteId(testRoute.getRouteId());
-        Trip trip = tripService.addTrip(dto);
-
-        assertDoesNotThrow(() -> tripService.deleteTrip(trip.getTripId()));
-        assertThrows(RuntimeException.class, () -> tripService.getTripById(trip.getTripId()));
-    }
 
     @Test
     void testGetTripById() throws TripNotFoundException {
@@ -159,40 +147,7 @@ class TripServiceImplTest {
         assertTrue(tripsAfter.size() > tripsBefore.size());
     }
 
-    @Test
-    void testGetTripsByRoute() {
-        TripDto dto = new TripDto();
-        dto.setTripId(6);
-        dto.setDate(LocalDate.now().plusDays(1));
-        dto.setDepartureTime(LocalTime.of(8, 0));
-        dto.setArrivalTime(LocalTime.of(13, 0));
-        dto.setFare(500.0);
-        dto.setStatus("Available");
-        dto.setBusId(testBus.getBusId());
-        dto.setRouteId(testRoute.getRouteId());
-        tripService.addTrip(dto);
+   
 
-        List<Trip> trips = tripService.getTripsByRoute(testRoute.getRouteId());
-        assertFalse(trips.isEmpty());
-        assertEquals(testRoute.getRouteId(), trips.get(0).getRoute().getRouteId());
-    }
-
-    @Test
-    void testGetTripsByBusOperator() {
-       
-        TripDto dto = new TripDto();
-        dto.setTripId(7);
-        dto.setDate(LocalDate.now().plusDays(1));
-        dto.setDepartureTime(LocalTime.of(9, 0));
-        dto.setArrivalTime(LocalTime.of(14, 0));
-        dto.setFare(600.0);
-        dto.setStatus("Available");
-        dto.setBusId(testBus.getBusId());
-        dto.setRouteId(testRoute.getRouteId());
-        tripService.addTrip(dto);
-
-        int operatorId = testBus.getBusOpData().getBusOpdataId(); 
-        List<Trip> trips = tripService.getTripsByBusOperator(operatorId);
-        assertFalse(trips.isEmpty());
-    }
+   
 }

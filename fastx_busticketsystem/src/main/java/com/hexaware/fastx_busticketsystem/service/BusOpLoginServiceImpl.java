@@ -75,10 +75,7 @@ Description:  Bus Operator Login Service Implementation Class*/
 	            throw new BusOperatorNotFoundException("Invalid password");
 	        }
 
-	        UserDetails userDetails = User.withUsername(busOp.getUsername())
-	                                      .password(busOp.getPassword())
-	                                      .roles("BUSOPERATOR")
-	                                      .build();
+	        UserDetails userDetails = User.withUsername(busOp.getUsername()).password(busOp.getPassword()).roles("BUS_OPERATOR").build();
 
 	        return jwtService.generateToken(userDetails);
 	    }

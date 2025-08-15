@@ -23,15 +23,13 @@ Description:Dto Class for Payment
 public class PaymentDto {
 
 
-    private int bookingId;
+     private int bookingId;
 	
-	
-	
-	@NotNull(message = "Amount is required")
-	@DecimalMin(value = "0.01", message = "Amount must be greater than 0")
+	 @NotNull(message = "Amount is required")
+	 @DecimalMin(value = "0.01", message = "Amount must be greater than 0")
 	 private double amount;
 	 
-	 @FutureOrPresent
+	 @FutureOrPresent(message="Payment Date cannot be past")
 	 private LocalDate paymentDate;
 	 
 	 @Pattern(regexp = "Cash|Card|UPI|NetBanking",message = "Payment method must be Cash, Card, UPI, or NetBanking")

@@ -13,13 +13,8 @@ public interface TripRepo extends JpaRepository<Trip,Integer> {
 
 	List<Trip> findByRouteRouteId(int routeId);
 	
-	@Query("SELECT t FROM Trip t " +
-	           "WHERE t.route.origin = :origin AND t.route.destination = :destination " +
-	           "AND t.date = :date")
-	    List<Trip> findTripsByOriginDestinationAndDate(
-	            @Param("origin") String origin,
-	            @Param("destination") String destination,
-	            @Param("date") LocalDate date);
+	@Query("SELECT t FROM Trip t " + "WHERE t.route.origin = :origin AND t.route.destination = :destination " + "AND t.date = :date")
+	    List<Trip> findTripsByOriginDestinationAndDate( @Param("origin") String origin, @Param("destination") String destination, @Param("date") LocalDate date);
 	
 	List<Trip> findByBus_BusOpData_BusOpdataId(int operatorId);
 	

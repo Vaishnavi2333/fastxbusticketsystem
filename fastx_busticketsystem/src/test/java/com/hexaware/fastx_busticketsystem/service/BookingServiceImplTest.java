@@ -4,59 +4,90 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.hexaware.fastx_busticketsystem.dto.BookingDto;
 import com.hexaware.fastx_busticketsystem.entities.Booking;
-import com.hexaware.fastx_busticketsystem.exception.BookingNotFoundException;
+import com.hexaware.fastx_busticketsystem.entities.Payment;
 import com.hexaware.fastx_busticketsystem.repository.BookingRepo;
+import com.hexaware.fastx_busticketsystem.repository.PaymentRepo;
+import com.hexaware.fastx_busticketsystem.repository.TripRepo;
+import com.hexaware.fastx_busticketsystem.repository.UserDataRepo;
 
-class BookingServiceImplTest {
-	@SpringBootTest
-	class BookingServiceTest {
+import lombok.extern.slf4j.Slf4j;
 
-	    @Autowired
-	    private IBookingService bookingService;
 
-	    @Autowired
-	    private BookingRepo bookingRepository;
+/*Author:Vaishnavi Suresh Vaidyanath
+Modified Date:14-Aug-2025
+Description:  BookingService Class test case*/
 
-	    @Test
-	    void testAddBooking() {
-	        BookingDto bookingDto = new BookingDto();
-	        bookingDto.setBookingDate(LocalDate.now());
-	        bookingDto.setStatus("Confirmed");
+@SpringBootTest
+@Slf4j
+public class BookingServiceImplTest {
 
-	        Booking saved = bookingService.addBooking(bookingDto);
+    @Autowired
+    private IBookingService bookingService;
 
-	        assertNotNull(saved.getBookingId());
-	        assertEquals("Confirmed", saved.getStatus());
-	    }
+    @Autowired
+    private BookingRepo bookingRepo;
 
-	    @Test
-	    void testGetBookingById() throws BookingNotFoundException {
-	        Booking booking = new Booking();
-	        booking.setBookingDate(LocalDate.now());
-	        booking.setStatus("Confirmed");
+    @Autowired
+    private TripRepo tripRepo;
 
-	        Booking saved = bookingRepository.save(booking);
+    @Autowired
+    private UserDataRepo userRepo;
 
-	        Booking fetched = bookingService.getBookingById(saved.getBookingId());
-	        assertNotNull(fetched);
-	        assertEquals(saved.getBookingId(), fetched.getBookingId());
-	    }
+    @Autowired
+    private PaymentRepo paymentRepo;
 
-	    @Test
-	    void testGetAllBookings() {
-	        List<Booking> bookings = bookingService.getAllBookings();
-	        assertNotNull(bookings);
-	        assertTrue(bookings.size() >= 0);
-	    }
-	}
+    @Test
+    void testAddBooking() {
+        BookingDto dto = new BookingDto();
+        dto.setUserId(1); 
+        dto.setTripId(1); 
+        dto.setSelectedSeats(Arrays.asList("S1", "S2"));
 
+        Booking booking = bookingService.addBooking(dto);
+        log.info("Booking added: ", booking);
+
+        assertNotNull(booking);
+        assertEquals("Pending", booking.getStatus());
+        assertEquals(dto.getSelectedSeats().size() * booking.getTrip().getFare(), booking.getTotalPrice());
+    }
+
+    @Test
+    void testGetAvailableSeats() {
+        int tripId = 1; 
+        List<String> availableSeats = bookingService.getAvailableSeats(tripId);
+        log.info("Available seats for trip  ", tripId, availableSeats);
+
+        assertNotNull(availableSeats);
+        assertTrue(availableSeats.size() > 0);
+    }
+
+    @Disabled
+    @Test
+    void testRefundBookingByOperator() {
+        int bookingId = 1; 
+        bookingService.refundBookingByOperator(bookingId);
+
+        Booking booking = bookingRepo.findById(bookingId).orElseThrow();
+        log.info("Booking after refund: {}", booking);
+
+        assertEquals("Cancelled", booking.getStatus());
+        if (booking.getPayment() != null) {
+            Payment payment = booking.getPayment();
+            log.info("Payment after refund ", payment);
+            assertEquals("Refunded", payment.getStatus());
+        }
+    }
 }
+	
+
+

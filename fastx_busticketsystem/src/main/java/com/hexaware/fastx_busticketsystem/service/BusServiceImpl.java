@@ -21,7 +21,6 @@ import com.hexaware.fastx_busticketsystem.repository.TripRepo;
 /*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:09-Aug-2025
 Description:  Bus Service Implementation Class*/
-
 @Service
 public class BusServiceImpl implements IBusService {
 
@@ -32,7 +31,7 @@ public class BusServiceImpl implements IBusService {
     private TripRepo tripRepo;
 
    
-    private BusDto mapToDto(Bus bus, Trip trip) {
+    private BusDto mapToDto(Bus bus) {
         BusDto dto = new BusDto();
         dto.setBusId(bus.getBusId());
         dto.setBusNumber(bus.getBusNumber());
@@ -41,21 +40,15 @@ public class BusServiceImpl implements IBusService {
         dto.setCapacity(bus.getCapacity());
         dto.setStatus(bus.getStatus());
 
-        if (trip != null) {
-            dto.setFare(trip.getFare());
-            dto.setDepartureTime(trip.getDepartureTime());
-            dto.setArrivalTime(trip.getArrivalTime());
-        }
-
         dto.setAmenities(
-            bus.getAmenities() != null ?
-            bus.getAmenities().stream().map(a -> {
-                BusAmenityDto adto = new BusAmenityDto();
-                adto.setBusamenityId(a.getBusamenityId());
-                adto.setAmenityName(a.getAmenityName());
-                return adto;
-            }).collect(Collectors.toList())
-            : new ArrayList<>()
+            bus.getAmenities() != null
+                ? bus.getAmenities().stream().map(a -> {
+                    BusAmenityDto adto = new BusAmenityDto();
+                    adto.setBusamenityId(a.getBusamenityId());
+                    adto.setAmenityName(a.getAmenityName());
+                    return adto;
+                }).collect(Collectors.toList())
+                : new ArrayList<>()
         );
 
         return dto;
@@ -81,7 +74,7 @@ public class BusServiceImpl implements IBusService {
         );
 
         Bus savedBus = repo.save(bus);
-        return mapToDto(savedBus, null);
+        return mapToDto(savedBus);
     }
 
     @Override
@@ -105,7 +98,7 @@ public class BusServiceImpl implements IBusService {
         );
 
         Bus savedBus = repo.save(existingBus);
-        return mapToDto(savedBus, null);
+        return mapToDto(savedBus);
     }
 
     @Override
@@ -114,32 +107,55 @@ public class BusServiceImpl implements IBusService {
                 .orElseThrow(() -> new BusNotFoundException("Bus not found with id: " + busId));
         repo.delete(existingBus);
     }
-
     @Override
     public BusDto getBusById(int busId) throws BusNotFoundException {
+       
         Bus bus = repo.findById(busId)
                 .orElseThrow(() -> new BusNotFoundException("Bus not found with id: " + busId));
-        return mapToDto(bus, null);
+
+       
+        BusDto dto = mapToDto(bus);
+
+        
+        List<Trip> trips = tripRepo.findByBusBusId(busId);
+
+        if (!trips.isEmpty()) {
+          
+            Trip latestTrip = trips.get(trips.size() - 1);
+
+            dto.setFare(latestTrip.getFare());
+            dto.setDepartureTime(latestTrip.getDepartureTime());
+            dto.setArrivalTime(latestTrip.getArrivalTime());
+        }
+
+        return dto;
     }
 
     @Override
     public List<BusDto> getAllBuses() {
         return repo.findAll().stream()
-                .map(bus -> mapToDto(bus, null))
+                .map(this::mapToDto)
                 .collect(Collectors.toList());
     }
 
     @Override
     public List<BusDto> getBusesByOperatorId(int operatorId) {
         return repo.findByBusOpData_BusOpdataId(operatorId).stream()
-                .map(bus -> mapToDto(bus, null))
+                .map(this::mapToDto)
                 .collect(Collectors.toList());
     }
 
     @Override
     public List<BusDto> searchBusesByOriginDestinationAndDate(String origin, String destination, LocalDate date) {
-        List<Trip> trips = tripRepo.findTripsByOriginDestinationAndDate(origin, destination, date);
-
-        return trips.stream().map(trip -> mapToDto(trip.getBus(), trip)).collect(Collectors.toList());
+        return tripRepo.findTripsByOriginDestinationAndDate(origin, destination, date).stream()
+                .map(trip -> {
+                    BusDto dto = mapToDto(trip.getBus());
+                   
+                    dto.setFare(trip.getFare());
+                    dto.setDepartureTime(trip.getDepartureTime());
+                    dto.setArrivalTime(trip.getArrivalTime());
+                    return dto;
+                })
+                .collect(Collectors.toList());
     }
 }

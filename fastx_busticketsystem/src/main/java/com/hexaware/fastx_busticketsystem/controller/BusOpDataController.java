@@ -33,21 +33,25 @@ public class BusOpDataController {
 	@Autowired
 	IBusOpDataService service;
 	
+	 @PreAuthorize("hasRole('BUS_OPERATOR')")
 	 @PostMapping("/add")
 	    public BusOpData addOperator(@Valid @RequestBody BusOpDataDto dto) throws BusOperatorNotFoundException {
 	        return service.addOperatorData(dto);
 	    }
-
+ 
+	    @PreAuthorize("hasRole('BUS_OPERATOR')")
 	    @PutMapping("/update")
 	    public BusOpData updateOperator(@Valid @RequestBody BusOpDataDto dto) throws BusOperatorNotFoundException {
 	        return service.updateOperatorData(dto);
 	    }
 
+	    @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'ADMIN')")
 	    @GetMapping("/getbyid/{operatorId}")
 	    public BusOpData getOperatorById(@PathVariable int operatorId) throws BusOperatorNotFoundException {
 	        return service.getOperatorDataById(operatorId);
 	    }
 
+	    @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'ADMIN')")
 	    @GetMapping("/getall")
 	    public List<BusOpData> getAllOperators() {
 	        return service.getAllOperators();

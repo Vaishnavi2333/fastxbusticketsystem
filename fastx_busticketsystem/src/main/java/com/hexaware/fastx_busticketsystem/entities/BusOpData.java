@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -19,6 +22,7 @@ import jakarta.persistence.Table;
 Modified Date:07-Aug-2025
 Description:Bus Operator Data Entity Class*/
 
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 @Entity
 @Table(name="busop_data")
 public class BusOpData {
@@ -28,6 +32,7 @@ public class BusOpData {
     @OneToOne
     @MapsId
     @JoinColumn(name = "bus_opdata_id") 
+    @JsonIgnore
     private BusOpLogin busOpLogin;
 
     private String name;

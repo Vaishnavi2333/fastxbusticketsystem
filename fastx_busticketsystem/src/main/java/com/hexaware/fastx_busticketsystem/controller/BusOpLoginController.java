@@ -18,7 +18,7 @@ import com.hexaware.fastx_busticketsystem.service.IBusOpLoginService;
 Modified Date:12-Aug-2025
 Description:Controller Class for Bus operator login*/
 
-import io.swagger.v3.oas.models.media.MediaType;
+
 import jakarta.validation.Valid;
 
 @RestController
@@ -28,7 +28,7 @@ public class BusOpLoginController {
 	@Autowired
 	IBusOpLoginService service;
 	
-	 @PostMapping(value = "/register")
+	 @PostMapping(value ="/register")
 	    public String register(@RequestBody BusOpLoginDto loginDto) throws BusOperatorAlreadyExistsException {
 	        service.registerBusOp(loginDto);
 	        return "Bus Operator registered successfully";
@@ -37,7 +37,7 @@ public class BusOpLoginController {
 	 @PostMapping("/login")
 	 public String login(@RequestBody BusOpLoginDto loginDto) throws BusOperatorNotFoundException {
 	     return service.loginBusOp(loginDto.getUsername(), loginDto.getPassword()); 
-	     // Returns JWT token if valid; throws exception if not
+	    
 	 }
 
 	    @GetMapping("/exists/{username}")

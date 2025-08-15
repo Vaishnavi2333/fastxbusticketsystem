@@ -5,12 +5,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 
 /*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:07-Aug-2025
 Description:Booking Entity Class*/
+
+
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 @Entity
 @Table(name = "booking")
 public class Booking {
@@ -31,13 +49,17 @@ public class Booking {
     private List<String> selectedSeats = new ArrayList<>(); 
 
     private double totalPrice;
+    
+    private boolean paymentDone; 
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnoreProperties({"password", "busopdata", "otherSensitiveFields"})
     private UserData user;
 
     @ManyToOne
     @JoinColumn(name = "trip_id", nullable = false)
+    @JsonIgnoreProperties({"trips", "buses"})
     private Trip trip;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -136,6 +158,14 @@ public class Booking {
     public void confirmBooking(Payment payment) {
         this.setPayment(payment);
         this.setStatus("Confirmed");
+    }
+    
+    public boolean getPaymentDone() {
+        return paymentDone;
+    }
+
+    public void setPaymentDone(boolean paymentDone) {
+        this.paymentDone = paymentDone;
     }
 }
 	

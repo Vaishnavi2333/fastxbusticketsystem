@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.persistence.*;
 
 
@@ -12,6 +14,7 @@ import jakarta.persistence.*;
 /*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:07-Aug-2025
 Description:Bus Entity Class*/
+
 
 
 @Entity
@@ -131,11 +134,6 @@ public class Bus {
 	public List<BusAmenity> getAmenities() {
 		return amenities;
 	}
-
-
-
-
-	
 
 
 	public void setAmenities(List<BusAmenity> amenities) {

@@ -88,7 +88,6 @@ public class SecurityConfig {
                     "/swagger-resources/**",
                     "/webjars/**"
                 ).permitAll()
-                //.requestMatchers("/bus/add").hasRole("BUS_OPERATOR")
                 .anyRequest().authenticated()
             )
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

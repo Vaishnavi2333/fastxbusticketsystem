@@ -13,11 +13,8 @@ public interface BusRepo extends JpaRepository<Bus,Integer>{
 	
 	List<Bus> findByBusOpData_BusOpdataId(int busOpdataId);
 
-	@Query("SELECT b FROM Bus b JOIN b.trips t JOIN t.route r " +
-		       "WHERE r.origin = :origin AND r.destination = :destination AND t.date = :date")
-		List<Bus> findBusesByOriginDestinationAndDate(@Param("origin") String origin,
-		                                              @Param("destination") String destination,
-		                                              @Param("date") LocalDate date);
+	@Query("SELECT b FROM Bus b JOIN b.trips t JOIN t.route r " + "WHERE r.origin = :origin AND r.destination = :destination AND t.date = :date")
+		List<Bus> findBusesByOriginDestinationAndDate(@Param("origin") String origin,@Param("destination") String destination, @Param("date") LocalDate date);
 
 	
 }

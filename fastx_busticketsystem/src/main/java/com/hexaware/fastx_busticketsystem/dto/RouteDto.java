@@ -2,6 +2,8 @@ package com.hexaware.fastx_busticketsystem.dto;
 
 import java.time.LocalTime;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -16,11 +18,12 @@ Modified Date:08-Aug-2025
 Description:Dto Class for Route
 */
 
+
 @NoArgsConstructor
 @Data
 public class RouteDto {
 	
-	 @Positive(message = "Route ID should be a positive value")
+	    @Positive(message = "Route ID should be a positive value")
 	    private int routeId;
 
 	    @NotBlank(message = "Route name should be valid and not blank")

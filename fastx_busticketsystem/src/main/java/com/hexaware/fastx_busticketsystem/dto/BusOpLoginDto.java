@@ -19,8 +19,8 @@ public class BusOpLoginDto {
 
   
 
-   @NotNull(message = "Username cannot be null")
-   @Size(min = 5, max = 14, message = "Username must be between 5 and 14 characters")
+    @NotNull(message = "Username cannot be null")
+    @Size(min = 5, max = 14, message = "Username must be between 5 and 14 characters")
     private String username;
 
     @NotNull(message = "Password cannot be null")

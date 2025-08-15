@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.hexaware.fastx_busticketsystem.dto.RouteDto;
 import com.hexaware.fastx_busticketsystem.entities.Route;
 import com.hexaware.fastx_busticketsystem.exception.RouteNotFoundException;
+import com.hexaware.fastx_busticketsystem.exception.SameOriginDestinationException;
 import com.hexaware.fastx_busticketsystem.repository.RouteRepo;
 
 
@@ -22,15 +23,21 @@ public class RouteServiceImpl implements IRouteService {
 
 	@Override
 	public Route addRoute(RouteDto routeDto) {
-		Route route = new Route();
-		route.setRouteId(routeDto.getRouteId());
-		route.setRouteName(routeDto.getRouteName());
-		route.setOrigin(routeDto.getOrigin());
-		route.setDestination(routeDto.getDestination());
-		route.setDistanceKm(routeDto.getDistanceKm());
-		route.setEstimatedTime(routeDto.getEstimatedTime());
-		return repo.save(route);
+	    if (routeDto.getOrigin().equalsIgnoreCase(routeDto.getDestination())) {
+	        throw new SameOriginDestinationException("Origin and Destination cannot be the same!");
+	    }
+
+	    Route route = new Route();
+	    route.setRouteId(routeDto.getRouteId());
+	    route.setRouteName(routeDto.getRouteName());
+	    route.setOrigin(routeDto.getOrigin());
+	    route.setDestination(routeDto.getDestination());
+	    route.setDistanceKm(routeDto.getDistanceKm());
+	    route.setEstimatedTime(routeDto.getEstimatedTime());
+	    
+	    return repo.save(route);
 	}
+
 
 	@Override
 	public Route updateRoute(RouteDto routeDto) throws RouteNotFoundException {

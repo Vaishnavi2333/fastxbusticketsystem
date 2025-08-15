@@ -37,7 +37,7 @@ public class UserDataDto {
     @Pattern(regexp = "[1-9][0-9]{9}", message = "Contact number must be 10 digits")
     private String contactNumber;
 
-    @NotBlank
+    @NotBlank(message="Address cannot be blank")
     @Size(min = 5, max = 255, message = "Address must be between 5 and 255 characters")
     private String address;
 }

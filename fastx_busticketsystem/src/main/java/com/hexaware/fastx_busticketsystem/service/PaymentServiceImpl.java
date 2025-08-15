@@ -1,5 +1,7 @@
 package com.hexaware.fastx_busticketsystem.service;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,21 +28,36 @@ public class PaymentServiceImpl implements IPaymentService {
 
     @Override
     public Payment makePayment(PaymentDto paymentDto) {
+       
         Booking booking = bookingRepo.findById(paymentDto.getBookingId())
-                .orElseThrow(() -> new RuntimeException("Booking not found with ID: " + paymentDto.getBookingId()));
+                .orElseThrow(() -> new RuntimeException(
+                        "Booking not found with ID: " + paymentDto.getBookingId()));
 
+      
+        if (booking.getTotalPrice() != paymentDto.getAmount()) {
+            throw new IllegalArgumentException(
+                "Payment amount does not match booking amount. Expected: "
+                + booking.getTotalPrice() + ", Received: " + paymentDto.getAmount());
+        }
+
+
+
+       
         Payment pay = new Payment();
         pay.setAmount(paymentDto.getAmount());
-        pay.setPaymentDate(paymentDto.getPaymentDate());
+        pay.setPaymentDate(LocalDate.now());
         pay.setPaymentMethod(paymentDto.getPaymentMethod());
         pay.setStatus("Paid");
-       pay.setBooking(paymentDto.getBooking());
 
-       // pay.setPaymentDate(LocalDate.now());
+      
+        pay.setBooking(booking);
+
+       
         Payment savedPayment = repo.save(pay);
 
         
         booking.confirmBooking(savedPayment);
+        booking.setPaymentDone("Paid".equalsIgnoreCase(savedPayment.getStatus()));
         bookingRepo.save(booking);
 
         return savedPayment;

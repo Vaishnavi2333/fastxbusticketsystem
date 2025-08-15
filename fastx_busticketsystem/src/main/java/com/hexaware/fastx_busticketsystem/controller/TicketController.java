@@ -28,39 +28,44 @@ Description:Controller Class for Ticket*/
 @RestController
 @RequestMapping("/ticket")
 public class TicketController {
-	
-	@Autowired
-	ITicketService service;
-	
-	@PreAuthorize("hasRole('USER')")
-	@PostMapping("/generate")
-    public Ticket generateTicket(@Valid @RequestBody TicketDto ticketDto) {
-        return service.generateTicket(ticketDto);
+
+    @Autowired
+    private ITicketService service;
+
+  
+    @PreAuthorize("hasRole('USER')")
+    @PostMapping("/generate/{bookingId}")
+    public Ticket generateTicketFromBooking(@PathVariable int bookingId) {
+        return service.generateTicketFromBooking(bookingId);
     }
 
-	@PreAuthorize("hasRole('USER')")
-    @PutMapping("/update")
-    public Ticket updateTicket(@Valid @RequestBody TicketDto ticketDto) throws TicketNotFoundException {
-        return service.updateTicket(ticketDto);
+   
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+    @DeleteMapping("/cancel-booking/{bookingId}")
+    public String cancelBookingAndTickets(@PathVariable int bookingId) throws TicketNotFoundException {
+        service.cancelBookingAndTickets(bookingId);
+        return "Booking and associated tickets for booking ID " + bookingId + " have been cancelled successfully.";
     }
 
-	@PreAuthorize("hasAnyRole('USER','ADMIN')")
-    @DeleteMapping("/cancel/{ticketId}")
-    public String cancelTicket(@PathVariable int ticketId) throws TicketNotFoundException, TripNotFoundException {
-        service.cancelTicket(ticketId);
-        return "Ticket with id " + ticketId + " cancelled successfully.";
-    }
-
-	@PreAuthorize("hasRole('USER')")
-    @GetMapping("/getbyid/{ticketId}")
+    
+   
+    @PreAuthorize("hasRole('USER')")
+    @GetMapping("/{ticketId}")
     public Ticket getTicketById(@PathVariable int ticketId) throws TicketNotFoundException {
         return service.getTicketById(ticketId);
     }
 
-	@PreAuthorize("hasRole('USER')")
+    
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/booking/{bookingId}")
     public List<Ticket> getTicketsByBookingId(@PathVariable int bookingId) {
         return service.getTicketsByBookingId(bookingId);
     }
 
+   
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+    @GetMapping("/all")
+    public List<Ticket> getAllTickets() {
+        return service.getAllTickets();
+    }
 }

@@ -27,7 +27,6 @@ Modified Date:12-Aug-2025
 Description:Controller Class for Bus*/
 
 import jakarta.validation.Valid;
-
 @RestController
 @RequestMapping("/bus")
 public class BusController {
@@ -38,20 +37,17 @@ public class BusController {
     @Autowired
     private IBookingService bookingService;
 
-   
     @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
     @PostMapping("/add")
     public BusDto addBus(@Valid @RequestBody BusDto busDto) {
         return service.addBus(busDto);
     }
 
-    
     @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'ADMIN')")
     @PutMapping("/update")
     public BusDto updateBus(@Valid @RequestBody BusDto busDto) throws BusNotFoundException {
         return service.updateBus(busDto);
     }
-
 
     @PreAuthorize("hasRole('BUS_OPERATOR')")
     @DeleteMapping("/delete/{id}")
@@ -59,28 +55,24 @@ public class BusController {
         service.deleteBus(id);
         return "Bus with id " + id + " deleted successfully";
     }
-
-   
+    
     @PreAuthorize("hasRole('USER')")
     @GetMapping("/available-seats/{tripId}")
     public List<String> getAvailableSeats(@PathVariable int tripId) {
         return bookingService.getAvailableSeats(tripId);
     }
 
-   
     @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'ADMIN')")
     @GetMapping("/getbusbyid/{id}")
     public BusDto getBusById(@PathVariable("id") int id) throws BusNotFoundException {
         return service.getBusById(id);
     }
 
-   
     @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'ADMIN')")
     @GetMapping("/getallbus")
     public List<BusDto> getAllBuses() {
         return service.getAllBuses();
     }
-
 
     @PreAuthorize("hasRole('BUS_OPERATOR')")
     @GetMapping("/getbusbyoperator/{operatorId}")
@@ -88,13 +80,9 @@ public class BusController {
         return service.getBusesByOperatorId(operatorId);
     }
 
-   
     @PreAuthorize("hasRole('USER')")
     @GetMapping("/search/{origin}/{destination}/{date}")
-    public List<BusDto> searchBuses(
-            @PathVariable String origin,
-            @PathVariable String destination,
-            @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
+    public List<BusDto> searchBuses(@PathVariable String origin, @PathVariable String destination, @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return service.searchBusesByOriginDestinationAndDate(origin, destination, date);
     }
 }

@@ -57,6 +57,7 @@ public class BusAmenityController {
 	        return service.getAllBusAmenity();
 	    }
 
+	    @PreAuthorize("hasAnyRole('USER','BUS_OPERATOR')")
 	    @GetMapping("/getbyid/{id}")
 	    public BusAmenity getBusAmenityById(@PathVariable("id") int id) {
 	        return service.getBusAmenityById(id);

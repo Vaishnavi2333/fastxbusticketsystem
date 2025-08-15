@@ -46,7 +46,7 @@ public class Payment {
         this.status = status;
     }
 
-    // Getters and Setters
+   
     public int getPaymentId() {
         return paymentId;
     }
