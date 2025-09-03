@@ -1,12 +1,13 @@
 package com.hexaware.fastx_busticketsystem.repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
+import com.hexaware.fastx_busticketsystem.dto.BookingDto;
 import com.hexaware.fastx_busticketsystem.entities.Booking;
-import com.hexaware.fastx_busticketsystem.entities.UserData;
 
 public interface BookingRepo extends JpaRepository<Booking,Integer> {
 	
@@ -14,5 +15,9 @@ public interface BookingRepo extends JpaRepository<Booking,Integer> {
 
     
     List<Booking> findByTrip_TripId(int tripId);
+    
+  
+
+   
 
 }

@@ -21,6 +21,8 @@ public class UserDataDto {
 
     
     private int userdataId;
+    
+    private int userId;
 
     @NotNull(message = "Name cannot be null")
     private String name;

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,8 @@ Modified Date:12-Aug-2025
 Description:Controller Class for Bus*/
 
 import jakarta.validation.Valid;
+
+@CrossOrigin(origins="http://localhost:5173")
 @RestController
 @RequestMapping("/bus")
 public class BusController {

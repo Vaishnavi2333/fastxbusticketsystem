@@ -12,9 +12,9 @@ public interface IBusOpDataService {
 	 
 	 BusOpData updateOperatorData(BusOpDataDto dto) throws BusOperatorNotFoundException;
 	    
-	 BusOpData getOperatorDataById(int operatorId) throws BusOperatorNotFoundException;
+	 public BusOpDataDto getOperatorDataById(int id) throws BusOperatorNotFoundException;
 	    
-	 List<BusOpData> getAllOperators();
+	 List<BusOpDataDto> getAllOperators();
 	    
 	 public String deleteOperatorData(int operatorId) throws BusOperatorNotFoundException;
 

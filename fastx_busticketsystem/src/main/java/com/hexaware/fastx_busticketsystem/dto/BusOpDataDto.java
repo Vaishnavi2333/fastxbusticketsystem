@@ -21,52 +21,38 @@ Modified Date:08-Aug-2025
 Description:Dto Class for Bus operator data
 */
 
-
 @NoArgsConstructor
 @Data
 public class BusOpDataDto {
-	   
-	
-	@Positive(message="ID should be positive value")
-	private int busOpdataId;
-	
-	 private Integer busOpLoginId;
-	
-	@NotNull(message="Name cannot be null")
+
+    @Positive(message = "ID should be positive value")
+    private Integer busOpLoginId;   
+
+    @NotNull(message = "Name cannot be null")
     private String name;
-	
-	@NotNull(message="Company Name cannot be null")
-	@NotEmpty(message="Commpany name cannot be empty")
+
+    @NotNull(message = "Company Name cannot be null")
+    @NotEmpty(message = "Company name cannot be empty")
     private String companyName;
-	
-	@Pattern(regexp = "[A-Z]{2}[0-9]{2}\s[0-9]{7}")
-	@NotNull(message="Licence number cannot be null")
-	@NotEmpty(message="Licence number cannot be empty")
+
+    @Pattern(regexp = "[A-Z]{2}[0-9]{2}\\s[0-9]{7}", message="Invalid licence format")
+    @NotNull(message = "Licence number cannot be null")
+    @NotEmpty(message = "Licence number cannot be empty")
     private String licenceNumber;
-	
-	@Pattern(regexp="Male|Female|Other")
+
+    @Pattern(regexp = "Male|Female|Other")
     private String gender;
-	
-	@Past(message = "Date of birth must be in the past")
+
+    @Past(message = "Date of birth must be in the past")
     private LocalDate dateOfBirth;
-	
-	@Email(message="Enter the correct email address")
+
+    @Email(message = "Enter the correct email address")
     private String email;
-	
-	@Pattern(regexp = "[1-9][0-9]{9}")
+
+    @Pattern(regexp = "[1-9][0-9]{9}", message="Invalid contact number")
     private String contactNumber;
-	
-	@NotBlank(message="Address cannot be blank")
-	@Size(min = 5, max = 255, message = "Address must be between 5 and 255 characters")
+
+    @NotBlank(message = "Address cannot be blank")
+    @Size(min = 5, max = 255, message = "Address must be between 5 and 255 characters")
     private String address;
-	
-	public Integer getBusOpLoginId() {
-        return busOpLoginId;
-    }
-
-    public void setBusOpLoginId(Integer busOpLoginId) {
-        this.busOpLoginId = busOpLoginId;
-    }
-
-
 }

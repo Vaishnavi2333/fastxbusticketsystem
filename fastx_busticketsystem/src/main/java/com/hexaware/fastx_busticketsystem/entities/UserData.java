@@ -6,7 +6,10 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapsId;
@@ -22,16 +25,16 @@ Description:Userdata Entity Class*/
 @Entity
 @Table(name = "user_data")
 public class UserData {
-
-    @Id
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private int userdataId;
 
     @OneToOne
-    @JsonIgnore  
-    @MapsId         
-    @JoinColumn(name = "user_id")
+    @MapsId
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private UserLogin userLogin;
-
+	    
     @JsonIgnore  
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Booking> bookings;
@@ -48,17 +51,16 @@ public class UserData {
     public UserData() {
     }
 
-    public UserData(int userdataId, UserLogin userLogin, String name, String gender, LocalDate dateOfBirth, String email,
-                    String contactNumber, String address) {
-        this.userdataId = userdataId;
-        this.userLogin = userLogin;
-        this.name = name;
-        this.gender = gender;
-        this.dateOfBirth = dateOfBirth;
-        this.email = email;
-        this.contactNumber = contactNumber;
-        this.address = address;
-    }
+    public UserData(UserLogin userLogin, String name, String gender, LocalDate dateOfBirth,
+            String email, String contactNumber, String address) {
+this.userLogin = userLogin;
+this.name = name;
+this.gender = gender;
+this.dateOfBirth = dateOfBirth;
+this.email = email;
+this.contactNumber = contactNumber;
+this.address = address;
+}
 
 
 

@@ -25,7 +25,7 @@ Description:Dto Class for Bus
 @Data
 public class BusDto {
 	
-	@Positive(message="ID should be positive value")
+	
 	 private int busId;
 
 	@Pattern(regexp="[1-9][0-9]{2}")
@@ -42,6 +42,14 @@ public class BusDto {
 	 
      @Pattern(regexp = "Available|Unavailable",message="Status should be either available or unavailable")
      private String status;
+     
+     private Integer routeId;
+     
+     private List<Integer> tripIds;
+     
+     private List<TripDto> trips; 
+     
+     private Integer tripId;
      
 
      private double fare;

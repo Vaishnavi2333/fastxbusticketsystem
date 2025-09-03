@@ -1,11 +1,14 @@
 package com.hexaware.fastx_busticketsystem.controller;
 
-import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,10 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hexaware.fastx_busticketsystem.dto.BookingDto;
+import com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO;
 import com.hexaware.fastx_busticketsystem.entities.Booking;
 import com.hexaware.fastx_busticketsystem.exception.BookingNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IBookingService;
@@ -29,7 +32,7 @@ Modified Date:12-Aug-2025
 Description:Controller class for Booking*/
 
 
-
+@CrossOrigin(origins="http://localhost:5173")
 @RestController
 @RequestMapping("/booking")
 public class BookingController {
@@ -40,8 +43,17 @@ public class BookingController {
    
     @PreAuthorize("hasRole('USER')")
     @PostMapping("/add")
-    public Booking addBooking(@Valid @RequestBody BookingDto bookingDto) {
-        return service.addBooking(bookingDto);
+    public Map<String, Object> addBooking(@Valid @RequestBody BookingDto bookingDto) {
+    	 Booking booking = service.addBooking(bookingDto);
+
+    	   
+    	    Map<String, Object> response = new HashMap<>();
+    	    response.put("bookingId", booking.getBookingId());
+    	    response.put("totalPrice", booking.getTotalPrice());
+    	    response.put("status", booking.getStatus());
+    	    response.put("selectedSeats", booking.getSelectedSeats());
+
+    	    return response;
     }
 
    
@@ -66,6 +78,7 @@ public class BookingController {
         return service.getBookingsByUserId(userId);
     }
 
+    
    
     @PostMapping("/book-seat")
     @PreAuthorize("hasRole('USER')")
@@ -84,12 +97,45 @@ public class BookingController {
     @PreAuthorize("hasRole('BUS_OPERATOR')")
     @PutMapping("/refund/{bookingId}")
     public String refundBookingByOperator(@PathVariable int bookingId) {
-        service.refundBookingByOperator(bookingId);
-        return "Booking with ID " + bookingId + " has been refunded by operator.";
+        try {
+          
+            String message = service.refundBookingByOperator(bookingId);
+            return message;  
+        
+        } catch (IllegalStateException e) {
+            return "Error: " + e.getMessage();  
+        }
+    }
+   
+    @PreAuthorize("hasRole('USER')")
+    @GetMapping("/user/{userId}/summary")
+    public List<BookingSummaryDTO> getBookingSummary(@PathVariable int userId) {
+        return service.getBookingSummaryByUserId(userId);
+    }
+    
+    @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
+    @GetMapping("/bookings/summary")
+    public List<BookingSummaryDTO> getAllBookingSummaries() {
+        List<Booking> bookings = service.getAllBookings();
+        return bookings.stream()
+                .map(b -> new BookingSummaryDTO(
+                        b.getBookingId(),
+                        b.getStatus(),
+                        b.getBookingDate(),
+                        b.getTrip().getBus().getBusName(),
+                        b.getTrip().getDepartureTime(),
+                        b.getTrip().getArrivalTime(),
+                        b.getUser().getName(),
+                        b.getSelectedSeats(),
+                        b.getTotalPrice()
+                ))
+                .sorted((b1, b2) -> Long.compare(b2.getBookingId(), b1.getBookingId()))
+                .collect(Collectors.toList());
     }
 
+
     
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
     @GetMapping("/bookings")
     public List<Booking> getAllBookings() {
         return service.getAllBookings();

@@ -28,7 +28,7 @@ public class RouteServiceImpl implements IRouteService {
 	    }
 
 	    Route route = new Route();
-	    route.setRouteId(routeDto.getRouteId());
+	    //route.setRouteId(routeDto.getRouteId());
 	    route.setRouteName(routeDto.getRouteName());
 	    route.setOrigin(routeDto.getOrigin());
 	    route.setDestination(routeDto.getDestination());

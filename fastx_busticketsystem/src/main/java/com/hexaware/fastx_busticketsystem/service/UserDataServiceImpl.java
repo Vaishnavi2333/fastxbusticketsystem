@@ -26,14 +26,16 @@ public class UserDataServiceImpl implements IUserDataService{
     private UserLoginRepo userLoginRepo;
 
     @Override
-    public UserData createUser(UserDataDto userDto) throws UserNotFoundException {
+    public UserData createUser(UserDataDto userDto, String username) throws UserNotFoundException {
+
     	
-        UserLogin userLogin = userLoginRepo.findById(userDto.getUserdataId())
-                .orElseThrow(() -> new UserNotFoundException("UserLogin not found with id: " + userDto.getUserdataId()));
+        UserLogin userLogin = userLoginRepo.findByUsername(username)
+                .orElseThrow(() -> new UserNotFoundException(
+                        "UserLogin not found with username: " + username));
 
        
         UserData user = new UserData();
-        user.setUserLogin(userLogin);  
+        user.setUserLogin(userLogin); 
         user.setName(userDto.getName());
         user.setGender(userDto.getGender());
         user.setEmail(userDto.getEmail());
@@ -41,9 +43,9 @@ public class UserDataServiceImpl implements IUserDataService{
         user.setContactNumber(userDto.getContactNumber());
         user.setAddress(userDto.getAddress());
 
-        return userRepo.save(user);
+       
+        return userRepo.save(user); 
     }
-
     @Override
     public UserData updateUser(UserDataDto userDto) throws UserNotFoundException {
         UserData user = userRepo.findById(userDto.getUserdataId())
@@ -61,30 +63,50 @@ public class UserDataServiceImpl implements IUserDataService{
 
     @Override
     public String deleteUser(int userLoginId) throws UserNotFoundException {
-       
-        UserData userData = userRepo.findByUserLogin_UserId(userLoginId)
-                .orElseThrow(() -> new UserNotFoundException("UserData for UserLogin id " + userLoginId + " not found"));
 
-    
+      
+        UserData userData = userRepo.findByUserLogin_UserId(userLoginId)
+                .orElseThrow(() -> new UserNotFoundException(
+                        "UserData for UserLogin id " + userLoginId + " not found"));
+
         userRepo.delete(userData);
 
+     
         UserLogin userLogin = userLoginRepo.findById(userLoginId)
-                .orElseThrow(() -> new UserNotFoundException("UserLogin with id " + userLoginId + " not found"));
+                .orElseThrow(() -> new UserNotFoundException(
+                        "UserLogin with id " + userLoginId + " not found"));
 
         userLoginRepo.delete(userLogin);
 
-        return "Deleted Successfully";
+        return "User with ID " + userLoginId + " deleted successfully";
     }
 
     @Override
-    public UserData getUserById(int userLoginId) throws UserNotFoundException {
-        return userRepo.findByUserLogin_UserId(userLoginId)
-                .orElseThrow(() -> new UserNotFoundException("UserData for UserLogin id " + userLoginId + " not found"));
+    public UserDataDto getUserById(int userId) throws UserNotFoundException {
+        UserData user = userRepo.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException("User not found with id " + userId));
+        return convertToDto(user);
+    }
+    
+    private UserDataDto convertToDto(UserData user) {
+        UserDataDto dto = new UserDataDto();
+        dto.setUserdataId(user.getUserdataId());
+        dto.setUserId(user.getUserLogin().getUserId());
+        dto.setName(user.getName());
+        dto.setGender(user.getGender());
+        dto.setDateOfBirth(user.getDateOfBirth());
+        dto.setEmail(user.getEmail());
+        dto.setContactNumber(user.getContactNumber());
+        dto.setAddress(user.getAddress());
+        return dto;
+    }
+    
+       
+
+    public List<UserDataDto> getAllUsers() {
+        List<UserData> users = userRepo.findAll();
+        return users.stream().map(this::convertToDto).toList();
     }
 
-    @Override
-    public List<UserData> getAllUsers() {
-        return userRepo.findAll();
-    }
 }
 	

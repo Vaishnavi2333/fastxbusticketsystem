@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,10 +22,14 @@ Description:Bus Operator login Entity Class*/
 @Table(name = "bus_op_login")
 public class BusOpLogin {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    @Column(name = "bus_op_id")
-    private int busOpId;
+	    @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    @Column(name = "bus_op_id")
+	    private int busOpId;
+
+	    @OneToOne(mappedBy = "busOpLogin", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	    private BusOpData busOpData;
+	
 
     @Column(name = "username")
     private String username;
@@ -32,8 +37,7 @@ public class BusOpLogin {
     @Column(name = "password")
     private String password;
 
-    @OneToOne(mappedBy = "busOpLogin", cascade = CascadeType.ALL)
-    private BusOpData busOpData;
+   
     
     public BusOpLogin() {
     }

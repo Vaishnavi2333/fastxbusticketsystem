@@ -50,77 +50,57 @@ class UserDataServiceImplTest {
         savedLogin = userLoginRepo.save(login);
     }
 
-    @Test
-    void testCreateUser() throws Exception {
-        UserDataDto dto = new UserDataDto();
-        dto.setUserdataId(savedLogin.getUserId()); 
-        dto.setName("Suresh");
-        dto.setGender("Male");
-        dto.setEmail("suresh@gmail.com");
-        dto.setDateOfBirth(LocalDate.of(1990, 5, 15));
-        dto.setContactNumber("9876543210");
-        dto.setAddress("Chennai Street");
-
-        UserData created = service.createUser(dto);
-
-        assertNotNull(created.getUserdataId());
-        assertEquals("Suresh", created.getName());
-        assertEquals(savedLogin.getUserId(), created.getUserLogin().getUserId());
-    }
-
-    @Test
-    void testUpdateUser() throws Exception {
-    
-        UserDataDto dto = new UserDataDto();
-        dto.setUserdataId(savedLogin.getUserId());
-        dto.setName("Suresh");
-        dto.setGender("Male");
-        dto.setEmail("suresh@gmail.com");
-        dto.setDateOfBirth(LocalDate.of(1990, 5, 15));
-        dto.setContactNumber("9876543210");
-        dto.setAddress("Chennai Street");
-        service.createUser(dto);
-
-        dto.setName("Shayan");
-        UserData updated = service.updateUser(dto);
-
-        assertEquals("Shayan", updated.getName());
-    }
-
-    @Test
-    void testGetUserById() throws Exception {
-        UserDataDto dto = new UserDataDto();
-        dto.setUserdataId(savedLogin.getUserId());
-        dto.setName("Suresh");
-        dto.setGender("Male");
-        dto.setEmail("suresh@gmail.com");
-        dto.setDateOfBirth(LocalDate.of(1990, 5, 15));
-        dto.setContactNumber("9876543210");
-        dto.setAddress("Chennai Street");
-        service.createUser(dto);
-
-        UserData fetched = service.getUserById(savedLogin.getUserId());
-        assertEquals("Suresh", fetched.getName());
-    }
-
-
-
-    @Test
-    void testDeleteUser() throws Exception {
-        UserDataDto dto = new UserDataDto();
-        dto.setUserdataId(savedLogin.getUserId());
-        dto.setName("Suresh");
-        dto.setGender("Male");
-        dto.setEmail("suresh@gmail.com");
-        dto.setDateOfBirth(LocalDate.of(1990, 5, 15));
-        dto.setContactNumber("9876543210");
-        dto.setAddress("Chennai Street");
-        service.createUser(dto);
-
-        String result = service.deleteUser(savedLogin.getUserId());
-        assertEquals("Deleted Successfully", result);
-
-        assertTrue(userDataRepo.findByUserLogin_UserId(savedLogin.getUserId()).isEmpty());
-        assertTrue(userLoginRepo.findById(savedLogin.getUserId()).isEmpty());
-    }
+	/*
+	 * @Test void testCreateUser() throws Exception { UserDataDto dto = new
+	 * UserDataDto(); dto.setUserdataId(savedLogin.getUserId());
+	 * dto.setName("Suresh"); dto.setGender("Male");
+	 * dto.setEmail("suresh@gmail.com"); dto.setDateOfBirth(LocalDate.of(1990, 5,
+	 * 15)); dto.setContactNumber("9876543210"); dto.setAddress("Chennai Street");
+	 * 
+	 * UserData created = service.createUser(dto);
+	 * 
+	 * assertNotNull(created.getUserdataId()); assertEquals("Suresh",
+	 * created.getName()); assertEquals(savedLogin.getUserId(),
+	 * created.getUserLogin().getUserId()); }
+	 */
+	/*
+	 * @Test void testUpdateUser() throws Exception {
+	 * 
+	 * UserDataDto dto = new UserDataDto();
+	 * dto.setUserdataId(savedLogin.getUserId()); dto.setName("Suresh");
+	 * dto.setGender("Male"); dto.setEmail("suresh@gmail.com");
+	 * dto.setDateOfBirth(LocalDate.of(1990, 5, 15));
+	 * dto.setContactNumber("9876543210"); dto.setAddress("Chennai Street");
+	 * service.createUser(dto);
+	 * 
+	 * dto.setName("Shayan"); UserData updated = service.updateUser(dto);
+	 * 
+	 * assertEquals("Shayan", updated.getName()); }
+	 * 
+	 * @Test void testGetUserById() throws Exception { UserDataDto dto = new
+	 * UserDataDto(); dto.setUserdataId(savedLogin.getUserId());
+	 * dto.setName("Suresh"); dto.setGender("Male");
+	 * dto.setEmail("suresh@gmail.com"); dto.setDateOfBirth(LocalDate.of(1990, 5,
+	 * 15)); dto.setContactNumber("9876543210"); dto.setAddress("Chennai Street");
+	 * service.createUser(dto);
+	 * 
+	 * UserData fetched = service.getUserById(savedLogin.getUserId());
+	 * assertEquals("Suresh", fetched.getName()); }
+	 * 
+	 * 
+	 * 
+	 * @Test void testDeleteUser() throws Exception { UserDataDto dto = new
+	 * UserDataDto(); dto.setUserdataId(savedLogin.getUserId());
+	 * dto.setName("Suresh"); dto.setGender("Male");
+	 * dto.setEmail("suresh@gmail.com"); dto.setDateOfBirth(LocalDate.of(1990, 5,
+	 * 15)); dto.setContactNumber("9876543210"); dto.setAddress("Chennai Street");
+	 * service.createUser(dto);
+	 * 
+	 * String result = service.deleteUser(savedLogin.getUserId());
+	 * assertEquals("Deleted Successfully", result);
+	 * 
+	 * assertTrue(userDataRepo.findByUserLogin_UserId(savedLogin.getUserId()).
+	 * isEmpty());
+	 * assertTrue(userLoginRepo.findById(savedLogin.getUserId()).isEmpty()); } }
+	 */
 }

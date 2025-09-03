@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.hexaware.fastx_busticketsystem.dto.BookingDto;
+import com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO;
 import com.hexaware.fastx_busticketsystem.entities.Booking;
 import com.hexaware.fastx_busticketsystem.exception.BookingNotFoundException;
 
@@ -27,7 +28,8 @@ public interface IBookingService {
     public List<String> getAvailableSeats(int tripId);
     
     List<Booking> getBookingsByOperator(int operatorId);
-    void refundBookingByOperator(int bookingId);
-	
+    String refundBookingByOperator(int bookingId);
+    
+    public List<BookingSummaryDTO> getBookingSummaryByUserId(int userId);
 
 }

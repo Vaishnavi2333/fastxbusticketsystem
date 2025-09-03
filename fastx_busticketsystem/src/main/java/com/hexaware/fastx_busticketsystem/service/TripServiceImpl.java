@@ -42,7 +42,7 @@ public class TripServiceImpl implements ITripService {
         }
 
         Trip trip = new Trip();
-        trip.setTripId(tripDto.getTripId());
+       // trip.setTripId(tripDto.getTripId());
         trip.setDate(tripDto.getDate());
         trip.setDepartureTime(tripDto.getDepartureTime());
         trip.setArrivalTime(tripDto.getArrivalTime());
@@ -114,7 +114,7 @@ public class TripServiceImpl implements ITripService {
     @Override
     public List<Trip> getTripsByBusOperator(int operatorId) {
        
-        List<Bus> buses = busRepo.findByBusOpData_BusOpdataId(operatorId);
+        List<Bus> buses = busRepo.findByBusOpData_BusOpLogin_BusOpId(operatorId);
         List<Trip> trips = new ArrayList<>();
         for (Bus bus : buses) {
             trips.addAll(repo.findByBusBusId(bus.getBusId()));

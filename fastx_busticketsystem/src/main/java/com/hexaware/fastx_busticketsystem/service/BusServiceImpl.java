@@ -6,15 +6,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.hexaware.fastx_busticketsystem.dto.BusAmenityDto;
 import com.hexaware.fastx_busticketsystem.dto.BusDto;
 import com.hexaware.fastx_busticketsystem.entities.Bus;
 import com.hexaware.fastx_busticketsystem.entities.BusAmenity;
+import com.hexaware.fastx_busticketsystem.entities.BusOpData;
+import com.hexaware.fastx_busticketsystem.entities.Route;
 import com.hexaware.fastx_busticketsystem.entities.Trip;
 import com.hexaware.fastx_busticketsystem.exception.BusNotFoundException;
+import com.hexaware.fastx_busticketsystem.repository.BusOpDataRepo;
 import com.hexaware.fastx_busticketsystem.repository.BusRepo;
+import com.hexaware.fastx_busticketsystem.repository.RouteRepo;
 import com.hexaware.fastx_busticketsystem.repository.TripRepo;
 
 
@@ -29,6 +34,12 @@ public class BusServiceImpl implements IBusService {
 
     @Autowired
     private TripRepo tripRepo;
+    
+    @Autowired
+    private RouteRepo routeRepo;
+    
+    @Autowired
+    private BusOpDataRepo busOpDataRepo; 
 
    
     private BusDto mapToDto(Bus bus) {
@@ -57,26 +68,52 @@ public class BusServiceImpl implements IBusService {
     @Override
     public BusDto addBus(BusDto busDto) {
         Bus bus = new Bus();
-        bus.setBusId(busDto.getBusId());
+       
+       
         bus.setBusName(busDto.getBusName());
         bus.setBusNumber(busDto.getBusNumber());
         bus.setBusType(busDto.getBusType());
         bus.setCapacity(busDto.getCapacity());
         bus.setStatus(busDto.getStatus());
 
-        bus.setAmenities(
-            busDto.getAmenities().stream().map(a -> {
+     
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        BusOpData operator = busOpDataRepo.findByBusOpLogin_Username(username)
+                .orElseThrow(() -> new RuntimeException("Operator not found"));
+        bus.setBusOpData(operator);
+
+      
+        if (busDto.getRouteId() != null) {
+            Route route = routeRepo.findById(busDto.getRouteId())
+                    .orElseThrow(() -> new RuntimeException("Route not found"));
+            bus.setRoute(route);
+        }
+
+      
+        if (busDto.getAmenities() != null) {
+            List<BusAmenity> amenities = busDto.getAmenities().stream().map(a -> {
                 BusAmenity amenity = new BusAmenity();
                 amenity.setAmenityName(a.getAmenityName());
-                amenity.setBus(bus);
+                amenity.setBus(bus);  // set back-reference
                 return amenity;
-            }).collect(Collectors.toList())
-        );
+            }).collect(Collectors.toList());
+            bus.setAmenities(amenities);
+        }
 
+       
+        if (busDto.getTripIds() != null && !busDto.getTripIds().isEmpty()) {
+            List<Trip> trips = tripRepo.findAllById(busDto.getTripIds());
+            for (Trip trip : trips) {
+                trip.setBus(bus);
+            }
+            bus.setTrips(trips);
+        }
+
+       
         Bus savedBus = repo.save(bus);
+
         return mapToDto(savedBus);
     }
-
     @Override
     public BusDto updateBus(BusDto busDto) throws BusNotFoundException {
         Bus existingBus = repo.findById(busDto.getBusId())
@@ -140,20 +177,23 @@ public class BusServiceImpl implements IBusService {
 
     @Override
     public List<BusDto> getBusesByOperatorId(int operatorId) {
-        return repo.findByBusOpData_BusOpdataId(operatorId).stream()
+        return repo.findByBusOpData_BusOpLogin_BusOpId(operatorId).stream()
                 .map(this::mapToDto)
                 .collect(Collectors.toList());
     }
 
-    @Override
     public List<BusDto> searchBusesByOriginDestinationAndDate(String origin, String destination, LocalDate date) {
         return tripRepo.findTripsByOriginDestinationAndDate(origin, destination, date).stream()
                 .map(trip -> {
-                    BusDto dto = mapToDto(trip.getBus());
+                    BusDto dto = mapToDto(trip.getBus()); 
                    
                     dto.setFare(trip.getFare());
                     dto.setDepartureTime(trip.getDepartureTime());
                     dto.setArrivalTime(trip.getArrivalTime());
+
+                   
+                    dto.setTripId(trip.getTripId()); 
+
                     return dto;
                 })
                 .collect(Collectors.toList());

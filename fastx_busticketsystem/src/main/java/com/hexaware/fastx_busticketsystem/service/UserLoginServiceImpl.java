@@ -6,6 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.hexaware.fastx_busticketsystem.dto.UserLoginDto;
+import com.hexaware.fastx_busticketsystem.entities.UserData;
 import com.hexaware.fastx_busticketsystem.entities.UserLogin;
 import com.hexaware.fastx_busticketsystem.exception.UserAlreadyExistsException;
 import com.hexaware.fastx_busticketsystem.exception.UserNotFoundException;
@@ -75,6 +76,13 @@ public class UserLoginServiceImpl implements IUserLoginService {
 
     public boolean existsByUsername(String username) {
         return repo.existsByUsername(username);
+    }
+    
+    @Override
+    public Integer getUserIdByUsername(String username) throws UserNotFoundException {
+        UserLogin user = repo.findByUsername(username)
+                .orElseThrow(() -> new UserNotFoundException("User with username '" + username + "' not found"));
+        return user.getUserId();  
     }
 }
 

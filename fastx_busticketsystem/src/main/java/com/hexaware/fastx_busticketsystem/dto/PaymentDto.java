@@ -38,6 +38,6 @@ public class PaymentDto {
 	 @Pattern(regexp = "Paid|Pending")
 	 private String status;
 	 
-	 private Booking booking;
+	
 
 }

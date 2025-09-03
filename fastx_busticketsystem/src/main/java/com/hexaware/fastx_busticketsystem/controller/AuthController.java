@@ -2,8 +2,12 @@ package com.hexaware.fastx_busticketsystem.controller;
 
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +35,7 @@ Modified Date:12-Aug-2025
 Description:AuthController Class*/
 
 
-
+@CrossOrigin(origins="http://localhost:5173")
 @Slf4j
 @RestController
 @RequestMapping("/auth")
@@ -42,6 +46,8 @@ public class AuthController {
 
     @Autowired
     private IBusOpLoginService busOpLoginService;
+    
+   
 
     @Autowired
     private IAdminLoginService adminLoginService;
@@ -71,19 +77,21 @@ public class AuthController {
     }
 
     @PostMapping("/login/user")
-    public ResponseEntity<String> loginUser(@RequestBody JwtRequest request) throws UserNotFoundException {
-        log.info("User login attempt for username: ", request.getUsername());
+    public ResponseEntity<Map<String, Object>> loginUser(@RequestBody JwtRequest request) throws UserNotFoundException {
         String token = userLoginService.login(request.getUsername(), request.getPassword());
-        log.info("User login successful: ", request.getUsername());
-        return ResponseEntity.ok(token);
-    }
+        int userId = userLoginService.getUserIdByUsername(request.getUsername());
 
+        Map<String, Object> response = new HashMap<>();
+        response.put("token", token);
+        response.put("userId", userId);
+
+        return ResponseEntity.ok(response);
+    }
     @PostMapping("/login/busoperator")
-    public ResponseEntity<String> loginBusOperator(@RequestBody JwtRequest request) throws BusOperatorNotFoundException {
-        log.info("Bus Operator login attempt for username: ", request.getUsername());
-        String token = busOpLoginService.loginBusOp(request.getUsername(), request.getPassword());
-        log.info("Bus Operator login successful: ", request.getUsername());
-        return ResponseEntity.ok(token);
+    public ResponseEntity<Map<String, Object>> loginBusOperator(@RequestBody JwtRequest request)
+            throws BusOperatorNotFoundException {
+        Map<String, Object> response = busOpLoginService.loginBusOperator(request.getUsername(), request.getPassword());
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("/login/admin")

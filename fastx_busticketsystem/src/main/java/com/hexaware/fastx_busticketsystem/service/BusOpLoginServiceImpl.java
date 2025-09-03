@@ -1,8 +1,9 @@
 package com.hexaware.fastx_busticketsystem.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -88,6 +89,25 @@ Description:  Bus Operator Login Service Implementation Class*/
 	    @Override
 	    public BusOpLogin getByUsername(String username) {
 	        return repo.findByUsername(username).orElse(null);
+	    }
+	    
+	    @Override
+	    public Map<String, Object> loginBusOperator(String username, String password) throws BusOperatorNotFoundException {
+	      
+	        String token = loginBusOp(username, password);  
+
+	        
+	        int busOpId = busOpDataRepo.findByBusOpLogin_Username(username)
+	                .orElseThrow(() -> new BusOperatorNotFoundException("Bus Operator not found"))
+	                .getBusOpId();
+
+	       
+	        Map<String, Object> response = new HashMap<>();
+	        response.put("token", token);
+	        response.put("busOpId", busOpId);
+	        response.put("username", username);
+
+	        return response;
 	    }
 	}
 

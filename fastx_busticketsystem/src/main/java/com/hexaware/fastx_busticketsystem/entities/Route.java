@@ -4,10 +4,13 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -25,6 +28,7 @@ Description:Route Entity Class*/
 public class Route {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int routeId;
     private String routeName;
     private String origin;
@@ -33,6 +37,7 @@ public class Route {
     private LocalTime estimatedTime;
     
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
+    @JsonIgnore
 	private List<Trip> trips;
     
     
@@ -48,10 +53,9 @@ public class Route {
     	
     }
 
-	public Route(int routeId, String routeName, String origin, String destination, double distanceKm,
+	public Route( String routeName, String origin, String destination, double distanceKm,
 			LocalTime estimatedTime) {
 		super();
-		this.routeId = routeId;
 		this.routeName = routeName;
 		this.origin = origin;
 		this.destination = destination;

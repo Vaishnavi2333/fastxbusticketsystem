@@ -1,7 +1,11 @@
 package com.hexaware.fastx_busticketsystem.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,13 +18,11 @@ import com.hexaware.fastx_busticketsystem.dto.PaymentDto;
 import com.hexaware.fastx_busticketsystem.entities.Payment;
 import com.hexaware.fastx_busticketsystem.service.IPaymentService;
 
-import jakarta.validation.Valid;
-
 /*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:12-Aug-2025
 Description:Controller Class for Payment*/
 
-
+@CrossOrigin(origins="http://localhost:5173")
 @RestController
 @RequestMapping("/payment")
 public class PaymentController {
@@ -30,8 +32,16 @@ public class PaymentController {
 
     @PreAuthorize("hasRole('USER')")
     @PostMapping("/make")
-    public Payment makePayment(@Valid @RequestBody PaymentDto paymentDto) {
-        return service.makePayment(paymentDto);
+    public Map<String, Object> makePayment(@RequestBody PaymentDto paymentDto) {
+        Payment payment = service.makePayment(paymentDto);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("paymentId", payment.getPaymentId());
+        response.put("bookingId", payment.getBooking().getBookingId());
+        response.put("amount", payment.getAmount());
+        response.put("status", payment.getStatus());
+
+        return response;
     }
 
     @PreAuthorize("hasAnyRole('USER','ADMIN')")

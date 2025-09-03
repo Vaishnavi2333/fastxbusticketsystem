@@ -4,9 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.CollectionTable;
@@ -54,19 +55,21 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    @JsonIgnoreProperties({"password", "busopdata", "otherSensitiveFields"})
+    @JsonIgnoreProperties({"password", "busopdata", "otherSensitiveFields", "bookings"})
     private UserData user;
 
     @ManyToOne
     @JoinColumn(name = "trip_id", nullable = false)
-    @JsonIgnoreProperties({"trips", "buses"})
+    @JsonIgnoreProperties({"trips", "buses", "bookings"})
+    @JsonManagedReference
     private Trip trip;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "payment_id", unique = true)
+    @JsonIgnoreProperties({"booking"})
     private Payment payment;
 
-    @JsonIgnore
+    @JsonManagedReference
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> tickets = new ArrayList<>();
 

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.hexaware.fastx_busticketsystem.dto.BookingDto;
 import com.hexaware.fastx_busticketsystem.dto.TicketDto;
 import com.hexaware.fastx_busticketsystem.entities.Booking;
+import com.hexaware.fastx_busticketsystem.entities.Payment;
 import com.hexaware.fastx_busticketsystem.entities.Ticket;
 import com.hexaware.fastx_busticketsystem.exception.TicketNotFoundException;
 import com.hexaware.fastx_busticketsystem.exception.TripNotFoundException;
@@ -31,22 +32,14 @@ public class TicketServiceImpl implements ITicketService{
 
 	
 	@Override
-	public Ticket generateTicketFromBooking(int bookingId) {
-        Booking booking = bookingRepo.findById(bookingId)
-                .orElseThrow(() -> new RuntimeException("Booking not found"));
-
-        if (!booking.getPaymentDone()) {
-            throw new RuntimeException("Payment not completed");
-        }
-
-        Ticket ticket = new Ticket();
-        ticket.setBooking(booking);
-        ticket.setTrip(booking.getTrip()); 
-        ticket.setBus(booking.getTrip().getBus()); 
-        ticket.setIssueDate(LocalDate.now());
-
-        return repo.save(ticket);
-    }
+	public Ticket generateTicketFromBooking(int bookingId) { 
+		Booking booking = bookingRepo.findById(bookingId) 
+				.orElseThrow(() -> new RuntimeException("Booking not found"));
+		if (!booking.getPaymentDone()) { throw new RuntimeException("Payment not completed"); } 
+		Ticket ticket = new Ticket(); ticket.setBooking(booking); 
+		ticket.setTrip(booking.getTrip()); ticket.setBus(booking.getTrip().getBus());
+		ticket.setIssueDate(LocalDate.now()); return repo.save(ticket); 
+		}
 	
 	@Override
 	public void cancelBookingAndTickets(int bookingId) throws TicketNotFoundException {

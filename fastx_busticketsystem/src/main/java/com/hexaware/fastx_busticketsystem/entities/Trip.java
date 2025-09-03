@@ -5,11 +5,15 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -28,6 +32,7 @@ Description:Trip Entity Class*/
 public class Trip {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int tripId;
     private LocalDate date;
     private LocalTime departureTime;
@@ -44,8 +49,10 @@ public class Trip {
     
     @ManyToOne
     @JoinColumn(name = "bus_id") 
+    @JsonManagedReference
     private Bus bus;
     
+    @JsonBackReference
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
     private List<Booking> bookings = new ArrayList<>();
     

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +25,7 @@ import jakarta.validation.Valid;
 /*Author:Vaishnavi Suresh Vaidyanath
 Modified Date:12-Aug-2025
 Description:Controller Class for Ticket*/
-
+@CrossOrigin(origins="http://localhost:5173")
 @RestController
 @RequestMapping("/ticket")
 public class TicketController {
@@ -35,8 +36,16 @@ public class TicketController {
   
     @PreAuthorize("hasRole('USER')")
     @PostMapping("/generate/{bookingId}")
-    public Ticket generateTicketFromBooking(@PathVariable int bookingId) {
-        return service.generateTicketFromBooking(bookingId);
+    public TicketDto generateTicketFromBooking(@PathVariable int bookingId) {
+    	Ticket ticket = service.generateTicketFromBooking(bookingId);
+
+        TicketDto dto = new TicketDto();
+        dto.setTicketId(ticket.getTicketId());
+        dto.setIssueDate(ticket.getIssueDate());
+       
+        dto.setTripId(ticket.getTrip().getTripId());
+
+        return dto;
     }
 
    

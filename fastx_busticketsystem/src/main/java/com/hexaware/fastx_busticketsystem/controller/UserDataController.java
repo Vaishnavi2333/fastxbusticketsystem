@@ -3,7 +3,10 @@ package com.hexaware.fastx_busticketsystem.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +27,7 @@ import jakarta.validation.Valid;
 Modified Date:12-Aug-2025
 Description:Controller Class for User data*/
 
-
+@CrossOrigin(origins="http://localhost:5173")
 @RestController
 @RequestMapping("/userdata")
 public class UserDataController {
@@ -32,12 +35,16 @@ public class UserDataController {
 	@Autowired
 	IUserDataService service;
 	
+	
 	@PreAuthorize("hasRole('USER')")
 	@PostMapping("/createuser")
 	public UserData createUser(@Valid @RequestBody UserDataDto userDto) throws UserNotFoundException {
-        return service.createUser(userDto);
-    }
-	
+	  
+	    String username = SecurityContextHolder.getContext().getAuthentication().getName();
+	    
+	   
+	    return service.createUser(userDto, username);
+	}
 	@PreAuthorize("hasRole('USER')")
 	@PutMapping("/updateuser")
     public UserData updateUser(@Valid @RequestBody UserDataDto userDto) throws UserNotFoundException {
@@ -52,16 +59,15 @@ public class UserDataController {
 	    }
 	 
 	 @PreAuthorize("hasRole('ADMIN')")
-	 @GetMapping("/getuser/{userId}")
-	    public UserData getUserById(@PathVariable int userId) throws UserNotFoundException {
-	        return service.getUserById(userId);
-	    }
-	 
-	 @PreAuthorize("hasRole('ADMIN')")
-	 @GetMapping("/allusers")
-	    public List<UserData> getAllUsers() {
+	    @GetMapping("/allusers")
+	    public List<UserDataDto> getAllUsers() {
 	        return service.getAllUsers();
 	    }
 
+	    @PreAuthorize("hasRole('ADMIN')")
+	    @GetMapping("/getuser/{userId}")
+	    public UserDataDto getUserById(@PathVariable int userId) throws UserNotFoundException {
+	        return service.getUserById(userId);
+	    }
 
 }

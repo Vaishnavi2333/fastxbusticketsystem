@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +26,7 @@ Modified Date:12-Aug-2025
 Description:Controller Class for Bus Operator Data
 */
 
-
+@CrossOrigin(origins="http://localhost:5173")
 @RestController
 @RequestMapping("/busopdata")
 public class BusOpDataController {
@@ -35,9 +36,9 @@ public class BusOpDataController {
 	
 	 @PreAuthorize("hasRole('BUS_OPERATOR')")
 	 @PostMapping("/add")
-	    public BusOpData addOperator(@Valid @RequestBody BusOpDataDto dto) throws BusOperatorNotFoundException {
-	        return service.addOperatorData(dto);
-	    }
+	 public BusOpData addOperatorData( @RequestBody @Valid BusOpDataDto dto) throws BusOperatorNotFoundException {
+		    return service.addOperatorData(dto);
+		}
  
 	    @PreAuthorize("hasRole('BUS_OPERATOR')")
 	    @PutMapping("/update")
@@ -47,14 +48,15 @@ public class BusOpDataController {
 
 	    @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'ADMIN')")
 	    @GetMapping("/getbyid/{operatorId}")
-	    public BusOpData getOperatorById(@PathVariable int operatorId) throws BusOperatorNotFoundException {
+	    public BusOpDataDto getOperatorById(@PathVariable int operatorId) throws BusOperatorNotFoundException {
 	        return service.getOperatorDataById(operatorId);
 	    }
 
 	    @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'ADMIN')")
 	    @GetMapping("/getall")
-	    public List<BusOpData> getAllOperators() {
-	        return service.getAllOperators();
+	    public List<BusOpDataDto> getAllOperators() {
+	        
+	        return service.getAllOperators(); 
 	    }
 
 	    @PreAuthorize("hasRole('ADMIN')")

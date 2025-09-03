@@ -1,8 +1,11 @@
 package com.hexaware.fastx_busticketsystem.service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.hexaware.fastx_busticketsystem.dto.BusOpDataDto;
@@ -24,32 +27,58 @@ public class BusOpDataServiceImpl implements IBusOpDataService{
 	
 	@Autowired
 	BusOpLoginRepo busOpLoginRepo;
-
+	
+	
+	public BusOpDataDto mapToDTO(BusOpData entity) {
+		
+		BusOpDataDto dto = new BusOpDataDto();
+		dto.setBusOpLoginId(entity.getBusOpId());
+		dto.setName(entity.getName());
+		dto.setLicenceNumber(entity.getAddress());
+		dto.setGender(entity.getGender());
+		dto.setEmail(entity.getEmail());
+		dto.setCompanyName(entity.getCompanyName());
+		dto.setDateOfBirth(entity.getDateOfBirth());
+		dto.setAddress(entity.getAddress());
+		dto.setContactNumber(entity.getContactNumber());
+				
+		return dto;
+		
+	}
 	@Override
 	public BusOpData addOperatorData(BusOpDataDto dto) throws BusOperatorNotFoundException {
-		
-        BusOpLogin login = busOpLoginRepo.findById(dto.getBusOpLoginId())
-                .orElseThrow(() -> new BusOperatorNotFoundException("BusOpLogin not found with id: " + dto.getBusOpLoginId()));
+		  String username = SecurityContextHolder.getContext().getAuthentication().getName();
 
-       
-        BusOpData busOpData = new BusOpData();
-        busOpData.setBusOpLogin(login);
-        busOpData.setName(dto.getName());
-        busOpData.setGender(dto.getGender());
-        busOpData.setCompanyName(dto.getCompanyName());
-        busOpData.setLicenceNumber(dto.getLicenceNumber());
-        busOpData.setEmail(dto.getEmail());
-        busOpData.setContactNumber(dto.getContactNumber());
-        busOpData.setDateOfBirth(dto.getDateOfBirth());
-        busOpData.setAddress(dto.getAddress());
+		 
+		    BusOpLogin login = busOpLoginRepo.findByUsername(username)
+		            .orElseThrow(() -> new BusOperatorNotFoundException("Operator login not found"));
 
-        return repo.save(busOpData);
+		   
+		    BusOpData data = login.getBusopdata(); 
+		    if (data == null) {
+		       
+		        data = new BusOpData();
+		        data.setBusOpLogin(login); 
+		    }
+
+		   
+		    data.setName(dto.getName());
+		    data.setCompanyName(dto.getCompanyName());
+		    data.setLicenceNumber(dto.getLicenceNumber());
+		    data.setGender(dto.getGender());
+		    data.setDateOfBirth(dto.getDateOfBirth());
+		    data.setEmail(dto.getEmail());
+		    data.setContactNumber(dto.getContactNumber());
+		    data.setAddress(dto.getAddress());
+
+		  
+		    return repo.save(data);  
 	}
 	 @Override
 	    public BusOpData updateOperatorData(BusOpDataDto dto) throws BusOperatorNotFoundException {
-	        BusOpData existing = repo.findById(dto.getBusOpdataId())
-	            .orElseThrow(() -> new BusOperatorNotFoundException("Operator not found with id: " + dto.getBusOpdataId()));
-
+		 BusOpData existing = repo.findById(dto.getBusOpLoginId())
+				    .orElseThrow(() -> new BusOperatorNotFoundException(
+				        "Operator not found with id: " + dto.getBusOpLoginId()));
 	        existing.setName(dto.getName());
 	        existing.setGender(dto.getGender());
 	        existing.setCompanyName(dto.getCompanyName());
@@ -63,14 +92,17 @@ public class BusOpDataServiceImpl implements IBusOpDataService{
 	    }
 
 	    @Override
-	    public BusOpData getOperatorDataById(int operatorId) throws BusOperatorNotFoundException {
-	        return repo.findById(operatorId)
-	            .orElseThrow(() -> new BusOperatorNotFoundException("Operator not found with id: " + operatorId));
+	    public BusOpDataDto getOperatorDataById(int operatorId) throws BusOperatorNotFoundException {
+	    	BusOpData entity = repo.findById(operatorId)
+	                .orElseThrow(() -> new BusOperatorNotFoundException("Operator not found"));
+	        return mapToDTO(entity);
 	    }
 
 	    @Override
-	    public List<BusOpData> getAllOperators() {
-	        return repo.findAll();
+	    public List<BusOpDataDto> getAllOperators() {
+	        return repo.findAll() .stream()
+	                .map(this::mapToDTO)
+	                .collect(Collectors.toList());
 	    }
 
 	    @Override

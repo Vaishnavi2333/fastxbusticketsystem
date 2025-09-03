@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hexaware.fastx_busticketsystem.dto.BookingDto;
+import com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO;
 import com.hexaware.fastx_busticketsystem.entities.Booking;
 import com.hexaware.fastx_busticketsystem.entities.Bus;
 import com.hexaware.fastx_busticketsystem.entities.Payment;
@@ -61,39 +62,41 @@ public class BookingServiceImpl implements IBookingService {
         Trip trip = tripRepo.findById(bookingDto.getTripId())
                 .orElseThrow(() -> new RuntimeException("Trip not found with ID: " + bookingDto.getTripId()));
 
-       
         List<String> bookedSeats = bookingRepo.findByTrip_TripId(trip.getTripId())
                 .stream()
                 .flatMap(b -> b.getSelectedSeats().stream())
                 .collect(Collectors.toList());
 
-        List<String> requestedSeats = bookingDto.getSelectedSeats();
-        for (String seat : requestedSeats) {
+        for (String seat : bookingDto.getSelectedSeats()) {
             if (bookedSeats.contains(seat)) {
                 throw new RuntimeException("Seat " + seat + " is already booked");
             }
         }
 
-      
         Booking booking = new Booking();
-        booking.setBookingDate(LocalDate.now());
-        booking.setStatus("Pending");
+        booking.setBookingDate(LocalDate.now());      
+        booking.setStatus("Pending");                  
         booking.setUser(user);
         booking.setTrip(trip);
-        booking.setSelectedSeats(requestedSeats);
+        booking.setSelectedSeats(bookingDto.getSelectedSeats());
 
-        
-        double totalPrice = requestedSeats.size() * trip.getFare();
-        booking.setTotalPrice(totalPrice);
+        double totalPrice = bookingDto.getSelectedSeats().size() * trip.getFare();
+        booking.setTotalPrice(totalPrice);            
+        booking.setPaymentDone(false);                
+        booking.setPayment(null);                     
 
         return bookingRepo.save(booking);
     }
 
     @Override
     public void cancelBooking(int bookingId) throws BookingNotFoundException {
+       
         Booking booking = bookingRepo.findById(bookingId)
                 .orElseThrow(() -> new BookingNotFoundException("Booking not found with ID: " + bookingId));
-        bookingRepo.delete(booking);
+
+       
+        booking.setStatus("Cancelled");
+        bookingRepo.save(booking);
     }
 
     @Override
@@ -131,7 +134,7 @@ public class BookingServiceImpl implements IBookingService {
     @Override
     public List<Booking> getBookingsByOperator(int operatorId) {
         
-        List<Bus> buses = busRepo.findByBusOpData_BusOpdataId(operatorId);
+        List<Bus> buses = busRepo.findByBusOpData_BusOpLogin_BusOpId(operatorId);
 
        
         List<Booking> bookings = new ArrayList<>();
@@ -146,20 +149,43 @@ public class BookingServiceImpl implements IBookingService {
     }
 
     @Override
-    public void refundBookingByOperator(int bookingId) {
+    public String refundBookingByOperator(int bookingId) {
         Booking booking = bookingRepo.findById(bookingId)
                 .orElseThrow(() -> new RuntimeException("Booking not found with ID: " + bookingId));
 
-       
-        booking.setStatus("Cancelled");
-        bookingRepo.save(booking);
+        if (!"Cancelled".equals(booking.getStatus())) {
+            throw new IllegalStateException("Only cancelled bookings can be refunded.");
+        }
+
+        double amount = 0;
+        if (booking.getPayment() != null) {
+            amount = booking.getPayment().getAmount();
+            booking.getPayment().setStatus("Refunded");
+            paymentRepo.save(booking.getPayment());
+        }
 
         
-        if (booking.getPayment() != null) {
-            Payment payment = booking.getPayment();
-            payment.setStatus("Refunded");
-            paymentRepo.save(payment);
-        }
+        bookingRepo.delete(booking);
+
+        return "Payment amount: " + amount + " refunded. Booking deleted.";
+    }
+    
+   
+
+    @Override
+    public List<BookingSummaryDTO> getBookingSummaryByUserId(int userId) {
+        List<Booking> bookings = bookingRepo.findByUser_UserdataId(userId);
+
+        return bookings.stream()
+            .map(b -> new BookingSummaryDTO(
+                b.getBookingId(),
+                b.getStatus(),
+                b.getBookingDate(),
+                b.getTrip().getBus().getBusName(),
+                b.getTrip().getDepartureTime(),
+                b.getTrip().getArrivalTime()
+            ))
+            .collect(Collectors.toList());
     }
 
 }
