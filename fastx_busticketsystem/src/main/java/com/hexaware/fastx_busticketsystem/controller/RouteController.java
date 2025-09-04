@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hexaware.fastx_busticketsystem.dto.RouteDto;
 import com.hexaware.fastx_busticketsystem.entities.Route;
+import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException;
 import com.hexaware.fastx_busticketsystem.exception.RouteNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IRouteService;
+import org.springframework.security.core.Authentication;
+
 
 import jakarta.validation.Valid;
 
@@ -33,17 +36,20 @@ public class RouteController {
 	@Autowired
 	IRouteService service;
 	
-	@PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
+	
+	
+	@PreAuthorize("hasRole('BUS_OPERATOR')")
 	@PostMapping("/add")
-    public Route addRoute(@Valid @RequestBody RouteDto routeDto) {
-        return service.addRoute(routeDto);
-    }
+	public Route addRoute(@Valid @RequestBody RouteDto routeDto, Authentication authentication) throws BusOperatorNotFoundException {
+	    return service.addRoute(routeDto, authentication);
+	}
 
 	@PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
-    @PutMapping("/update")
-    public Route updateRoute(@Valid @RequestBody RouteDto routeDto) throws RouteNotFoundException {
-        return service.updateRoute(routeDto);
-    }
+	@PutMapping("/update")
+	public Route updateRoute(@Valid @RequestBody RouteDto routeDto, Authentication authentication)
+	        throws RouteNotFoundException, BusOperatorNotFoundException {
+	    return service.updateRoute(routeDto, authentication);
+	}
 
 	 @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
     @DeleteMapping("/delete/{id}")
@@ -63,5 +69,13 @@ public class RouteController {
     public Route getRouteById(@PathVariable("id") int routeId) throws RouteNotFoundException {
         return service.getRouteById(routeId);
     }
+	
+	 @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
+	 @GetMapping("/getbyoperator")
+	 public List<Route> getRoutesByOperatorId(Authentication authentication) 
+	         throws BusOperatorNotFoundException {
+	     return service.getRoutesByOperatorAuth(authentication);
+	 }
+	
 
 }

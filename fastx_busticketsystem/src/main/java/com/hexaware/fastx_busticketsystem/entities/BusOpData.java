@@ -2,6 +2,7 @@ package com.hexaware.fastx_busticketsystem.entities;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -10,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -50,7 +53,11 @@ public class BusOpData {
     @OneToMany(mappedBy = "busOpData", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonBackReference
     private Set<Bus> buses = new HashSet<>();
-
+    
+    @OneToMany(mappedBy = "busOpData", cascade = CascadeType.ALL)
+    private List<Route> routes;
+    
+   
     public BusOpData() {
     }
 
@@ -76,8 +83,26 @@ public class BusOpData {
     public void setBusOpId(int busOpId) {
         this.busOpDataId = busOpDataId;
     }
+    
+    
 
-    public BusOpLogin getBusOpLogin() {
+    public int getBusOpDataId() {
+		return busOpDataId;
+	}
+
+	public void setBusOpDataId(int busOpDataId) {
+		this.busOpDataId = busOpDataId;
+	}
+
+	public List<Route> getRoutes() {
+		return routes;
+	}
+
+	public void setRoutes(List<Route> routes) {
+		this.routes = routes;
+	}
+
+	public BusOpLogin getBusOpLogin() {
         return busOpLogin;
     }
 

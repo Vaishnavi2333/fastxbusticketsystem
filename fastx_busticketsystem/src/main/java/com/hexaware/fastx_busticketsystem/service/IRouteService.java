@@ -2,17 +2,20 @@ package com.hexaware.fastx_busticketsystem.service;
 
 import java.util.List;
 
+import org.springframework.security.core.Authentication;
+
 import com.hexaware.fastx_busticketsystem.dto.RouteDto;
 import com.hexaware.fastx_busticketsystem.entities.Route;
+import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException;
 import com.hexaware.fastx_busticketsystem.exception.RouteNotFoundException;
 
 public interface IRouteService {
 	
 	
-    Route addRoute(RouteDto routeDto);
-
+	public Route addRoute(RouteDto routeDto, Authentication authentication) throws BusOperatorNotFoundException ;
    
-    Route updateRoute(RouteDto routeDto) throws RouteNotFoundException;
+	 public Route updateRoute(RouteDto routeDto, Authentication authentication)
+	            throws RouteNotFoundException, BusOperatorNotFoundException;
     
 
    
@@ -23,5 +26,7 @@ public interface IRouteService {
 
   
     Route getRouteById(int routeId) throws RouteNotFoundException;
+    
+    public List<Route> getRoutesByOperatorAuth(Authentication authentication) throws BusOperatorNotFoundException;
 
 }

@@ -12,5 +12,9 @@ public interface BusOpDataRepo extends JpaRepository<BusOpData,Integer>{
 	 Optional<BusOpData> findByBusOpLogin(BusOpLogin login);
 	 
 	 Optional<BusOpData> findByBusOpLogin_Username(String username);
+	 
+	 Optional<BusOpData> findByEmail(String email);
+	 
+	
 
 }

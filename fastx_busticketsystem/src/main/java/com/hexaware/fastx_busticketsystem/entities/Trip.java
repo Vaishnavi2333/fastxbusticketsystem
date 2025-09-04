@@ -6,12 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -42,14 +43,14 @@ public class Trip {
     
    
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "route_id")
     @JsonIgnoreProperties({"trips", "buses"})
 	private Route route;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "bus_id") 
-    @JsonManagedReference
+    @JsonIgnore
     private Bus bus;
     
     @JsonBackReference

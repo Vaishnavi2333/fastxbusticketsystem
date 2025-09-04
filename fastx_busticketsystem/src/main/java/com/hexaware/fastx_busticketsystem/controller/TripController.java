@@ -1,9 +1,12 @@
 package com.hexaware.fastx_busticketsystem.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hexaware.fastx_busticketsystem.dto.TripDto;
 import com.hexaware.fastx_busticketsystem.entities.Trip;
 import com.hexaware.fastx_busticketsystem.exception.TripNotFoundException;
+import com.hexaware.fastx_busticketsystem.service.IBusOpDataService;
 import com.hexaware.fastx_busticketsystem.service.ITripService;
 
 import jakarta.validation.Valid;
@@ -33,6 +37,10 @@ public class TripController {
     @Autowired
     ITripService service;
 
+    @Autowired
+    IBusOpDataService operatorService;
+    
+    
     
     
     @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
@@ -65,9 +73,10 @@ public class TripController {
     
     @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR','USER')")
     @GetMapping("/getalltrips")
-    public List<Trip> getAllTrips() {
+    public List<TripDto> getAllTrips() {
         return service.getAllTrips();
     }
+    
 
     @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR','USER')")
     @GetMapping("/route/{routeId}")
@@ -75,9 +84,14 @@ public class TripController {
         return service.getTripsByRoute(routeId);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR','USER')")
-    @GetMapping("/operator/{operatorId}")
-    public List<Trip> getTripsByBusOperator(@PathVariable int operatorId) {
-        return service.getTripsByBusOperator(operatorId);
+    @GetMapping("/by-operator")
+    public ResponseEntity<List<Trip>> getTripsByOperator(Authentication authentication) {
+        
+        int operatorId = service.getOperatorIdFromAuth(authentication);
+
+       
+        List<Trip> trips = service.getTripsByBusOperator(operatorId);
+
+        return ResponseEntity.ok(trips);
     }
 }

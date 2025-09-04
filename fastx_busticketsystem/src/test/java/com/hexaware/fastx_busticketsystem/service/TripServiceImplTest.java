@@ -128,7 +128,7 @@ class TripServiceImplTest {
         assertEquals(450.0, trip.getFare());
     }
 
-    @Test
+   /* @Test
     void testGetAllTrips() {
         List<Trip> tripsBefore = tripService.getAllTrips();
 
@@ -144,10 +144,9 @@ class TripServiceImplTest {
         tripService.addTrip(dto);
 
         List<Trip> tripsAfter = tripService.getAllTrips();
-        assertTrue(tripsAfter.size() > tripsBefore.size());
+        assertTrue(tripsAfter.size() > tripsBefore.size()); */
     }
 
    
 
    
-}

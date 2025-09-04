@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -42,6 +43,7 @@ public class Route {
     
     
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
+    @JsonIgnore 
     private List<Bus> buses = new ArrayList<>();
     
     
@@ -49,7 +51,20 @@ public class Route {
     @JoinColumn(name = "admin_id")
     private AdminLogin admin;
     
-    public Route() {
+    @ManyToOne
+    @JoinColumn(name = "operator_id")
+    @JsonIgnore 
+    private BusOpData busOpData;
+    
+    public BusOpData getBusOpData() {
+		return busOpData;
+	}
+
+	public void setBusOpData(BusOpData busOpData) {
+		this.busOpData = busOpData;
+	}
+
+	public Route() {
     	
     }
 

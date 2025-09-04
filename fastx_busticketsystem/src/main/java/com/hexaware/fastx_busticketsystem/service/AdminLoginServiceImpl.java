@@ -2,6 +2,7 @@ package com.hexaware.fastx_busticketsystem.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,11 +11,14 @@ import org.springframework.stereotype.Service;
 
 import com.hexaware.fastx_busticketsystem.dto.AdminLoginDto;
 import com.hexaware.fastx_busticketsystem.dto.BusDto;
+import com.hexaware.fastx_busticketsystem.dto.BusOpLoginDto;
 import com.hexaware.fastx_busticketsystem.dto.RouteDto;
 import com.hexaware.fastx_busticketsystem.entities.AdminLogin;
 import com.hexaware.fastx_busticketsystem.entities.Booking;
 import com.hexaware.fastx_busticketsystem.entities.Bus;
 import com.hexaware.fastx_busticketsystem.entities.BusOpData;
+import com.hexaware.fastx_busticketsystem.entities.BusOpLogin;
+import com.hexaware.fastx_busticketsystem.entities.BusOpLogin.Status;
 import com.hexaware.fastx_busticketsystem.entities.Route;
 import com.hexaware.fastx_busticketsystem.entities.UserData;
 import com.hexaware.fastx_busticketsystem.exception.AdminAlreadyExistsException;
@@ -27,6 +31,7 @@ import com.hexaware.fastx_busticketsystem.exception.UserNotFoundException;
 import com.hexaware.fastx_busticketsystem.repository.AdminLoginRepo;
 import com.hexaware.fastx_busticketsystem.repository.BookingRepo;
 import com.hexaware.fastx_busticketsystem.repository.BusOpDataRepo;
+import com.hexaware.fastx_busticketsystem.repository.BusOpLoginRepo;
 import com.hexaware.fastx_busticketsystem.repository.BusRepo;
 import com.hexaware.fastx_busticketsystem.repository.RouteRepo;
 import com.hexaware.fastx_busticketsystem.repository.UserDataRepo;
@@ -66,6 +71,9 @@ public class AdminLoginServiceImpl implements IAdminLoginService {
 
 	    @Autowired
 	    private PasswordEncoder passwordEncoder;
+	    
+	    @Autowired
+	    private BusOpLoginRepo busOpLoginRepo;
 
 	    
 
@@ -112,6 +120,24 @@ public class AdminLoginServiceImpl implements IAdminLoginService {
 	    public Optional<AdminLogin> findByUsername(String username) {
 	        return adminRepo.findByUsername(username);
 	    }
+	  
+	    @Override
+	    public List<BusOpLoginDto> getPendingBusOperators() {
+	        return busOpLoginRepo.findByStatus(Status.PENDING)
+	                             .stream()
+	                             .map(BusOpLoginDto::new)
+	                             .collect(Collectors.toList());
+	    }
+
+	    @Override
+	    public void updateBusOperatorStatus(int busOpId, Status status) {
+	        BusOpLogin busOp = busOpLoginRepo.findById(busOpId)
+	            .orElseThrow(() -> new RuntimeException("Bus Operator not found"));
+	        busOp.setStatus(status);
+	        busOpLoginRepo.save(busOp); 
+	    }
+	    
+	   
 
 		
 }

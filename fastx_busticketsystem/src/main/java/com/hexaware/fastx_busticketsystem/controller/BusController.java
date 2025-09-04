@@ -52,7 +52,7 @@ public class BusController {
         return service.updateBus(busDto);
     }
 
-    @PreAuthorize("hasRole('BUS_OPERATOR')")
+    @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'ADMIN')")
     @DeleteMapping("/delete/{id}")
     public String deleteBus(@PathVariable("id") int id) throws BusNotFoundException {
         service.deleteBus(id);

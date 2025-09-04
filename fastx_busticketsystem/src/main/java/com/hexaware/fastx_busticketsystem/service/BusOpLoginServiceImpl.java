@@ -4,14 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.hexaware.fastx_busticketsystem.dto.BusOpLoginDto;
 import com.hexaware.fastx_busticketsystem.entities.BusOpData;
 import com.hexaware.fastx_busticketsystem.entities.BusOpLogin;
+import com.hexaware.fastx_busticketsystem.entities.BusOpLogin.Status;
 import com.hexaware.fastx_busticketsystem.exception.BusOperatorAlreadyExistsException;
 import com.hexaware.fastx_busticketsystem.exception.BusOperatorNotFoundException;
 import com.hexaware.fastx_busticketsystem.repository.BusOpDataRepo;
@@ -93,15 +96,27 @@ Description:  Bus Operator Login Service Implementation Class*/
 	    
 	    @Override
 	    public Map<String, Object> loginBusOperator(String username, String password) throws BusOperatorNotFoundException {
-	      
-	        String token = loginBusOp(username, password);  
 
 	        
-	        int busOpId = busOpDataRepo.findByBusOpLogin_Username(username)
-	                .orElseThrow(() -> new BusOperatorNotFoundException("Bus Operator not found"))
-	                .getBusOpId();
+	        BusOpLogin busOpLogin = repo.findByUsername(username)
+	                .orElseThrow(() -> new BusOperatorNotFoundException("Bus Operator not found"));
 
 	       
+	        if (busOpLogin.getStatus() == Status.PENDING) { 
+	            throw new ResponseStatusException(
+	                HttpStatus.FORBIDDEN, "Bus Operator is not approved by admin yet"
+	            );
+	        } else if (busOpLogin.getStatus() == Status.REJECTED) {
+	            throw new ResponseStatusException(
+	                HttpStatus.FORBIDDEN, "Bus Operator registration has been rejected by admin"
+	            );
+	        }
+
+	       
+	        String token = loginBusOp(username, password);
+
+	        int busOpId = busOpLogin.getBusOpId();
+
 	        Map<String, Object> response = new HashMap<>();
 	        response.put("token", token);
 	        response.put("busOpId", busOpId);

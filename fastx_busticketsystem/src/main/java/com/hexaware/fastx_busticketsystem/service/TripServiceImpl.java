@@ -3,17 +3,19 @@ package com.hexaware.fastx_busticketsystem.service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import com.hexaware.fastx_busticketsystem.dto.TripDto;
-import com.hexaware.fastx_busticketsystem.dto.UserDataDto;
 import com.hexaware.fastx_busticketsystem.entities.Bus;
+import com.hexaware.fastx_busticketsystem.entities.BusOpData;
 import com.hexaware.fastx_busticketsystem.entities.Route;
 import com.hexaware.fastx_busticketsystem.entities.Trip;
-import com.hexaware.fastx_busticketsystem.entities.UserData;
 import com.hexaware.fastx_busticketsystem.exception.TripNotFoundException;
+import com.hexaware.fastx_busticketsystem.repository.BusOpDataRepo;
 import com.hexaware.fastx_busticketsystem.repository.BusRepo;
 import com.hexaware.fastx_busticketsystem.repository.RouteRepo;
 import com.hexaware.fastx_busticketsystem.repository.TripRepo;
@@ -34,6 +36,9 @@ public class TripServiceImpl implements ITripService {
 
     @Autowired
     private RouteRepo routeRepo;
+    
+    @Autowired
+    private BusOpDataRepo busOpRepo;
 
     @Override
     public Trip addTrip(TripDto tripDto) {
@@ -102,8 +107,10 @@ public class TripServiceImpl implements ITripService {
     }
 
     @Override
-    public List<Trip> getAllTrips() {
-        return repo.findAll();
+    public List<TripDto> getAllTrips() {
+        return repo.findAll().stream()
+                   .map(TripDto::new)
+                   .collect(Collectors.toList());
     }
 
     @Override
@@ -112,13 +119,37 @@ public class TripServiceImpl implements ITripService {
     }
 
     @Override
-    public List<Trip> getTripsByBusOperator(int operatorId) {
-       
+    public List<Trip> getTripsByBusOperator(Authentication authentication) {
+        int operatorId = getOperatorIdFromAuth(authentication);
+
         List<Bus> buses = busRepo.findByBusOpData_BusOpLogin_BusOpId(operatorId);
+
+        if (buses.isEmpty()) {
+            return new ArrayList<>();
+        }
+
         List<Trip> trips = new ArrayList<>();
         for (Bus bus : buses) {
             trips.addAll(repo.findByBusBusId(bus.getBusId()));
         }
+
         return trips;
     }
+    
+    @Override
+    public int getOperatorIdFromAuth(Authentication authentication) {
+        String username = authentication.getName(); 
+        BusOpData operator = busOpRepo.findByBusOpLogin_Username(username)
+            .orElseThrow(() -> new RuntimeException("Bus Operator not found for username: " + username));
+        return operator.getBusOpId();
+    }
+    
+    @Override
+    public List<Trip> getTripsByBusOperator(int operatorId) {
+        return repo.findByBus_BusOpData_BusOpDataId(operatorId);
+    }
+    
+   
+
+
 }

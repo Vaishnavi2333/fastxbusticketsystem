@@ -3,11 +3,11 @@ package com.hexaware.fastx_busticketsystem.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -40,7 +40,7 @@ public class Bus {
     private String status;
     
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="route_id")
     private Route route;
 
@@ -54,7 +54,7 @@ public class Bus {
     private List<BusAmenity> amenities = new ArrayList<>();
     
     @OneToMany(mappedBy = "bus", cascade = CascadeType.ALL)
-    @JsonBackReference
+    @JsonManagedReference 
     private List<Trip> trips;
 
     public Bus() {

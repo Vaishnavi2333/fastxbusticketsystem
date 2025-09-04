@@ -2,9 +2,12 @@ package com.hexaware.fastx_busticketsystem.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -37,7 +40,21 @@ public class BusOpLogin {
     @Column(name = "password")
     private String password;
 
-   
+    @Enumerated(EnumType.STRING)
+    private Status status = Status.PENDING;
+    
+    public enum Status {
+        PENDING, APPROVED, REJECTED
+    }
+    
+    public Status getStatus() {
+    	return status;
+    }
+    
+    public void setStatus(Status status) {
+    	this.status = status;
+    }
+
     
     public BusOpLogin() {
     }

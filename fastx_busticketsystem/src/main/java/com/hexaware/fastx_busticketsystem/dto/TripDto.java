@@ -3,6 +3,8 @@ package com.hexaware.fastx_busticketsystem.dto;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import com.hexaware.fastx_busticketsystem.entities.Trip;
+
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -42,4 +44,17 @@ public class TripDto {
 
     @Positive(message = "Route ID must be positive")
     private int routeId;
+    
+    
+    public TripDto(Trip trip) {
+    	this.tripId = trip.getTripId();
+        this.date = trip.getDate();
+        this.departureTime = trip.getDepartureTime();
+        this.arrivalTime = trip.getArrivalTime();
+        this.fare = trip.getFare();
+        this.status = trip.getStatus();
+        this.busId = trip.getBus() != null ? trip.getBus().getBusId() : 0;
+        this.routeId = trip.getRoute() != null ? trip.getRoute().getRouteId() : 0;
+        
+    }
 }
