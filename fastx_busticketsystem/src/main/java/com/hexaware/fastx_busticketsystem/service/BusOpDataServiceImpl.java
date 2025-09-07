@@ -34,7 +34,7 @@ public class BusOpDataServiceImpl implements IBusOpDataService{
 		BusOpDataDto dto = new BusOpDataDto();
 		dto.setBusOpLoginId(entity.getBusOpId());
 		dto.setName(entity.getName());
-		dto.setLicenceNumber(entity.getAddress());
+		dto.setLicenceNumber(entity.getLicenceNumber());
 		dto.setGender(entity.getGender());
 		dto.setEmail(entity.getEmail());
 		dto.setCompanyName(entity.getCompanyName());

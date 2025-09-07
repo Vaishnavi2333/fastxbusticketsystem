@@ -100,9 +100,35 @@ public class BookingServiceImpl implements IBookingService {
     }
 
     @Override
-    public Booking getBookingById(int bookingId) throws BookingNotFoundException {
-        return bookingRepo.findById(bookingId)
+    public BookingDto getBookingById(int bookingId) throws BookingNotFoundException {
+    	Booking booking = bookingRepo.findById(bookingId)
                 .orElseThrow(() -> new BookingNotFoundException("Booking not found with ID: " + bookingId));
+    	BookingDto dto = new BookingDto();
+    	
+        dto.setBookingId(booking.getBookingId());
+        dto.setBookingDate(booking.getBookingDate());
+        dto.setStatus(booking.getStatus());
+        dto.setUserId(booking.getUser().getUserLogin().getUserId()); 
+        dto.setTripId(booking.getTrip().getTripId());
+        dto.setTotalPrice(booking.getTotalPrice());
+        dto.setSelectedSeats(booking.getSelectedSeats());
+        dto.setPaymentDone(booking.getPaymentDone());
+        
+        Trip trip = booking.getTrip();
+        if (trip != null) {
+            dto.setDepartureTime(trip.getDepartureTime().toString());
+            dto.setArrivalTime(trip.getArrivalTime().toString());
+
+           
+            Bus bus = trip.getBus();
+            if (bus != null) {
+                dto.setBusName(bus.getBusName());
+                dto.setBusType(bus.getBusType());
+                dto.setBusNumber(bus.getBusNumber());
+            }
+        }
+        
+        return dto;
     }
 
     @Override
@@ -177,16 +203,30 @@ public class BookingServiceImpl implements IBookingService {
         List<Booking> bookings = bookingRepo.findByUser_UserdataId(userId);
 
         return bookings.stream()
-            .map(b -> new BookingSummaryDTO(
-                b.getBookingId(),
-                b.getStatus(),
-                b.getBookingDate(),
-                b.getTrip().getBus().getBusName(),
-                b.getTrip().getDepartureTime(),
-                b.getTrip().getArrivalTime()
-            ))
-            .collect(Collectors.toList());
+        	    .map(b -> {
+        	        List<String> seatList = b.getSelectedSeats() != null
+        	            ? new ArrayList<>(b.getSelectedSeats())  
+        	            : new ArrayList<>();
+        	        Bus bus = b.getTrip().getBus();
+
+                    return new BookingSummaryDTO(
+                        b.getBookingId(),
+                        b.getStatus(),
+                        b.getBookingDate(),
+                        bus != null ? bus.getBusName() : "N/A",
+                        bus != null ? bus.getBusType() : "N/A",
+                        bus != null ? bus.getBusNumber() : "N/A",
+                        b.getTrip().getDepartureTime(),
+                        b.getTrip().getArrivalTime(),
+                        b.getUser() != null ? b.getUser().getName() : "N/A",
+                        seatList,
+                        b.getTotalPrice()
+                    );
+                })
+                .collect(Collectors.toList());
     }
+
+
 
 }
 

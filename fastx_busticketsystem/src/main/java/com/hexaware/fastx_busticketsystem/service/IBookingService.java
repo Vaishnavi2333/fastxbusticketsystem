@@ -16,7 +16,7 @@ public interface IBookingService {
     public void cancelBooking(int bookingId) throws BookingNotFoundException;
 
    
-    public Booking getBookingById(int bookingId) throws BookingNotFoundException;
+    public BookingDto getBookingById(int bookingId) throws BookingNotFoundException;
 
     
     public List<Booking> getAllBookings();

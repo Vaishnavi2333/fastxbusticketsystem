@@ -33,4 +33,8 @@ public interface IAdminLoginService {
     public List<BusOpLoginDto> getPendingBusOperators();
 
 	void updateBusOperatorStatus(int busOpId, Status status);
+	
+	public void updatePassword(String username, String newPassword);
+	
+	 public boolean existsByUsername(String username);
 }

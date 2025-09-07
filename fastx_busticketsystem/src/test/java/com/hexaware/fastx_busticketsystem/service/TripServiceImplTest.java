@@ -128,24 +128,7 @@ class TripServiceImplTest {
         assertEquals(450.0, trip.getFare());
     }
 
-   /* @Test
-    void testGetAllTrips() {
-        List<Trip> tripsBefore = tripService.getAllTrips();
-
-        TripDto dto = new TripDto();
-        dto.setTripId(5);
-        dto.setDate(LocalDate.now().plusDays(1));
-        dto.setDepartureTime(LocalTime.of(7, 0));
-        dto.setArrivalTime(LocalTime.of(12, 0));
-        dto.setFare(550.0);
-        dto.setStatus("Available");
-        dto.setBusId(testBus.getBusId());
-        dto.setRouteId(testRoute.getRouteId());
-        tripService.addTrip(dto);
-
-        List<Trip> tripsAfter = tripService.getAllTrips();
-        assertTrue(tripsAfter.size() > tripsBefore.size()); */
-    }
+}
 
    
 

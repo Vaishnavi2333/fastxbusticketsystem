@@ -1,11 +1,13 @@
 package com.hexaware.fastx_busticketsystem.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hexaware.fastx_busticketsystem.dto.BookingDto;
 import com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO;
 import com.hexaware.fastx_busticketsystem.entities.Booking;
+import com.hexaware.fastx_busticketsystem.entities.Bus;
 import com.hexaware.fastx_busticketsystem.exception.BookingNotFoundException;
 import com.hexaware.fastx_busticketsystem.service.IBookingService;
 
@@ -67,8 +70,12 @@ public class BookingController {
    
     @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @GetMapping("/get/{bookingId}")
-    public Booking getBookingById(@PathVariable int bookingId) throws BookingNotFoundException {
-        return service.getBookingById(bookingId);
+    public ResponseEntity<BookingDto> getBookingById(@PathVariable int bookingId) throws BookingNotFoundException {
+        BookingDto bookingDto = service.getBookingById(bookingId); 
+        if (bookingDto == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        return ResponseEntity.ok(bookingDto);
     }
 
    
@@ -112,26 +119,36 @@ public class BookingController {
     public List<BookingSummaryDTO> getBookingSummary(@PathVariable int userId) {
         return service.getBookingSummaryByUserId(userId);
     }
-    
     @PreAuthorize("hasAnyRole('ADMIN','BUS_OPERATOR')")
     @GetMapping("/bookings/summary")
     public List<BookingSummaryDTO> getAllBookingSummaries() {
         List<Booking> bookings = service.getAllBookings();
         return bookings.stream()
-                .map(b -> new BookingSummaryDTO(
-                        b.getBookingId(),
-                        b.getStatus(),
-                        b.getBookingDate(),
-                        b.getTrip().getBus().getBusName(),
-                        b.getTrip().getDepartureTime(),
-                        b.getTrip().getArrivalTime(),
-                        b.getUser().getName(),
-                        b.getSelectedSeats(),
-                        b.getTotalPrice()
-                ))
+                .map(b -> {
+                    List<String> seatList = b.getSelectedSeats() != null
+                            ? new ArrayList<>(b.getSelectedSeats())
+                            : new ArrayList<>();
+
+                    Bus bus = b.getTrip().getBus(); 
+
+                    return new BookingSummaryDTO(
+                            b.getBookingId(),
+                            b.getStatus(),
+                            b.getBookingDate(),
+                            bus.getBusName(),        
+                            bus.getBusType(),        
+                            bus.getBusNumber(),      
+                            b.getTrip().getDepartureTime(),  
+                            b.getTrip().getArrivalTime(),    
+                            b.getUser().getName(),           
+                            seatList,                        
+                            b.getTotalPrice()                
+                    );
+                })
                 .sorted((b1, b2) -> Long.compare(b2.getBookingId(), b1.getBookingId()))
                 .collect(Collectors.toList());
     }
+
 
 
     

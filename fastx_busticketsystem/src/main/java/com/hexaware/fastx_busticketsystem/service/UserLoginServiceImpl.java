@@ -84,5 +84,13 @@ public class UserLoginServiceImpl implements IUserLoginService {
                 .orElseThrow(() -> new UserNotFoundException("User with username '" + username + "' not found"));
         return user.getUserId();  
     }
+    
+    @Override
+    public void updatePassword(String username, String newPassword) {
+        UserLogin user = repo.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        user.setPassword(passwordEncoder.encode(newPassword));
+        repo.save(user);
+    }
 }
 

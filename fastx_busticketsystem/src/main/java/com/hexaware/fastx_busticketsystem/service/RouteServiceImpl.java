@@ -60,7 +60,7 @@ public class RouteServiceImpl implements IRouteService {
 	        Route existing = repo.findById(routeDto.getRouteId())
 	                .orElseThrow(() -> new RouteNotFoundException("Route not found with id: " + routeDto.getRouteId()));
 
-	        // Prevent operator from updating routes they don’t own
+	       
 	        if (existing.getBusOpData() == null || existing.getBusOpData().getBusOpId() != operatorId) {
 	            throw new BusOperatorNotFoundException("You are not allowed to update this route!");
 	        }
@@ -101,7 +101,7 @@ public class RouteServiceImpl implements IRouteService {
 	        BusOpData operator = busOprepo.findById(operatorId)
 	                .orElseThrow(() -> new BusOperatorNotFoundException("Bus Operator not found with id : " + operatorId));
 
-	        return repo.findByBusOpData_BusOpDataId(operatorId); // ✅ make sure this method exists in RouteRepository
+	        return repo.findByBusOpData_BusOpDataId(operatorId); 
 	    }
 
 	   

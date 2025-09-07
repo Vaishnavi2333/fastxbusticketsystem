@@ -137,6 +137,19 @@ public class AdminLoginServiceImpl implements IAdminLoginService {
 	        busOpLoginRepo.save(busOp); 
 	    }
 	    
+	    @Override
+	    public void updatePassword(String username, String newPassword) {
+	        AdminLogin admin = adminRepo.findByUsername(username)
+	                .orElseThrow(() -> new RuntimeException("Admin not found"));
+	        admin.setPassword(passwordEncoder.encode(newPassword));
+	        adminRepo.save(admin);
+	    }
+
+	    @Override
+	    public boolean existsByUsername(String username) {
+	        return adminRepo.existsByUsername(username);
+	    }
+	    
 	   
 
 		

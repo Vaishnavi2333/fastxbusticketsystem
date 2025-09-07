@@ -1,6 +1,7 @@
 package com.hexaware.fastx_busticketsystem.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,17 +27,22 @@ public class BusAmenityServiceImpl implements IBusAmenityService {
     @Autowired
     BusRepo busRepo;
 
-	@Override
-	public BusAmenity addBusAmenity(BusAmenityDto busamenityDto) throws BusNotFoundException {
-		Bus bus = busRepo.findById(busamenityDto.getBusId())
-	            .orElseThrow(() -> new BusNotFoundException("Bus not found with id: " + busamenityDto.getBusId()));
+    @Override
+    public BusAmenity addBusAmenity(BusAmenityDto dto) throws BusNotFoundException {
+        Bus bus = busRepo.findById(dto.getBusId())
+                .orElseThrow(() -> new BusNotFoundException("Bus not found with id: " + dto.getBusId()));
 
-	        BusAmenity busAmenity = new BusAmenity();
-	        busAmenity.setBus(bus);
-	        busAmenity.setAmenityName(busamenityDto.getAmenityName());
+        
+        boolean exists = busAmenityRepo.existsByBus_BusIdAndAmenityNameIgnoreCase(bus.getBusId(), dto.getAmenityName());
+        if (exists) {
+            throw new RuntimeException("Amenity already exists for this bus");
+        }
 
-	        return busAmenityRepo.save(busAmenity);
-	}
+        BusAmenity ba = new BusAmenity();
+        ba.setBus(bus);
+        ba.setAmenityName(dto.getAmenityName());
+        return busAmenityRepo.save(ba);
+    }
 
 	@Override
 	public BusAmenity updateBusAmenity(BusAmenityDto busamenityDto) throws BusAmenityNotFoundException, BusNotFoundException {
@@ -55,15 +61,12 @@ public class BusAmenityServiceImpl implements IBusAmenityService {
 		    return busAmenityRepo.save(existing);
 	}
 
-	@Override
-	public void removeBusAmenity(int busAmenityId) {
-		BusAmenity existing = busAmenityRepo.findById(busAmenityId)
-	            .orElseThrow(() -> new RuntimeException("BusAmenity not found with id: " + busAmenityId));
-
-	        busAmenityRepo.delete(existing);
-		
-	}
-
+	 @Override
+	    public void removeBusAmenity(int busAmenityId) {
+	        BusAmenity ba = busAmenityRepo.findById(busAmenityId)
+	                .orElseThrow(() -> new RuntimeException("BusAmenity not found with id: " + busAmenityId));
+	        busAmenityRepo.delete(ba);
+	    }
 	@Override
 	public List<BusAmenity> getAllBusAmenity() {
 		return busAmenityRepo.findAll();
@@ -74,7 +77,24 @@ public class BusAmenityServiceImpl implements IBusAmenityService {
 		return busAmenityRepo.findById(busAmenityId)
 	            .orElseThrow(() -> new RuntimeException("BusAmenity not found with id: " + busAmenityId));
 	}
+	
+	@Override
+	public List<BusAmenityDto> getAmenitiesByBusId(int busId) {
+	    List<BusAmenity> amenities = busAmenityRepo.findByBus_BusId(busId);
+	    return amenities.stream()
+	                    .map(this::mapToDto)
+	                    .collect(Collectors.toList());
+	}
 
+    private BusAmenityDto mapToDto(BusAmenity entity) {
+        BusAmenityDto dto = new BusAmenityDto();
+        dto.setBusamenityId(entity.getBusamenityId());
+        dto.setAmenityName(entity.getAmenityName());
+        if (entity.getBus() != null) {
+            dto.setBusId(entity.getBus().getBusId());
+        }
+        return dto;
+    }
 
 	
 }

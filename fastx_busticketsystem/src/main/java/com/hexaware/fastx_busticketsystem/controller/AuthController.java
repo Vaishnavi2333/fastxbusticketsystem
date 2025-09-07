@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -101,4 +102,62 @@ public class AuthController {
         log.info("Admin login successful: ", request.getUsername());
         return ResponseEntity.ok(token);
     }
+    
+    @PostMapping("/forgot-password/user")
+    public ResponseEntity<String> forgotPasswordUser(@RequestBody Map<String, String> request) {
+        String username = request.get("username");
+        boolean exists = userLoginService.existsByUsername(username);
+        if (!exists) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
+        return ResponseEntity.ok("Username validated. Enter new password.");
+    }
+
+   
+    @PostMapping("/reset-password/user")
+    public ResponseEntity<String> resetPasswordUser(@RequestBody Map<String, String> request) {
+        String username = request.get("username");
+        String newPassword = request.get("newPassword");
+        userLoginService.updatePassword(username, newPassword);
+        return ResponseEntity.ok("Password reset successfully for User");
+    }
+    
+    @PostMapping("/forgot-password/busoperator")
+    public ResponseEntity<String> forgotPasswordBusOperator(@RequestBody Map<String, String> request) {
+        String username = request.get("username");
+        boolean exists = busOpLoginService.existsByUsername(username);
+        if (!exists) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bus Operator not found");
+        }
+        return ResponseEntity.ok("Username validated. Enter new password.");
+    }
+
+    @PostMapping("/reset-password/busoperator")
+    public ResponseEntity<String> resetPasswordBusOperator(@RequestBody Map<String, String> request) {
+        String username = request.get("username");
+        String newPassword = request.get("newPassword");
+        busOpLoginService.updatePassword(username, newPassword);
+        return ResponseEntity.ok("Password reset successfully for Bus Operator");
+    }
+    
+    @PostMapping("/forgot-password/admin")
+    public ResponseEntity<String> forgotPasswordAdmin(@RequestBody Map<String, String> request) {
+        String username = request.get("username");
+        boolean exists = adminLoginService.existsByUsername(username);
+        if (!exists) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Admin not found");
+        }
+        return ResponseEntity.ok("Username validated. Enter new password.");
+    }
+
+    @PostMapping("/reset-password/admin")
+    public ResponseEntity<String> resetPasswordAdmin(@RequestBody Map<String, String> request) {
+        String username = request.get("username");
+        String newPassword = request.get("newPassword");
+        adminLoginService.updatePassword(username, newPassword);
+        return ResponseEntity.ok("Password reset successfully for Admin");
+    }
+
+    
+    
 }

@@ -19,4 +19,10 @@ public interface IBusAmenityService {
 	
 	public BusAmenity getBusAmenityById(int busAmenityId);
 
+	List<BusAmenityDto> getAmenitiesByBusId(int busId);
+
+
+
+	
+
 }

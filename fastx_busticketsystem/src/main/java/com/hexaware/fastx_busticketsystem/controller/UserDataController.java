@@ -64,7 +64,7 @@ public class UserDataController {
 	        return service.getAllUsers();
 	    }
 
-	    @PreAuthorize("hasRole('ADMIN')")
+	    @PreAuthorize("hasAnyRole('ADMIN','USER')")
 	    @GetMapping("/getuser/{userId}")
 	    public UserDataDto getUserById(@PathVariable int userId) throws UserNotFoundException {
 	        return service.getUserById(userId);

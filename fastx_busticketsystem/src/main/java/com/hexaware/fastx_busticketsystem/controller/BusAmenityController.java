@@ -3,6 +3,7 @@ package com.hexaware.fastx_busticketsystem.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,26 +35,26 @@ public class BusAmenityController {
 	@Autowired
 	IBusAmenityService service;
 	
-	@PreAuthorize("hasRole('USER')") 
-	 @PostMapping("/add")
+	    @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'USER')")
+	    @PostMapping("/add")
 	    public BusAmenity addBusAmenity(@RequestBody @Valid BusAmenityDto dto) throws BusNotFoundException {
 	        return service.addBusAmenity(dto);
 	    }
         
-	    @PreAuthorize("hasRole('USER')") 
+	    @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'USER')")
 	    @PutMapping("/update")
 	    public BusAmenity updateBusAmenity(@RequestBody @Valid BusAmenityDto dto) throws BusAmenityNotFoundException, BusNotFoundException {
 	        return service.updateBusAmenity(dto);
 	    }
 
-	    @PreAuthorize("hasRole('USER')") 
+	    @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'USER')")
 	    @DeleteMapping("/remove/{id}")
 	    public String removeBusAmenity(@PathVariable("id") int id) {
 	        service.removeBusAmenity(id);
 	        return "BusAmenity with id " + id + " deleted successfully";
 	    }
 
-	    @PreAuthorize("hasRole('USER')") 
+	    @PreAuthorize("hasAnyRole('BUS_OPERATOR', 'USER')")
 	    @GetMapping("/all")
 	    public List<BusAmenity> getAllBusAmenities() {
 	        return service.getAllBusAmenity();
@@ -64,5 +65,12 @@ public class BusAmenityController {
 	    public BusAmenity getBusAmenityById(@PathVariable("id") int id) {
 	        return service.getBusAmenityById(id);
 	    }
+	    
+	    @PreAuthorize("hasAnyRole('USER','BUS_OPERATOR')")
+	    @GetMapping("/getbybusid/{busId}")
+	    public ResponseEntity<List<BusAmenityDto>> getAmenitiesByBusId(@PathVariable("busId") int busId) {
+	        List<BusAmenityDto> amenities = service.getAmenitiesByBusId(busId);
+	        return ResponseEntity.ok(amenities);
+	    }    
 
 }

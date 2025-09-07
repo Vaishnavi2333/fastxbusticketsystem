@@ -51,6 +51,7 @@ public class Bus {
     private BusOpData busOpData;
     
     @OneToMany(mappedBy = "bus",cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<BusAmenity> amenities = new ArrayList<>();
     
     @OneToMany(mappedBy = "bus", cascade = CascadeType.ALL)

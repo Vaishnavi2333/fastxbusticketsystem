@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -20,6 +21,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 
 /*Author:Vaishnavi Suresh Vaidyanath
@@ -141,6 +143,15 @@ public class Trip {
 	}
 	
 	
-    
+	@JsonProperty("busId")
+	public int getBusId() {
+	    return bus != null ? bus.getBusId() : 0;
+	}
+	
+	@Transient
+	@JsonProperty("busName")
+	public String getBusName() {
+	    return bus != null ? bus.getBusName() : null;
+	}
 
 }

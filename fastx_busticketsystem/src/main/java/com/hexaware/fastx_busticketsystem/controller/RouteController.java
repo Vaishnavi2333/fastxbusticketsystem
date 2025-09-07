@@ -58,7 +58,7 @@ public class RouteController {
         return "Route with ID " + routeId + " deleted successfully";
     }
 
-	@PreAuthorize("hasAnyRole('ADMIN','USER','BUS_OPERATOR')")
+	
     @GetMapping("/getall")
     public List<Route> getAllRoutes() {
         return service.getAllRoutes();

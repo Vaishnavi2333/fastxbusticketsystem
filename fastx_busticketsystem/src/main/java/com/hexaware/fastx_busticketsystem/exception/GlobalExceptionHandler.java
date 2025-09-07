@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.server.ResponseStatusException;
 
 
 /*Author:Vaishnavi Suresh Vaidyanath
@@ -90,6 +91,20 @@ public class GlobalExceptionHandler {
 	        Map<String, String> error = new HashMap<>();
 	        error.put("error", ex.getMessage());
 	        return ResponseEntity.badRequest().body(error);
+	    }
+	    
+	    @ExceptionHandler(ResponseStatusException.class)
+	    public ResponseEntity<Map<String, Object>> handleResponseStatusException(ResponseStatusException ex) {
+	        Map<String, Object> errorResponse = new HashMap<>();
+	        errorResponse.put("message", ex.getReason());  
+	        return ResponseEntity.status(ex.getStatusCode()).body(errorResponse);
+	    }
+
+	    @ExceptionHandler(BusOperatorNotFoundException.class)
+	    public ResponseEntity<Map<String, Object>> handleBusOpNotFound(BusOperatorNotFoundException ex) {
+	        Map<String, Object> errorResponse = new HashMap<>();
+	        errorResponse.put("message", ex.getMessage());
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
 	    }
 
 }

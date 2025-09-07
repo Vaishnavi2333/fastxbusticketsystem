@@ -43,9 +43,15 @@ public class BookingDto {
     private List<@Pattern(regexp = "^[A-Z]\\d{1,2}$", message = "Invalid seat format") String> selectedSeats;
 
     @Positive(message = "Payment ID must be a positive number")
-    private int paymentId;
+    private Integer paymentId;
     
     @NotNull(message = "Payment status must be specified")
     private Boolean paymentDone;
+    
+    private String busName;
+    private String busType;
+    private String busNumber;
+    private String departureTime;
+    private String arrivalTime;
 
 }

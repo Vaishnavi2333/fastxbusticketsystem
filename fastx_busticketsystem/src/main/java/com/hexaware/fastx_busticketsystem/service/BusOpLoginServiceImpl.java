@@ -124,6 +124,14 @@ Description:  Bus Operator Login Service Implementation Class*/
 
 	        return response;
 	    }
+	    
+	    @Override
+	    public void updatePassword(String username, String newPassword) {
+	        BusOpLogin busOp = repo.findByUsername(username)
+	                .orElseThrow(() -> new RuntimeException("Bus Operator not found"));
+	        busOp.setPassword(passwordEncoder.encode(newPassword)); 
+	        repo.save(busOp);
+	    }
 	}
 
 

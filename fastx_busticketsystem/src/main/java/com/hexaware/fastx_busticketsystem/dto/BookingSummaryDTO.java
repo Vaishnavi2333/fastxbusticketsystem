@@ -6,46 +6,95 @@ import java.util.List;
 
 
 public class BookingSummaryDTO {
-    private int bookingId;
-    private String status;
-    private LocalDate bookingDate;
-    private String busName;
-    private LocalTime startingTime;
-    private LocalTime endingTime;
-    private String username;       // added
-    private List<String> seatsBooked;     // optional
-    private double totalAmount;    // optional
+	  private int bookingId;
+	    private String status;
+	    private LocalDate bookingDate;
+	    private String busName;
+	    private String busType;      
+	    private String busNumber;    
+	    private LocalTime departureTime;
+	    private LocalTime arrivalTime;
+	    private String name;       
+	    private List<String> seatsBooked;     
+	    private double totalAmount;    
 
-    // Constructors
-    public BookingSummaryDTO() {}
-    
-    public BookingSummaryDTO(int bookingId, String status, LocalDate bookingDate,
-            String busName, LocalTime startingTime, LocalTime endingTime) {
-this.bookingId = bookingId;
-this.status = status;
-this.bookingDate = bookingDate;
-this.busName = busName;
-this.startingTime = startingTime;
-this.endingTime = endingTime;
-}
+	    
+	    public BookingSummaryDTO() {}
+
+	   
+   
+   
+
+	public BookingSummaryDTO(int bookingId, String status, LocalDate bookingDate, String busName, String busType,
+				String busNumber, LocalTime departureTime, LocalTime arrivalTime, String name, List<String> seatsBooked,
+				double totalAmount) {
+			super();
+			this.bookingId = bookingId;
+			this.status = status;
+			this.bookingDate = bookingDate;
+			this.busName = busName;
+			this.busType = busType;
+			this.busNumber = busNumber;
+			this.departureTime = departureTime;
+			this.arrivalTime = arrivalTime;
+			this.name = name;
+			this.seatsBooked = seatsBooked;
+			this.totalAmount = totalAmount;
+		}
 
 
-    public BookingSummaryDTO(int bookingId, String status, LocalDate bookingDate,
-            String busName, LocalTime startingTime, LocalTime endingTime,
-            String username, List<String> seatsBooked, double totalAmount) {
-this.bookingId = bookingId;
-this.status = status;
-this.bookingDate = bookingDate;
-this.busName = busName;
-this.startingTime = startingTime;
-this.endingTime = endingTime;
-this.username = username;
-this.seatsBooked = seatsBooked;
-this.totalAmount = totalAmount;
-}
 
-    // Getters & Setters
-    public int getBookingId() { return bookingId; }
+
+
+	public LocalTime getDepartureTime() {
+		return departureTime;
+	}
+
+
+
+
+
+	public void setDepartureTime(LocalTime departureTime) {
+		this.departureTime = departureTime;
+	}
+
+
+
+
+
+	public LocalTime getArrivalTime() {
+		return arrivalTime;
+	}
+
+
+
+
+
+	public void setArrivalTime(LocalTime arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
+
+
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+
+
+	public int getBookingId() { return bookingId; }
     public void setBookingId(int bookingId) { this.bookingId = bookingId; }
 
     public String getStatus() { return status; }
@@ -57,18 +106,27 @@ this.totalAmount = totalAmount;
     public String getBusName() { return busName; }
     public void setBusName(String busName) { this.busName = busName; }
 
-    public LocalTime getStartingTime() { return startingTime; }
-    public void setStartingTime(LocalTime startingTime) { this.startingTime = startingTime; }
-
-    public LocalTime getEndingTime() { return endingTime; }
-    public void setEndingTime(LocalTime endingTime) { this.endingTime = endingTime; }
-
-    public String getUsername() { return username; }
-    public void setUsername(String username) { this.username = username; }
+   
 
    
 
-    public List<String> getSeatsBooked() {
+    public String getBusType() {
+		return busType;
+	}
+
+	public void setBusType(String busType) {
+		this.busType = busType;
+	}
+
+	public String getBusNumber() {
+		return busNumber;
+	}
+
+	public void setBusNumber(String busNumber) {
+		this.busNumber = busNumber;
+	}
+
+	public List<String> getSeatsBooked() {
 		return seatsBooked;
 	}
 

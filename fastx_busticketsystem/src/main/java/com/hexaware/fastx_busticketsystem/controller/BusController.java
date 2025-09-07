@@ -59,7 +59,7 @@ public class BusController {
         return "Bus with id " + id + " deleted successfully";
     }
     
-    @PreAuthorize("hasRole('USER')")
+    
     @GetMapping("/available-seats/{tripId}")
     public List<String> getAvailableSeats(@PathVariable int tripId) {
         return bookingService.getAvailableSeats(tripId);
@@ -83,7 +83,7 @@ public class BusController {
         return service.getBusesByOperatorId(operatorId);
     }
 
-    @PreAuthorize("hasRole('USER')")
+    
     @GetMapping("/search/{origin}/{destination}/{date}")
     public List<BusDto> searchBuses(@PathVariable String origin, @PathVariable String destination, @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return service.searchBusesByOriginDestinationAndDate(origin, destination, date);

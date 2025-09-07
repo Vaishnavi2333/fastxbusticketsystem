@@ -52,55 +52,40 @@ public class BusServiceImpl implements IBusService {
         dto.setStatus(bus.getStatus());
 
         dto.setAmenities(
-            bus.getAmenities() != null
-                ? bus.getAmenities().stream().map(a -> {
-                    BusAmenityDto adto = new BusAmenityDto();
-                    adto.setBusamenityId(a.getBusamenityId());
-                    adto.setAmenityName(a.getAmenityName());
-                    return adto;
-                }).collect(Collectors.toList())
-                : new ArrayList<>()
-        );
+                bus.getAmenities() != null
+                    ? bus.getAmenities().stream().map(a -> {
+                        BusAmenityDto adto = new BusAmenityDto();
+                        adto.setBusamenityId(a.getBusamenityId());
+                        adto.setAmenityName(a.getAmenityName());
+                        return adto;
+                    }).collect(Collectors.toList())
+                    : new ArrayList<>()
+            );
 
-        return dto;
+            return dto;
+        
     }
 
     @Override
     public BusDto addBus(BusDto busDto) {
         Bus bus = new Bus();
-       
-       
         bus.setBusName(busDto.getBusName());
         bus.setBusNumber(busDto.getBusNumber());
         bus.setBusType(busDto.getBusType());
         bus.setCapacity(busDto.getCapacity());
         bus.setStatus(busDto.getStatus());
 
-     
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         BusOpData operator = busOpDataRepo.findByBusOpLogin_Username(username)
                 .orElseThrow(() -> new RuntimeException("Operator not found"));
         bus.setBusOpData(operator);
 
-      
         if (busDto.getRouteId() != null) {
             Route route = routeRepo.findById(busDto.getRouteId())
                     .orElseThrow(() -> new RuntimeException("Route not found"));
             bus.setRoute(route);
         }
 
-      
-        if (busDto.getAmenities() != null) {
-            List<BusAmenity> amenities = busDto.getAmenities().stream().map(a -> {
-                BusAmenity amenity = new BusAmenity();
-                amenity.setAmenityName(a.getAmenityName());
-                amenity.setBus(bus);  // set back-reference
-                return amenity;
-            }).collect(Collectors.toList());
-            bus.setAmenities(amenities);
-        }
-
-       
         if (busDto.getTripIds() != null && !busDto.getTripIds().isEmpty()) {
             List<Trip> trips = tripRepo.findAllById(busDto.getTripIds());
             for (Trip trip : trips) {
@@ -109,9 +94,7 @@ public class BusServiceImpl implements IBusService {
             bus.setTrips(trips);
         }
 
-       
         Bus savedBus = repo.save(bus);
-
         return mapToDto(savedBus);
     }
     @Override
@@ -125,14 +108,7 @@ public class BusServiceImpl implements IBusService {
         existingBus.setCapacity(busDto.getCapacity());
         existingBus.setStatus(busDto.getStatus());
 
-        existingBus.setAmenities(
-            busDto.getAmenities().stream().map(a -> {
-                BusAmenity amenity = new BusAmenity();
-                amenity.setAmenityName(a.getAmenityName());
-                amenity.setBus(existingBus);
-                return amenity;
-            }).collect(Collectors.toList())
-        );
+        
 
         Bus savedBus = repo.save(existingBus);
         return mapToDto(savedBus);

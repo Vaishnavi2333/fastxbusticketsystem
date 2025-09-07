@@ -17,5 +17,7 @@ public interface IBusOpLoginService {
 
     BusOpLogin getByUsername(String username);
     public Map<String, Object> loginBusOperator(String username, String password) throws BusOperatorNotFoundException;
+    
+    public void updatePassword(String username, String newPassword);
 
 }

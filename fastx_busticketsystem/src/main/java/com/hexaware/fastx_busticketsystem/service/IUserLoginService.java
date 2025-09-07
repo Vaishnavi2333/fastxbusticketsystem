@@ -18,6 +18,8 @@ public interface IUserLoginService {
 
 
 	Integer getUserIdByUsername(String username) throws UserNotFoundException;
+	
+	 public void updatePassword(String username, String newPassword);
     
   
 }
