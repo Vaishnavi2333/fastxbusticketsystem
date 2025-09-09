@@ -971,3 +971,833 @@
 [32m2025-09-09 01:41:34.559[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-3] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
 [32m2025-09-09 01:41:34.562[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-3] Writing [[BusDto(busId=2, busNumber=145, busName=Mercedes Travel, busType=Seater AC, capacity=50, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[]), BusDto(busId=3, busNumber=233, busName=FastX Express, busType=Sleeper, capacity=40, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=5, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=6, busId=0, amenityName=AC), BusAmenityDto(busamenityId=7, busId=0, amenityName=Recliner Seats)]), BusDto(busId=4, busNumber=450, busName=FastX Express, busType=Sleeper, capacity=40, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=8, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=9, busId=0, amenityName=AC), BusAmenityDto(busamenityId=10, busId=0, amenityName=Recliner Seats), BusAmenityDto(busamenityId=11, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=12, busId=0, amenityName=AC), BusAmenityDto(busamenityId=13, busId=0, amenityName=Recliner Seats), BusAmenityDto(busamenityId=14, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=15, busId=0, amenityName=AC), BusAmenityDto(busamenityId=16, busId=0, amenityName=Recliner Seats), BusAmenityDto(busamenityId=17, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=18, busId=0, amenityName=AC), BusAmenityDto(busamenityId=19, busId=0, amenityName=Recliner Seats), BusAmenityDto(busamenityId=20, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=21, busId=0, amenityName=AC), BusAmenityDto(busamenityId=22, busId=0, amenityName=Recliner Seats), BusAmenityDto(busamenityId=23, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=24, busId=0, amenityName=AC), BusAmenityDto(busamenityId=25, busId=0, amenityName=Recliner Seats)]), BusDto(busId=5, busNumber=123, busName=FastX Express, busType=Sleeper, capacity=40, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=26, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=27, busId=0, amenityName=AC), BusAmenityDto(busamenityId=28, busId=0, amenityName=Recliner Seats)]), BusDto(busId=6, busNumber=123, busName=FastX Express, busType=Sleeper, capacity=40, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=29, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=30, busId=0, amenityName=AC), BusAmenityDto(busamenityId=31, busId=0, amenityName=Recliner Seats)]), BusDto(busId=7, busNumber=323, busName=FastX Express, busType=Sleeper, capacity=40, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=32, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=33, busId=0, amenityName=AC), BusAmenityDto(busamenityId=34, busId=0, amenityName=Recliner Seats)]), BusDto(busId=8, busNumber=123, busName=FastX Express, busType=Sleeper, capacity=40, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=35, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=36, busId=0, amenityName=AC), BusAmenityDto(busamenityId=37, busId=0, amenityName=Recliner Seats)]), BusDto(busId=9, busNumber=123, busName=FastX Express, busType=Sleeper, capacity=40, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=38, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=39, busId=0, amenityName=AC), BusAmenityDto(busamenityId=40, busId=0, amenityName=Recliner Seats), BusAmenityDto(busamenityId=44, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=45, busId=0, amenityName=AC), BusAmenityDto(busamenityId=46, busId=0, amenityName=Recliner Seats)]), BusDto(busId=10, busNumber=123, busName=FastX Express, busType=Sleeper, capacity=40, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=41, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=42, busId=0, amenityName=AC), BusAmenityDto(busamenityId=43, busId=0, amenityName=Recliner Seats), BusAmenityDto(busamenityId=47, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=48, busId=0, amenityName=AC), BusAmenityDto(busamenityId=49, busId=0, amenityName=Recliner Seats)]), BusDto(busId=11, busNumber=123, busName=FastX Express, busType=Sleeper, capacity=40, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=50, busId=0, amenityName=WiFi), BusAmenityDto(busamenityId=51, busId=0, amenityName=AC), BusAmenityDto(busamenityId=52, busId=0, amenityName=Recliner Seats)]), BusDto(busId=12, busNumber=122, busName=Travel Bus, busType=Sleeper, capacity=100, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=53, busId=0, amenityName=Towel), BusAmenityDto(busamenityId=114, busId=0, amenityName=Water)]), BusDto(busId=52, busNumber=231, busName=FastX Bus, busType=Non AC, capacity=30, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=54, busId=0, amenityName=Water), BusAmenityDto(busamenityId=55, busId=0, amenityName=Blanket)]), BusDto(busId=152, busNumber=123, busName=Fast Express, busType=Sleeper Non AC, capacity=20, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=61, busId=0, amenityName=Water), BusAmenityDto(busamenityId=62, busId=0, amenityName=Snacks)]), BusDto(busId=202, busNumber=300, busName=Suresh Travels, busType=Sleeper AC, capacity=30, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=117, busId=0, amenityName=Water)]), BusDto(busId=252, busNumber=147, busName=Shanta Travels, busType=Sleeper Non AC, capacity=20, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=118, busId=0, amenityName=Snacks)]), BusDto(busId=352, busNumber=100, busName=XBus, busType=Sleeper AC, capacity=40, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=120, busId=0, amenityName=Blanket)]), BusDto(busId=353, busNumber=240, busName=TravelX Bus, busType=Sleeper AC, capacity=40, status=Available, routeId=null, tripIds=null, trips=null, tripId=null, fare=0.0, departureTime=null, arrivalTime=null, amenities=[BusAmenityDto(busamenityId=122, busId=0, amenityName=Blanket)])]]
 [32m2025-09-09 01:41:34.564[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-3] Completed 200 OK
+[32m2025-09-09 09:06:27.463[0;39m [INFO] org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [main] Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+[32m2025-09-09 09:06:27.467[0;39m [WARN] org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [main] Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+[32m2025-09-09 09:06:27.942[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.AdminController:
+	{POST [/admin/login]}: loginAdmin(String,String)
+	{PUT [/admin/reject/{busOpId}]}: rejectBusOperator(int)
+	{POST [/admin/register]}: registerAdmin(AdminLoginDto)
+	{PUT [/admin/approve/{busOpId}]}: approveBusOperator(int)
+	{GET [/admin/pending]}: getPendingBusOperators()
+[32m2025-09-09 09:06:27.964[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.AuthController:
+	{POST [/auth/login/admin]}: loginAdmin(JwtRequest)
+	{POST [/auth/register/admin]}: registerAdmin(AdminLoginDto)
+	{POST [/auth/register/user]}: registerUser(UserLoginDto)
+	{POST [/auth/login/busoperator]}: loginBusOperator(JwtRequest)
+	{POST [/auth/login/user]}: loginUser(JwtRequest)
+	{POST [/auth/reset-password/user]}: resetPasswordUser(Map)
+	{POST [/auth/reset-password/admin]}: resetPasswordAdmin(Map)
+	{POST [/auth/forgot-password/user]}: forgotPasswordUser(Map)
+	{POST [/auth/forgot-password/admin]}: forgotPasswordAdmin(Map)
+	{POST [/auth/reset-password/busoperator]}: resetPasswordBusOperator(Map)
+	{POST [/auth/register/busoperator]}: registerBusOperator(BusOpLoginDto)
+	{POST [/auth/forgot-password/busoperator]}: forgotPasswordBusOperator(Map)
+[32m2025-09-09 09:06:27.982[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BookingController:
+	{POST [/booking/add]}: addBooking(BookingDto)
+	{GET [/booking/bookings]}: getAllBookings()
+	{GET [/booking/get/{bookingId}]}: getBookingById(int)
+	{GET [/booking/user/{userId}]}: getBookingsByUser(int)
+	{POST [/booking/book-seat]}: bookSeats(BookingDto)
+	{GET [/booking/user/{userId}/summary]}: getBookingSummary(int)
+	{DELETE [/booking/cancel/{bookingId}]}: cancelBooking(int)
+	{GET [/booking/operator/{operatorId}]}: getBookingsByOperator(int)
+	{GET [/booking/bookings/summary]}: getAllBookingSummaries()
+	{PUT [/booking/refund/{bookingId}]}: refundBookingByOperator(int)
+[32m2025-09-09 09:06:27.989[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BusAmenityController:
+	{POST [/busamenity/add]}: addBusAmenity(BusAmenityDto)
+	{PUT [/busamenity/update]}: updateBusAmenity(BusAmenityDto)
+	{DELETE [/busamenity/remove/{id}]}: removeBusAmenity(int)
+	{GET [/busamenity/getbyid/{id}]}: getBusAmenityById(int)
+	{GET [/busamenity/all]}: getAllBusAmenities()
+	{GET [/busamenity/getbybusid/{busId}]}: getAmenitiesByBusId(int)
+[32m2025-09-09 09:06:27.998[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BusController:
+	{GET [/bus/getbusbyid/{id}]}: getBusById(int)
+	{PUT [/bus/update]}: updateBus(BusDto)
+	{GET [/bus/getallbus]}: getAllBuses()
+	{POST [/bus/add]}: addBus(BusDto)
+	{GET [/bus/available-seats/{tripId}]}: getAvailableSeats(int)
+	{DELETE [/bus/delete/{id}]}: deleteBus(int)
+	{GET [/bus/search/{origin}/{destination}/{date}]}: searchBuses(String,String,LocalDate)
+	{GET [/bus/getbusbyoperator/{operatorId}]}: getBusesByOperatorId(int)
+[32m2025-09-09 09:06:28.009[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BusOpDataController:
+	{POST [/busopdata/add]}: addOperatorData(BusOpDataDto)
+	{DELETE [/busopdata/delete/{operatorId}]}: deleteOperator(int)
+	{GET [/busopdata/getbyid/{operatorId}]}: getOperatorById(int)
+	{PUT [/busopdata/update]}: updateOperator(BusOpDataDto)
+	{GET [/busopdata/getall]}: getAllOperators()
+[32m2025-09-09 09:06:28.015[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BusOpLoginController:
+	{POST [/busoplogin/register]}: register(BusOpLoginDto)
+	{POST [/busoplogin/login]}: login(BusOpLoginDto)
+	{GET [/busoplogin/exists/{username}]}: existsByUsername(String)
+	{GET [/busoplogin/getbyname/{username}]}: getOperatorByUsername(String)
+[32m2025-09-09 09:06:28.018[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.PaymentController:
+	{POST [/payment/make]}: makePayment(PaymentDto)
+	{GET [/payment/getbyid/{paymentId}]}: getPaymentById(int)
+	{PUT [/payment/refund/{paymentId}]}: refundPayment(int)
+	{GET [/payment/booking/{bookingId}]}: getPaymentByBookingId(int)
+[32m2025-09-09 09:06:28.025[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.RouteController:
+	{GET [/route/getall]}: getAllRoutes()
+	{GET [/route/getbyid/{id}]}: getRouteById(int)
+	{PUT [/route/update]}: updateRoute(RouteDto,Authentication)
+	{POST [/route/add]}: addRoute(RouteDto,Authentication)
+	{DELETE [/route/delete/{id}]}: deleteRoute(int)
+	{GET [/route/getbyoperator]}: getRoutesByOperatorId(Authentication)
+[32m2025-09-09 09:06:28.033[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.TicketController:
+	{GET [/ticket/{ticketId}]}: getTicketById(int)
+	{GET [/ticket/all]}: getAllTickets()
+	{DELETE [/ticket/cancel-booking/{bookingId}]}: cancelBookingAndTickets(int)
+	{GET [/ticket/booking/{bookingId}]}: getTicketsByBookingId(int)
+	{POST [/ticket/generate/{bookingId}]}: generateTicketFromBooking(int)
+[32m2025-09-09 09:06:28.040[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.TripController:
+	{GET [/trip/by-operator]}: getTripsByOperator(Authentication)
+	{GET [/trip/getalltrips]}: getAllTrips()
+	{GET [/trip/route/{routeId}]}: getTripsByRoute(int)
+	{POST [/trip/addtrip]}: addTrip(TripDto)
+	{PUT [/trip/updatetrip]}: updateTrip(TripDto)
+	{GET [/trip/getbyid/{tripId}]}: getTripById(int)
+	{DELETE [/trip/delete/{tripId}]}: deleteTrip(int)
+[32m2025-09-09 09:06:28.045[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.UserDataController:
+	{GET [/userdata/getuser/{userId}]}: getUserById(int)
+	{PUT [/userdata/updateuser]}: updateUser(UserDataDto)
+	{DELETE [/userdata/deleteuser/{userId}]}: deleteUser(int)
+	{GET [/userdata/allusers]}: getAllUsers()
+	{POST [/userdata/createuser]}: createUser(UserDataDto)
+[32m2025-09-09 09:06:28.049[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.UserLoginController:
+	{POST [/userlogin/register]}: register(UserLoginDto)
+	{GET [/userlogin/id/{username}]}: getUserId(String)
+	{POST [/userlogin/login]}: login(String,String)
+[32m2025-09-09 09:06:28.054[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+[32m2025-09-09 09:06:28.070[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+	{GET [/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+[32m2025-09-09 09:06:28.072[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger]}: redirectToUi(HttpServletRequest)
+[32m2025-09-09 09:06:28.075[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+[32m2025-09-09 09:06:28.078[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 86 mappings in 'requestMappingHandlerMapping'
+[32m2025-09-09 09:06:28.200[0;39m [DEBUG] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+[32m2025-09-09 09:06:28.254[0;39m [DEBUG] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtAuthFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+[32m2025-09-09 09:06:28.373[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+[32m2025-09-09 09:06:28.440[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+[32m2025-09-09 09:07:08.747[0;39m [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+[32m2025-09-09 09:07:08.748[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected StandardServletMultipartResolver
+[32m2025-09-09 09:07:08.749[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected AcceptHeaderLocaleResolver
+[32m2025-09-09 09:07:08.749[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected FixedThemeResolver
+[32m2025-09-09 09:07:08.753[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2bd2fa2c
+[32m2025-09-09 09:07:08.756[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected org.springframework.web.servlet.support.SessionFlashMapManager@5d9ac1ff
+[32m2025-09-09 09:07:08.757[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+[32m2025-09-09 09:07:08.757[0;39m [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 9 ms
+[32m2025-09-09 09:07:08.811[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Securing GET /route/getall
+[32m2025-09-09 09:07:08.861[0;39m [DEBUG] org.springframework.security.web.authentication.AnonymousAuthenticationFilter [http-nio-8080-exec-1] Set SecurityContextHolder to anonymous SecurityContext
+[32m2025-09-09 09:07:08.867[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Secured GET /route/getall
+[32m2025-09-09 09:07:08.874[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] GET "/route/getall", parameters={}
+[32m2025-09-09 09:07:08.884[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-1] Mapped to com.hexaware.fastx_busticketsystem.controller.RouteController#getAllRoutes()
+[32m2025-09-09 09:07:09.264[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-1] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:07:09.266[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-1] Writing [[com.hexaware.fastx_busticketsystem.entities.Route@2d28b486, com.hexaware.fastx_busticketsystem.entities.Route@36995b6f, com.hexaware.fastx_busticketsystem.entities.Route@1562ec76, com.hexaware.fastx_busticketsystem.entities.Route@55ef81f4, com.hexaware.fastx_busticketsystem.entities.Route@3e12aa59, com.hexaware.fastx_busticketsystem.entities.Route@7239c882, com.hexaware.fastx_busticketsystem.entities.Route@1c63aa15, com.hexaware.fastx_busticketsystem.entities.Route@45c1ed02, com.hexaware.fastx_busticketsystem.entities.Route@51f253d8, com.hexaware.fastx_busticketsystem.entities.Route@78ba8f9, com.hexaware.fastx_busticketsystem.entities.Route@7b2b7ddb, com.hexaware.fastx_busticketsystem.entities.Route@63d6ef34, com.hexaware.fastx_busticketsystem.entities.Route@4f939f98]]
+[32m2025-09-09 09:07:09.381[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Securing GET /route/getall
+[32m2025-09-09 09:07:09.382[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed 200 OK
+[32m2025-09-09 09:07:09.383[0;39m [DEBUG] org.springframework.security.web.authentication.AnonymousAuthenticationFilter [http-nio-8080-exec-2] Set SecurityContextHolder to anonymous SecurityContext
+[32m2025-09-09 09:07:09.384[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Secured GET /route/getall
+[32m2025-09-09 09:07:09.385[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] GET "/route/getall", parameters={}
+[32m2025-09-09 09:07:09.386[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-2] Mapped to com.hexaware.fastx_busticketsystem.controller.RouteController#getAllRoutes()
+[32m2025-09-09 09:07:09.418[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-2] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:07:09.419[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-2] Writing [[com.hexaware.fastx_busticketsystem.entities.Route@142f63f3, com.hexaware.fastx_busticketsystem.entities.Route@2fb0d4b5, com.hexaware.fastx_busticketsystem.entities.Route@484cfa4c, com.hexaware.fastx_busticketsystem.entities.Route@4796a687, com.hexaware.fastx_busticketsystem.entities.Route@7fe0e01f, com.hexaware.fastx_busticketsystem.entities.Route@6601d07f, com.hexaware.fastx_busticketsystem.entities.Route@75587692, com.hexaware.fastx_busticketsystem.entities.Route@33416a56, com.hexaware.fastx_busticketsystem.entities.Route@822d8de, com.hexaware.fastx_busticketsystem.entities.Route@2a9bf8a7, com.hexaware.fastx_busticketsystem.entities.Route@3b89840a, com.hexaware.fastx_busticketsystem.entities.Route@7589d72, com.hexaware.fastx_busticketsystem.entities.Route@2f3778da]]
+[32m2025-09-09 09:07:09.429[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Completed 200 OK
+[32m2025-09-09 09:17:55.092[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Securing OPTIONS /auth/login/user
+[32m2025-09-09 09:17:55.101[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-8] Securing POST /auth/login/user
+[32m2025-09-09 09:17:55.104[0;39m [DEBUG] org.springframework.security.web.authentication.AnonymousAuthenticationFilter [http-nio-8080-exec-8] Set SecurityContextHolder to anonymous SecurityContext
+[32m2025-09-09 09:17:55.104[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-8] Secured POST /auth/login/user
+[32m2025-09-09 09:17:55.104[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-8] POST "/auth/login/user", parameters={}
+[32m2025-09-09 09:17:55.106[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-8] Mapped to com.hexaware.fastx_busticketsystem.controller.AuthController#loginUser(JwtRequest)
+[32m2025-09-09 09:17:55.183[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-8] Read "application/json;charset=UTF-8" to [com.hexaware.fastx_busticketsystem.dto.JwtRequest@2b93f38d]
+[32m2025-09-09 09:17:55.453[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8080-exec-8] Using @ExceptionHandler com.hexaware.fastx_busticketsystem.exception.GlobalExceptionHandler#handleUserNotFound(UserNotFoundException)
+[32m2025-09-09 09:17:55.458[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-8] Using 'application/json', given [application/json, text/plain, */*] and supported [text/plain, */*, application/json, application/*+json]
+[32m2025-09-09 09:17:55.459[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-8] Writing ["Invalid password"]
+[32m2025-09-09 09:17:55.461[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8080-exec-8] Resolved [com.hexaware.fastx_busticketsystem.exception.UserNotFoundException: Invalid password]
+[32m2025-09-09 09:17:55.462[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-8] Completed 404 NOT_FOUND
+[32m2025-09-09 09:18:58.969[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-10] Securing OPTIONS /auth/login/user
+[32m2025-09-09 09:18:58.975[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-7] Securing POST /auth/login/user
+[32m2025-09-09 09:18:58.978[0;39m [DEBUG] org.springframework.security.web.authentication.AnonymousAuthenticationFilter [http-nio-8080-exec-7] Set SecurityContextHolder to anonymous SecurityContext
+[32m2025-09-09 09:18:58.978[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-7] Secured POST /auth/login/user
+[32m2025-09-09 09:18:58.979[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-7] POST "/auth/login/user", parameters={}
+[32m2025-09-09 09:18:58.980[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-7] Mapped to com.hexaware.fastx_busticketsystem.controller.AuthController#loginUser(JwtRequest)
+[32m2025-09-09 09:18:58.982[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-7] Read "application/json;charset=UTF-8" to [com.hexaware.fastx_busticketsystem.dto.JwtRequest@5f0dce7f]
+[32m2025-09-09 09:18:59.277[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-7] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:18:59.277[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-7] Writing [{userId=21, token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sInN1YiI6Ikdvd3JpIiwiaWF0IjoxNzU3Mzg5NzM5LCJleHAiOjE3NTczOTMzMzl9.fgaOUWnBWQLx16C-HISlmvBqMTQKdcW_XwmMv6H2jhY}]
+[32m2025-09-09 09:18:59.279[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-7] Completed 200 OK
+[32m2025-09-09 09:18:59.292[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-4] Securing OPTIONS /userdata/getuser/21
+[32m2025-09-09 09:18:59.299[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Securing GET /userdata/getuser/21
+[32m2025-09-09 09:18:59.436[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Secured GET /userdata/getuser/21
+[32m2025-09-09 09:18:59.437[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] GET "/userdata/getuser/21", parameters={}
+[32m2025-09-09 09:18:59.439[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-1] Mapped to com.hexaware.fastx_busticketsystem.controller.UserDataController#getUserById(int)
+[32m2025-09-09 09:18:59.444[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-1] Authorizing method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.dto.UserDataDto com.hexaware.fastx_busticketsystem.controller.UserDataController.getUserById(int) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 09:18:59.473[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-1] Authorized method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.dto.UserDataDto com.hexaware.fastx_busticketsystem.controller.UserDataController.getUserById(int) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 09:18:59.497[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-1] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:18:59.505[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-1] Writing [UserDataDto(userdataId=21, userId=21, name=Gowri , gender=Female, dateOfBirth=2025-03-08, email=gowri@gmail.com, contactNumber=8890123456, address=Kolkata)]
+[32m2025-09-09 09:18:59.507[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed 200 OK
+[32m2025-09-09 09:19:25.788[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Securing OPTIONS /auth/login/busoperator
+[32m2025-09-09 09:19:25.793[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-3] Securing POST /auth/login/busoperator
+[32m2025-09-09 09:19:25.795[0;39m [DEBUG] org.springframework.security.web.authentication.AnonymousAuthenticationFilter [http-nio-8080-exec-3] Set SecurityContextHolder to anonymous SecurityContext
+[32m2025-09-09 09:19:25.796[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-3] Secured POST /auth/login/busoperator
+[32m2025-09-09 09:19:25.797[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-3] POST "/auth/login/busoperator", parameters={}
+[32m2025-09-09 09:19:25.797[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-3] Mapped to com.hexaware.fastx_busticketsystem.controller.AuthController#loginBusOperator(JwtRequest)
+[32m2025-09-09 09:19:25.798[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-3] Read "application/json;charset=UTF-8" to [com.hexaware.fastx_busticketsystem.dto.JwtRequest@3a099157]
+[32m2025-09-09 09:19:25.999[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-3] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:19:25.999[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-3] Writing [{token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJST0xFX0JVU19PUEVSQVRPUiJ9XSwic3ViIjoiU29uYW0iLCJpYXQiOjE3NTczODk3NjUsImV4cCI6MTc1NzM5MzM2NX0.afcCI1IuCGfPksx9Vz4uAl4Hs5nKjctPScSFyy5rUSs, busOpId=16, username=Sonam}]
+[32m2025-09-09 09:19:26.001[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-3] Completed 200 OK
+[32m2025-09-09 09:19:50.930[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Securing OPTIONS /auth/login/user
+[32m2025-09-09 09:19:50.938[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Securing POST /auth/login/user
+[32m2025-09-09 09:19:50.940[0;39m [DEBUG] org.springframework.security.web.authentication.AnonymousAuthenticationFilter [http-nio-8080-exec-9] Set SecurityContextHolder to anonymous SecurityContext
+[32m2025-09-09 09:19:50.941[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Secured POST /auth/login/user
+[32m2025-09-09 09:19:50.941[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-9] POST "/auth/login/user", parameters={}
+[32m2025-09-09 09:19:50.942[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-9] Mapped to com.hexaware.fastx_busticketsystem.controller.AuthController#loginUser(JwtRequest)
+[32m2025-09-09 09:19:50.944[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-9] Read "application/json;charset=UTF-8" to [com.hexaware.fastx_busticketsystem.dto.JwtRequest@407b1f5c]
+[32m2025-09-09 09:19:51.146[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-9] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:19:51.146[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-9] Writing [{userId=21, token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sInN1YiI6Ikdvd3JpIiwiaWF0IjoxNzU3Mzg5NzkxLCJleHAiOjE3NTczOTMzOTF9.qs1NQ3UsD7jIW6-erWl0Bq3R0xms-MM9lzQ4ET0WSRc}]
+[32m2025-09-09 09:19:51.148[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-9] Completed 200 OK
+[32m2025-09-09 09:19:51.155[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-8] Securing OPTIONS /userdata/getuser/21
+[32m2025-09-09 09:19:51.162[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Securing GET /userdata/getuser/21
+[32m2025-09-09 09:19:51.186[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Secured GET /userdata/getuser/21
+[32m2025-09-09 09:19:51.187[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] GET "/userdata/getuser/21", parameters={}
+[32m2025-09-09 09:19:51.189[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-6] Mapped to com.hexaware.fastx_busticketsystem.controller.UserDataController#getUserById(int)
+[32m2025-09-09 09:19:51.190[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-6] Authorizing method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.dto.UserDataDto com.hexaware.fastx_busticketsystem.controller.UserDataController.getUserById(int) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 09:19:51.191[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-6] Authorized method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.dto.UserDataDto com.hexaware.fastx_busticketsystem.controller.UserDataController.getUserById(int) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 09:19:51.202[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-6] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:19:51.202[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-6] Writing [UserDataDto(userdataId=21, userId=21, name=Gowri , gender=Female, dateOfBirth=2025-03-08, email=gowri@gmail.com, contactNumber=8890123456, address=Kolkata)]
+[32m2025-09-09 09:19:51.204[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] Completed 200 OK
+[32m2025-09-09 09:19:54.007[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-10] Securing OPTIONS /route/getall
+[32m2025-09-09 09:19:54.008[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-7] Securing OPTIONS /route/getall
+[32m2025-09-09 09:19:54.013[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-4] Securing GET /route/getall
+[32m2025-09-09 09:19:54.038[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-4] Secured GET /route/getall
+[32m2025-09-09 09:19:54.039[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-4] GET "/route/getall", parameters={}
+[32m2025-09-09 09:19:54.039[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-4] Mapped to com.hexaware.fastx_busticketsystem.controller.RouteController#getAllRoutes()
+[32m2025-09-09 09:19:54.067[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-4] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:19:54.067[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-4] Writing [[com.hexaware.fastx_busticketsystem.entities.Route@d7554d3, com.hexaware.fastx_busticketsystem.entities.Route@1110f601, com.hexaware.fastx_busticketsystem.entities.Route@4c1cafc1, com.hexaware.fastx_busticketsystem.entities.Route@5acb954a, com.hexaware.fastx_busticketsystem.entities.Route@7b32086, com.hexaware.fastx_busticketsystem.entities.Route@1fa67f0e, com.hexaware.fastx_busticketsystem.entities.Route@2140f8a2, com.hexaware.fastx_busticketsystem.entities.Route@1c8816c3, com.hexaware.fastx_busticketsystem.entities.Route@1ed7c587, com.hexaware.fastx_busticketsystem.entities.Route@c121147, com.hexaware.fastx_busticketsystem.entities.Route@7c4dcade, com.hexaware.fastx_busticketsystem.entities.Route@1b20e91f, com.hexaware.fastx_busticketsystem.entities.Route@206344e1]]
+[32m2025-09-09 09:19:54.072[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-4] Completed 200 OK
+[32m2025-09-09 09:19:54.073[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Securing GET /route/getall
+[32m2025-09-09 09:19:54.093[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Secured GET /route/getall
+[32m2025-09-09 09:19:54.093[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] GET "/route/getall", parameters={}
+[32m2025-09-09 09:19:54.093[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-1] Mapped to com.hexaware.fastx_busticketsystem.controller.RouteController#getAllRoutes()
+[32m2025-09-09 09:19:54.123[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-1] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:19:54.123[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-1] Writing [[com.hexaware.fastx_busticketsystem.entities.Route@78cd3209, com.hexaware.fastx_busticketsystem.entities.Route@34b25fdb, com.hexaware.fastx_busticketsystem.entities.Route@239b4d66, com.hexaware.fastx_busticketsystem.entities.Route@93dcc91, com.hexaware.fastx_busticketsystem.entities.Route@6a7fe1ef, com.hexaware.fastx_busticketsystem.entities.Route@514ba223, com.hexaware.fastx_busticketsystem.entities.Route@a420378, com.hexaware.fastx_busticketsystem.entities.Route@44433201, com.hexaware.fastx_busticketsystem.entities.Route@74997b75, com.hexaware.fastx_busticketsystem.entities.Route@5a61dceb, com.hexaware.fastx_busticketsystem.entities.Route@6af71842, com.hexaware.fastx_busticketsystem.entities.Route@242e1a3b, com.hexaware.fastx_busticketsystem.entities.Route@6e130529]]
+[32m2025-09-09 09:19:54.126[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed 200 OK
+[32m2025-09-09 09:20:22.831[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Securing OPTIONS /bus/search/Chennai/Delhi/2025-09-20
+[32m2025-09-09 09:20:22.839[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-3] Securing GET /bus/search/Chennai/Delhi/2025-09-20
+[32m2025-09-09 09:20:22.887[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-3] Secured GET /bus/search/Chennai/Delhi/2025-09-20
+[32m2025-09-09 09:20:22.888[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-3] GET "/bus/search/Chennai/Delhi/2025-09-20", parameters={}
+[32m2025-09-09 09:20:22.889[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-3] Mapped to com.hexaware.fastx_busticketsystem.controller.BusController#searchBuses(String, String, LocalDate)
+[32m2025-09-09 09:20:22.934[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-3] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:20:22.934[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-3] Writing [[]]
+[32m2025-09-09 09:20:22.937[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-3] Completed 200 OK
+[32m2025-09-09 09:20:27.176[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Securing OPTIONS /bus/search/Chennai/Delhi/2025-09-25
+[32m2025-09-09 09:20:27.182[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Securing GET /bus/search/Chennai/Delhi/2025-09-25
+[32m2025-09-09 09:20:27.206[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Secured GET /bus/search/Chennai/Delhi/2025-09-25
+[32m2025-09-09 09:20:27.207[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-9] GET "/bus/search/Chennai/Delhi/2025-09-25", parameters={}
+[32m2025-09-09 09:20:27.208[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-9] Mapped to com.hexaware.fastx_busticketsystem.controller.BusController#searchBuses(String, String, LocalDate)
+[32m2025-09-09 09:20:27.252[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-9] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:20:27.273[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-9] Writing [[BusDto(busId=202, busNumber=300, busName=Suresh Travels, busType=Sleeper AC, capacity=30, status=Available, routeId=null, tripIds=null, trips=null, tripId=352, fare=100.0, departureTime=19:18, arrivalTime=02:18, amenities=[BusAmenityDto(busamenityId=117, busId=0, amenityName=Water)])]]
+[32m2025-09-09 09:20:27.286[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-9] Completed 200 OK
+[32m2025-09-09 09:20:27.290[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-8] Securing OPTIONS /bus/available-seats/352
+[32m2025-09-09 09:20:27.295[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Securing GET /bus/available-seats/352
+[32m2025-09-09 09:20:27.314[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Secured GET /bus/available-seats/352
+[32m2025-09-09 09:20:27.314[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] GET "/bus/available-seats/352", parameters={}
+[32m2025-09-09 09:20:27.315[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-6] Mapped to com.hexaware.fastx_busticketsystem.controller.BusController#getAvailableSeats(int)
+[32m2025-09-09 09:20:27.370[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-6] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:20:27.371[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-6] Writing [[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28]]
+[32m2025-09-09 09:20:27.375[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] Completed 200 OK
+[32m2025-09-09 09:20:28.419[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-10] Securing OPTIONS /busamenity/getbybusid/202
+[32m2025-09-09 09:20:28.424[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-7] Securing GET /busamenity/getbybusid/202
+[32m2025-09-09 09:20:28.449[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-7] Secured GET /busamenity/getbybusid/202
+[32m2025-09-09 09:20:28.450[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-7] GET "/busamenity/getbybusid/202", parameters={}
+[32m2025-09-09 09:20:28.451[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-7] Mapped to com.hexaware.fastx_busticketsystem.controller.BusAmenityController#getAmenitiesByBusId(int)
+[32m2025-09-09 09:20:28.452[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-7] Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.hexaware.fastx_busticketsystem.controller.BusAmenityController.getAmenitiesByBusId(int); target is of class [com.hexaware.fastx_busticketsystem.controller.BusAmenityController]
+[32m2025-09-09 09:20:28.453[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-7] Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.hexaware.fastx_busticketsystem.controller.BusAmenityController.getAmenitiesByBusId(int); target is of class [com.hexaware.fastx_busticketsystem.controller.BusAmenityController]
+[32m2025-09-09 09:20:28.467[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-7] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:20:28.467[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-7] Writing [[BusAmenityDto(busamenityId=117, busId=202, amenityName=Water)]]
+[32m2025-09-09 09:20:28.469[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-7] Completed 200 OK
+[32m2025-09-09 09:21:31.495[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Securing OPTIONS /bus/search/Kolkata/Mumbai/2025-09-20
+[32m2025-09-09 09:21:31.502[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-3] Securing GET /bus/search/Kolkata/Mumbai/2025-09-20
+[32m2025-09-09 09:21:31.531[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-3] Secured GET /bus/search/Kolkata/Mumbai/2025-09-20
+[32m2025-09-09 09:21:31.532[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-3] GET "/bus/search/Kolkata/Mumbai/2025-09-20", parameters={}
+[32m2025-09-09 09:21:31.532[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-3] Mapped to com.hexaware.fastx_busticketsystem.controller.BusController#searchBuses(String, String, LocalDate)
+[32m2025-09-09 09:21:31.553[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-3] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:21:31.553[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-3] Writing [[BusDto(busId=152, busNumber=123, busName=Fast Express, busType=Sleeper Non AC, capacity=20, status=Available, routeId=null, tripIds=null, trips=null, tripId=252, fare=400.0, departureTime=20:18, arrivalTime=02:18, amenities=[BusAmenityDto(busamenityId=61, busId=0, amenityName=Water), BusAmenityDto(busamenityId=62, busId=0, amenityName=Snacks)])]]
+[32m2025-09-09 09:21:31.556[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-3] Completed 200 OK
+[32m2025-09-09 09:21:31.560[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Securing OPTIONS /bus/available-seats/252
+[32m2025-09-09 09:21:31.564[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Securing GET /bus/available-seats/252
+[32m2025-09-09 09:21:31.584[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Secured GET /bus/available-seats/252
+[32m2025-09-09 09:21:31.585[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-9] GET "/bus/available-seats/252", parameters={}
+[32m2025-09-09 09:21:31.586[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-9] Mapped to com.hexaware.fastx_busticketsystem.controller.BusController#getAvailableSeats(int)
+[32m2025-09-09 09:21:31.691[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-9] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:21:31.691[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-9] Writing [[S1, S2, S3, S4, S5, S6, S7, S8, S12, S13]]
+[32m2025-09-09 09:21:31.693[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-9] Completed 200 OK
+[32m2025-09-09 09:21:33.388[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-8] Securing OPTIONS /busamenity/getbybusid/152
+[32m2025-09-09 09:21:33.407[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Securing GET /busamenity/getbybusid/152
+[32m2025-09-09 09:21:33.437[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Secured GET /busamenity/getbybusid/152
+[32m2025-09-09 09:21:33.438[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] GET "/busamenity/getbybusid/152", parameters={}
+[32m2025-09-09 09:21:33.439[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-6] Mapped to com.hexaware.fastx_busticketsystem.controller.BusAmenityController#getAmenitiesByBusId(int)
+[32m2025-09-09 09:21:33.440[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-6] Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.hexaware.fastx_busticketsystem.controller.BusAmenityController.getAmenitiesByBusId(int); target is of class [com.hexaware.fastx_busticketsystem.controller.BusAmenityController]
+[32m2025-09-09 09:21:33.441[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-6] Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.hexaware.fastx_busticketsystem.controller.BusAmenityController.getAmenitiesByBusId(int); target is of class [com.hexaware.fastx_busticketsystem.controller.BusAmenityController]
+[32m2025-09-09 09:21:33.455[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-6] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:21:33.455[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-6] Writing [[BusAmenityDto(busamenityId=61, busId=152, amenityName=Water), BusAmenityDto(busamenityId=62, busId=152, amenityName=Snacks)]]
+[32m2025-09-09 09:21:33.457[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] Completed 200 OK
+[32m2025-09-09 09:22:12.783[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-10] Securing OPTIONS /auth/login/admin
+[32m2025-09-09 09:22:12.787[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-7] Securing POST /auth/login/admin
+[32m2025-09-09 09:22:12.787[0;39m [DEBUG] org.springframework.security.web.authentication.AnonymousAuthenticationFilter [http-nio-8080-exec-7] Set SecurityContextHolder to anonymous SecurityContext
+[32m2025-09-09 09:22:12.788[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-7] Secured POST /auth/login/admin
+[32m2025-09-09 09:22:12.788[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-7] POST "/auth/login/admin", parameters={}
+[32m2025-09-09 09:22:12.788[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-7] Mapped to com.hexaware.fastx_busticketsystem.controller.AuthController#loginAdmin(JwtRequest)
+[32m2025-09-09 09:22:12.790[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-7] Read "application/json;charset=UTF-8" to [com.hexaware.fastx_busticketsystem.dto.JwtRequest@3ded45b7]
+[32m2025-09-09 09:22:12.993[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-7] Using 'application/json', given [application/json, text/plain, */*] and supported [text/plain, */*, application/json, application/*+json]
+[32m2025-09-09 09:22:12.993[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-7] Writing ["eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dLCJzdWIiOiJTdW1ldGhhIiwiaWF0IjoxNzU3Mzg5OTMyLCJleHAiOjE3NTczOTM1MzJ9.qgTRlavX4eHvObCSXeVQtwBI3nC4g32GrPW8B9mao0U"]
+[32m2025-09-09 09:22:12.994[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-7] Completed 200 OK
+[32m2025-09-09 09:52:11.912[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Securing OPTIONS /userdata/allusers
+[32m2025-09-09 09:52:11.922[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Securing OPTIONS /userdata/allusers
+[32m2025-09-09 09:52:11.934[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-3] Securing GET /userdata/allusers
+[32m2025-09-09 09:52:12.084[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-3] Secured GET /userdata/allusers
+[32m2025-09-09 09:52:12.085[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-3] GET "/userdata/allusers", parameters={}
+[32m2025-09-09 09:52:12.085[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-3] Mapped to com.hexaware.fastx_busticketsystem.controller.UserDataController#getAllUsers()
+[32m2025-09-09 09:52:12.094[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-3] Authorizing method invocation ReflectiveMethodInvocation: public java.util.List com.hexaware.fastx_busticketsystem.controller.UserDataController.getAllUsers(); target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 09:52:12.103[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-3] Authorized method invocation ReflectiveMethodInvocation: public java.util.List com.hexaware.fastx_busticketsystem.controller.UserDataController.getAllUsers(); target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 09:52:12.182[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-3] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:52:12.185[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-3] Writing [[UserDataDto(userdataId=1, userId=1, name=Rani, gender=Female, dateOfBirth=2003-03-23, email=rani123@example.com, contactNumber=9876543210, address=Nesapakkam,Chennai), UserDataDto(userdataId=2, userId=2, name=Vaishnavi, gender=Female, dateOfBirth=2003-03-23, email=vais23@example.com, contactNumber=7729401671, address=Bhandup,Mumbai), UserDataDto(userdataId=3, userId=3, name=Sree Ramya, gender=Female, dateOfBirth=2003-08-23, email=sreeramya23@example.com, contactNumber=9876567890, address=Chennai,India), UserDataDto(userdataId=4, userId=4, name=Sudiksha, gender=Female, dateOfBirth=2003-08-18, email=sudiksha23@example.com, contactNumber=9876541234, address=Pune,India), UserDataDto(userdataId=15, userId=15, name=Tripti A, gender=Female, dateOfBirth=2025-08-02, email=tripti23@gmail.com, contactNumber=9876531230, address=Mumbai), UserDataDto(userdataId=16, userId=16, name=Payal, gender=Female, dateOfBirth=2025-02-05, email=payal12@gmail.com, contactNumber=1234567890, address=Chennai), UserDataDto(userdataId=17, userId=17, name=Tom, gender=Male, dateOfBirth=2025-06-11, email=tom12@gmail.com, contactNumber=9876543210, address=Chennai), UserDataDto(userdataId=19, userId=19, name=Krishna, gender=Male, dateOfBirth=2013-02-07, email=krish123@gmail.com, contactNumber=9087654321, address=Chennai), UserDataDto(userdataId=20, userId=20, name=Ganesh, gender=Male, dateOfBirth=2025-06-11, email=ganesh123@gmail.com, contactNumber=9078654321, address=Chennai), UserDataDto(userdataId=21, userId=21, name=Gowri , gender=Female, dateOfBirth=2025-03-08, email=gowri@gmail.com, contactNumber=8890123456, address=Kolkata), UserDataDto(userdataId=22, userId=22, name=Srimathy, gender=Female, dateOfBirth=2002-02-13, email=srim12@gmail.com, contactNumber=9567801234, address=Chennai), UserDataDto(userdataId=23, userId=23, name=Kannan, gender=Male, dateOfBirth=2018-06-13, email=kanan12@gmail.com, contactNumber=9870654732, address=Madurai), UserDataDto(userdataId=24, userId=24, name=Yashika, gender=Female, dateOfBirth=2016-06-06, email=yashika12@gmail.com, contactNumber=9087654321, address=Mumbai)]]
+[32m2025-09-09 09:52:12.386[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-3] Completed 200 OK
+[32m2025-09-09 09:52:12.388[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Securing GET /userdata/allusers
+[32m2025-09-09 09:52:12.423[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Secured GET /userdata/allusers
+[32m2025-09-09 09:52:12.423[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-5] GET "/userdata/allusers", parameters={}
+[32m2025-09-09 09:52:12.424[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-5] Mapped to com.hexaware.fastx_busticketsystem.controller.UserDataController#getAllUsers()
+[32m2025-09-09 09:52:12.425[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-5] Authorizing method invocation ReflectiveMethodInvocation: public java.util.List com.hexaware.fastx_busticketsystem.controller.UserDataController.getAllUsers(); target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 09:52:12.425[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-5] Authorized method invocation ReflectiveMethodInvocation: public java.util.List com.hexaware.fastx_busticketsystem.controller.UserDataController.getAllUsers(); target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 09:52:12.466[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-5] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:52:12.466[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-5] Writing [[UserDataDto(userdataId=1, userId=1, name=Rani, gender=Female, dateOfBirth=2003-03-23, email=rani123@example.com, contactNumber=9876543210, address=Nesapakkam,Chennai), UserDataDto(userdataId=2, userId=2, name=Vaishnavi, gender=Female, dateOfBirth=2003-03-23, email=vais23@example.com, contactNumber=7729401671, address=Bhandup,Mumbai), UserDataDto(userdataId=3, userId=3, name=Sree Ramya, gender=Female, dateOfBirth=2003-08-23, email=sreeramya23@example.com, contactNumber=9876567890, address=Chennai,India), UserDataDto(userdataId=4, userId=4, name=Sudiksha, gender=Female, dateOfBirth=2003-08-18, email=sudiksha23@example.com, contactNumber=9876541234, address=Pune,India), UserDataDto(userdataId=15, userId=15, name=Tripti A, gender=Female, dateOfBirth=2025-08-02, email=tripti23@gmail.com, contactNumber=9876531230, address=Mumbai), UserDataDto(userdataId=16, userId=16, name=Payal, gender=Female, dateOfBirth=2025-02-05, email=payal12@gmail.com, contactNumber=1234567890, address=Chennai), UserDataDto(userdataId=17, userId=17, name=Tom, gender=Male, dateOfBirth=2025-06-11, email=tom12@gmail.com, contactNumber=9876543210, address=Chennai), UserDataDto(userdataId=19, userId=19, name=Krishna, gender=Male, dateOfBirth=2013-02-07, email=krish123@gmail.com, contactNumber=9087654321, address=Chennai), UserDataDto(userdataId=20, userId=20, name=Ganesh, gender=Male, dateOfBirth=2025-06-11, email=ganesh123@gmail.com, contactNumber=9078654321, address=Chennai), UserDataDto(userdataId=21, userId=21, name=Gowri , gender=Female, dateOfBirth=2025-03-08, email=gowri@gmail.com, contactNumber=8890123456, address=Kolkata), UserDataDto(userdataId=22, userId=22, name=Srimathy, gender=Female, dateOfBirth=2002-02-13, email=srim12@gmail.com, contactNumber=9567801234, address=Chennai), UserDataDto(userdataId=23, userId=23, name=Kannan, gender=Male, dateOfBirth=2018-06-13, email=kanan12@gmail.com, contactNumber=9870654732, address=Madurai), UserDataDto(userdataId=24, userId=24, name=Yashika, gender=Female, dateOfBirth=2016-06-06, email=yashika12@gmail.com, contactNumber=9087654321, address=Mumbai)]]
+[32m2025-09-09 09:52:12.507[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-5] Completed 200 OK
+[32m2025-09-09 09:52:25.304[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Securing OPTIONS /admin/pending
+[32m2025-09-09 09:52:25.305[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-8] Securing OPTIONS /admin/pending
+[32m2025-09-09 09:52:25.312[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Securing GET /admin/pending
+[32m2025-09-09 09:52:25.342[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Secured GET /admin/pending
+[32m2025-09-09 09:52:25.343[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] GET "/admin/pending", parameters={}
+[32m2025-09-09 09:52:25.343[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-6] Mapped to com.hexaware.fastx_busticketsystem.controller.AdminController#getPendingBusOperators()
+[32m2025-09-09 09:52:25.371[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-6] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:52:25.397[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-6] Writing [[BusOpLoginDto(busOpId=21, username=Venkat, password=null, status=PENDING)]]
+[32m2025-09-09 09:52:25.409[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] Completed 200 OK
+[32m2025-09-09 09:52:25.411[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Securing GET /admin/pending
+[32m2025-09-09 09:52:25.440[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Secured GET /admin/pending
+[32m2025-09-09 09:52:25.441[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] GET "/admin/pending", parameters={}
+[32m2025-09-09 09:52:25.441[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-6] Mapped to com.hexaware.fastx_busticketsystem.controller.AdminController#getPendingBusOperators()
+[32m2025-09-09 09:52:25.450[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-6] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:52:25.451[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-6] Writing [[BusOpLoginDto(busOpId=21, username=Venkat, password=null, status=PENDING)]]
+[32m2025-09-09 09:52:25.453[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] Completed 200 OK
+[32m2025-09-09 09:53:46.870[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Securing OPTIONS /auth/login/user
+[32m2025-09-09 09:53:46.876[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Securing POST /auth/login/user
+[32m2025-09-09 09:53:46.877[0;39m [DEBUG] org.springframework.security.web.authentication.AnonymousAuthenticationFilter [http-nio-8080-exec-1] Set SecurityContextHolder to anonymous SecurityContext
+[32m2025-09-09 09:53:46.878[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Secured POST /auth/login/user
+[32m2025-09-09 09:53:46.879[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] POST "/auth/login/user", parameters={}
+[32m2025-09-09 09:53:46.879[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-1] Mapped to com.hexaware.fastx_busticketsystem.controller.AuthController#loginUser(JwtRequest)
+[32m2025-09-09 09:53:46.883[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-1] Read "application/json;charset=UTF-8" to [com.hexaware.fastx_busticketsystem.dto.JwtRequest@7b636d10]
+[32m2025-09-09 09:53:47.121[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-1] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:53:47.121[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-1] Writing [{userId=21, token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sInN1YiI6Ikdvd3JpIiwiaWF0IjoxNzU3MzkxODI3LCJleHAiOjE3NTczOTU0Mjd9.hsWe9n2x8kbw34vrSclZdx_ASHX2V3Urh2S4bcio6So}]
+[32m2025-09-09 09:53:47.123[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed 200 OK
+[32m2025-09-09 09:53:47.129[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-3] Securing OPTIONS /userdata/getuser/21
+[32m2025-09-09 09:53:47.134[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Securing GET /userdata/getuser/21
+[32m2025-09-09 09:53:47.157[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Secured GET /userdata/getuser/21
+[32m2025-09-09 09:53:47.157[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-5] GET "/userdata/getuser/21", parameters={}
+[32m2025-09-09 09:53:47.157[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-5] Mapped to com.hexaware.fastx_busticketsystem.controller.UserDataController#getUserById(int)
+[32m2025-09-09 09:53:47.160[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-5] Authorizing method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.dto.UserDataDto com.hexaware.fastx_busticketsystem.controller.UserDataController.getUserById(int) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 09:53:47.161[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-5] Authorized method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.dto.UserDataDto com.hexaware.fastx_busticketsystem.controller.UserDataController.getUserById(int) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 09:53:47.170[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-5] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:53:47.170[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-5] Writing [UserDataDto(userdataId=21, userId=21, name=Gowri , gender=Female, dateOfBirth=2025-03-08, email=gowri@gmail.com, contactNumber=8890123456, address=Kolkata)]
+[32m2025-09-09 09:53:47.172[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-5] Completed 200 OK
+[32m2025-09-09 09:53:48.346[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Securing OPTIONS /booking/user/21/summary
+[32m2025-09-09 09:53:48.347[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-8] Securing OPTIONS /booking/user/21/summary
+[32m2025-09-09 09:53:48.352[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-10] Securing GET /booking/user/21/summary
+[32m2025-09-09 09:53:48.372[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-10] Secured GET /booking/user/21/summary
+[32m2025-09-09 09:53:48.373[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-10] GET "/booking/user/21/summary", parameters={}
+[32m2025-09-09 09:53:48.374[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-10] Mapped to com.hexaware.fastx_busticketsystem.controller.BookingController#getBookingSummary(int)
+[32m2025-09-09 09:53:48.379[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-10] Authorizing method invocation ReflectiveMethodInvocation: public java.util.List com.hexaware.fastx_busticketsystem.controller.BookingController.getBookingSummary(int); target is of class [com.hexaware.fastx_busticketsystem.controller.BookingController]
+[32m2025-09-09 09:53:48.380[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-10] Authorized method invocation ReflectiveMethodInvocation: public java.util.List com.hexaware.fastx_busticketsystem.controller.BookingController.getBookingSummary(int); target is of class [com.hexaware.fastx_busticketsystem.controller.BookingController]
+[32m2025-09-09 09:53:48.512[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-10] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:53:48.512[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-10] Writing [[com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@50c3bf96, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@fa8724f, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@6dfd5218, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@e037ae0, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@43f14bb9, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@f876382, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@86d8df8, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@1dac226f, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@54490ee0, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@6066ec98, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@400bf21]]
+[32m2025-09-09 09:53:48.525[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-10] Completed 200 OK
+[32m2025-09-09 09:53:48.527[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-10] Securing GET /booking/user/21/summary
+[32m2025-09-09 09:53:48.549[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-10] Secured GET /booking/user/21/summary
+[32m2025-09-09 09:53:48.549[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-10] GET "/booking/user/21/summary", parameters={}
+[32m2025-09-09 09:53:48.552[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-10] Mapped to com.hexaware.fastx_busticketsystem.controller.BookingController#getBookingSummary(int)
+[32m2025-09-09 09:53:48.553[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-10] Authorizing method invocation ReflectiveMethodInvocation: public java.util.List com.hexaware.fastx_busticketsystem.controller.BookingController.getBookingSummary(int); target is of class [com.hexaware.fastx_busticketsystem.controller.BookingController]
+[32m2025-09-09 09:53:48.553[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-10] Authorized method invocation ReflectiveMethodInvocation: public java.util.List com.hexaware.fastx_busticketsystem.controller.BookingController.getBookingSummary(int); target is of class [com.hexaware.fastx_busticketsystem.controller.BookingController]
+[32m2025-09-09 09:53:48.661[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-10] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 09:53:48.661[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-10] Writing [[com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@3853f09b, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@68bb1a18, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@47f3fd0f, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@387c4675, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@1f0caec9, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@2f571cea, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@7794878a, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@2d8138e3, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@5781b17c, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@40a6572a, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@135d2063]]
+[32m2025-09-09 09:53:48.706[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-10] Completed 200 OK
+[32m2025-09-09 10:10:12.829[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Securing OPTIONS /userdata/getuser/21
+[32m2025-09-09 10:10:12.829[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Securing OPTIONS /userdata/getuser/21
+[32m2025-09-09 10:10:12.837[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-3] Securing GET /userdata/getuser/21
+[32m2025-09-09 10:10:12.856[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-3] Secured GET /userdata/getuser/21
+[32m2025-09-09 10:10:12.856[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-3] GET "/userdata/getuser/21", parameters={}
+[32m2025-09-09 10:10:12.856[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-3] Mapped to com.hexaware.fastx_busticketsystem.controller.UserDataController#getUserById(int)
+[32m2025-09-09 10:10:12.858[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-3] Authorizing method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.dto.UserDataDto com.hexaware.fastx_busticketsystem.controller.UserDataController.getUserById(int) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 10:10:12.858[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-3] Authorized method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.dto.UserDataDto com.hexaware.fastx_busticketsystem.controller.UserDataController.getUserById(int) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 10:10:12.864[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-3] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 10:10:12.864[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-3] Writing [UserDataDto(userdataId=21, userId=21, name=Gowri , gender=Female, dateOfBirth=2025-03-08, email=gowri@gmail.com, contactNumber=8890123456, address=Kolkata)]
+[32m2025-09-09 10:10:12.865[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-3] Completed 200 OK
+[32m2025-09-09 10:10:12.866[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Securing GET /userdata/getuser/21
+[32m2025-09-09 10:10:12.879[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Secured GET /userdata/getuser/21
+[32m2025-09-09 10:10:12.879[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-5] GET "/userdata/getuser/21", parameters={}
+[32m2025-09-09 10:10:12.880[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-5] Mapped to com.hexaware.fastx_busticketsystem.controller.UserDataController#getUserById(int)
+[32m2025-09-09 10:10:12.880[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-5] Authorizing method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.dto.UserDataDto com.hexaware.fastx_busticketsystem.controller.UserDataController.getUserById(int) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 10:10:12.881[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-5] Authorized method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.dto.UserDataDto com.hexaware.fastx_busticketsystem.controller.UserDataController.getUserById(int) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 10:10:12.888[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-5] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 10:10:12.888[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-5] Writing [UserDataDto(userdataId=21, userId=21, name=Gowri , gender=Female, dateOfBirth=2025-03-08, email=gowri@gmail.com, contactNumber=8890123456, address=Kolkata)]
+[32m2025-09-09 10:10:12.890[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-5] Completed 200 OK
+[32m2025-09-09 10:10:45.264[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Securing OPTIONS /userdata/updateuser
+[32m2025-09-09 10:10:45.268[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-8] Securing PUT /userdata/updateuser
+[32m2025-09-09 10:10:45.289[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-8] Secured PUT /userdata/updateuser
+[32m2025-09-09 10:10:45.290[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-8] PUT "/userdata/updateuser", parameters={}
+[32m2025-09-09 10:10:45.290[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-8] Mapped to com.hexaware.fastx_busticketsystem.controller.UserDataController#updateUser(UserDataDto)
+[32m2025-09-09 10:10:45.315[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-8] Read "application/json;charset=UTF-8" to [UserDataDto(userdataId=21, userId=21, name=Gowri , gender=Female, dateOfBirth=2008-06-10, email=gowri@gmail.com, contactNumber=8890123456, address=Kolkata)]
+[32m2025-09-09 10:10:45.561[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-8] Authorizing method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.entities.UserData com.hexaware.fastx_busticketsystem.controller.UserDataController.updateUser(com.hexaware.fastx_busticketsystem.dto.UserDataDto) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 10:10:45.562[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-8] Authorized method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.entities.UserData com.hexaware.fastx_busticketsystem.controller.UserDataController.updateUser(com.hexaware.fastx_busticketsystem.dto.UserDataDto) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 10:10:45.703[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-8] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 10:10:45.705[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-8] Writing [com.hexaware.fastx_busticketsystem.entities.UserData@534494cc]
+[32m2025-09-09 10:10:45.719[0;39m [WARN] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-8] Ignoring exception, response committed already: org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Document nesting depth (1001) exceeds the maximum allowed (1000, from `StreamWriteConstraints.getMaxNestingDepth()`)
+[32m2025-09-09 10:10:45.720[0;39m [WARN] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-8] Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Document nesting depth (1001) exceeds the maximum allowed (1000, from `StreamWriteConstraints.getMaxNestingDepth()`)]
+[32m2025-09-09 10:10:45.720[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-8] Completed 200 OK
+[32m2025-09-09 19:40:16.035[0;39m [INFO] org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [main] Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+[32m2025-09-09 19:40:16.036[0;39m [WARN] org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [main] Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+[32m2025-09-09 19:40:16.438[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.AdminController:
+	{GET [/admin/pending]}: getPendingBusOperators()
+	{POST [/admin/register]}: registerAdmin(AdminLoginDto)
+	{PUT [/admin/approve/{busOpId}]}: approveBusOperator(int)
+	{POST [/admin/login]}: loginAdmin(String,String)
+	{PUT [/admin/reject/{busOpId}]}: rejectBusOperator(int)
+[32m2025-09-09 19:40:16.468[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.AuthController:
+	{POST [/auth/forgot-password/busoperator]}: forgotPasswordBusOperator(Map)
+	{POST [/auth/forgot-password/admin]}: forgotPasswordAdmin(Map)
+	{POST [/auth/reset-password/busoperator]}: resetPasswordBusOperator(Map)
+	{POST [/auth/register/busoperator]}: registerBusOperator(BusOpLoginDto)
+	{POST [/auth/register/admin]}: registerAdmin(AdminLoginDto)
+	{POST [/auth/register/user]}: registerUser(UserLoginDto)
+	{POST [/auth/login/admin]}: loginAdmin(JwtRequest)
+	{POST [/auth/login/user]}: loginUser(JwtRequest)
+	{POST [/auth/forgot-password/user]}: forgotPasswordUser(Map)
+	{POST [/auth/login/busoperator]}: loginBusOperator(JwtRequest)
+	{POST [/auth/reset-password/admin]}: resetPasswordAdmin(Map)
+	{POST [/auth/reset-password/user]}: resetPasswordUser(Map)
+[32m2025-09-09 19:40:16.491[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BookingController:
+	{GET [/booking/bookings/summary]}: getAllBookingSummaries()
+	{GET [/booking/operator/{operatorId}]}: getBookingsByOperator(int)
+	{PUT [/booking/refund/{bookingId}]}: refundBookingByOperator(int)
+	{POST [/booking/add]}: addBooking(BookingDto)
+	{GET [/booking/get/{bookingId}]}: getBookingById(int)
+	{GET [/booking/user/{userId}/summary]}: getBookingSummary(int)
+	{GET [/booking/user/{userId}]}: getBookingsByUser(int)
+	{DELETE [/booking/cancel/{bookingId}]}: cancelBooking(int)
+	{GET [/booking/bookings]}: getAllBookings()
+	{POST [/booking/book-seat]}: bookSeats(BookingDto)
+[32m2025-09-09 19:40:16.502[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BusAmenityController:
+	{GET [/busamenity/getbybusid/{busId}]}: getAmenitiesByBusId(int)
+	{POST [/busamenity/add]}: addBusAmenity(BusAmenityDto)
+	{GET [/busamenity/all]}: getAllBusAmenities()
+	{PUT [/busamenity/update]}: updateBusAmenity(BusAmenityDto)
+	{GET [/busamenity/getbyid/{id}]}: getBusAmenityById(int)
+	{DELETE [/busamenity/remove/{id}]}: removeBusAmenity(int)
+[32m2025-09-09 19:40:16.510[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BusController:
+	{GET [/bus/getbusbyoperator/{operatorId}]}: getBusesByOperatorId(int)
+	{GET [/bus/getbusbyid/{id}]}: getBusById(int)
+	{POST [/bus/add]}: addBus(BusDto)
+	{PUT [/bus/update]}: updateBus(BusDto)
+	{GET [/bus/available-seats/{tripId}]}: getAvailableSeats(int)
+	{DELETE [/bus/delete/{id}]}: deleteBus(int)
+	{GET [/bus/search/{origin}/{destination}/{date}]}: searchBuses(String,String,LocalDate)
+	{GET [/bus/getallbus]}: getAllBuses()
+[32m2025-09-09 19:40:16.521[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BusOpDataController:
+	{GET [/busopdata/getbyid/{operatorId}]}: getOperatorById(int)
+	{PUT [/busopdata/update]}: updateOperator(BusOpDataDto)
+	{GET [/busopdata/getall]}: getAllOperators()
+	{POST [/busopdata/add]}: addOperatorData(BusOpDataDto)
+	{DELETE [/busopdata/delete/{operatorId}]}: deleteOperator(int)
+[32m2025-09-09 19:40:16.527[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BusOpLoginController:
+	{POST [/busoplogin/register]}: register(BusOpLoginDto)
+	{POST [/busoplogin/login]}: login(BusOpLoginDto)
+	{GET [/busoplogin/getbyname/{username}]}: getOperatorByUsername(String)
+	{GET [/busoplogin/exists/{username}]}: existsByUsername(String)
+[32m2025-09-09 19:40:16.530[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.PaymentController:
+	{GET [/payment/booking/{bookingId}]}: getPaymentByBookingId(int)
+	{POST [/payment/make]}: makePayment(PaymentDto)
+	{GET [/payment/getbyid/{paymentId}]}: getPaymentById(int)
+	{PUT [/payment/refund/{paymentId}]}: refundPayment(int)
+[32m2025-09-09 19:40:16.535[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.RouteController:
+	{GET [/route/getbyoperator]}: getRoutesByOperatorId(Authentication)
+	{PUT [/route/update]}: updateRoute(RouteDto,Authentication)
+	{GET [/route/getall]}: getAllRoutes()
+	{GET [/route/getbyid/{id}]}: getRouteById(int)
+	{POST [/route/add]}: addRoute(RouteDto,Authentication)
+	{DELETE [/route/delete/{id}]}: deleteRoute(int)
+[32m2025-09-09 19:40:16.541[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.TicketController:
+	{GET [/ticket/booking/{bookingId}]}: getTicketsByBookingId(int)
+	{POST [/ticket/generate/{bookingId}]}: generateTicketFromBooking(int)
+	{DELETE [/ticket/cancel-booking/{bookingId}]}: cancelBookingAndTickets(int)
+	{GET [/ticket/all]}: getAllTickets()
+	{GET [/ticket/{ticketId}]}: getTicketById(int)
+[32m2025-09-09 19:40:16.544[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.TripController:
+	{POST [/trip/addtrip]}: addTrip(TripDto)
+	{PUT [/trip/updatetrip]}: updateTrip(TripDto)
+	{DELETE [/trip/delete/{tripId}]}: deleteTrip(int)
+	{GET [/trip/route/{routeId}]}: getTripsByRoute(int)
+	{GET [/trip/getalltrips]}: getAllTrips()
+	{GET [/trip/by-operator]}: getTripsByOperator(Authentication)
+	{GET [/trip/getbyid/{tripId}]}: getTripById(int)
+[32m2025-09-09 19:40:16.548[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.UserDataController:
+	{POST [/userdata/createuser]}: createUser(UserDataDto)
+	{PUT [/userdata/updateuser]}: updateUser(UserDataDto)
+	{DELETE [/userdata/deleteuser/{userId}]}: deleteUser(int)
+	{GET [/userdata/allusers]}: getAllUsers()
+	{GET [/userdata/getuser/{userId}]}: getUserById(int)
+[32m2025-09-09 19:40:16.550[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.UserLoginController:
+	{POST [/userlogin/register]}: register(UserLoginDto)
+	{POST [/userlogin/login]}: login(String,String)
+	{GET [/userlogin/id/{username}]}: getUserId(String)
+[32m2025-09-09 19:40:16.556[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+[32m2025-09-09 19:40:16.566[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+	{GET [/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+[32m2025-09-09 19:40:16.570[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger]}: redirectToUi(HttpServletRequest)
+[32m2025-09-09 19:40:16.572[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+[32m2025-09-09 19:40:16.576[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 86 mappings in 'requestMappingHandlerMapping'
+[32m2025-09-09 19:40:16.703[0;39m [DEBUG] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+[32m2025-09-09 19:40:16.757[0;39m [DEBUG] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtAuthFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+[32m2025-09-09 19:40:16.854[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+[32m2025-09-09 19:40:16.902[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+[32m2025-09-09 19:40:51.269[0;39m [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+[32m2025-09-09 19:40:51.269[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected StandardServletMultipartResolver
+[32m2025-09-09 19:40:51.269[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected AcceptHeaderLocaleResolver
+[32m2025-09-09 19:40:51.269[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected FixedThemeResolver
+[32m2025-09-09 19:40:51.274[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@abb1c3e
+[32m2025-09-09 19:40:51.274[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected org.springframework.web.servlet.support.SessionFlashMapManager@587107c
+[32m2025-09-09 19:40:51.274[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+[32m2025-09-09 19:40:51.274[0;39m [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 5 ms
+[32m2025-09-09 19:40:51.324[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Securing GET /route/getall
+[32m2025-09-09 19:40:51.373[0;39m [DEBUG] org.springframework.security.web.authentication.AnonymousAuthenticationFilter [http-nio-8080-exec-1] Set SecurityContextHolder to anonymous SecurityContext
+[32m2025-09-09 19:40:51.383[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Secured GET /route/getall
+[32m2025-09-09 19:40:51.385[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] GET "/route/getall", parameters={}
+[32m2025-09-09 19:40:51.389[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-1] Mapped to com.hexaware.fastx_busticketsystem.controller.RouteController#getAllRoutes()
+[32m2025-09-09 19:40:51.799[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-1] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 19:40:51.799[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-1] Writing [[com.hexaware.fastx_busticketsystem.entities.Route@4638c8d4, com.hexaware.fastx_busticketsystem.entities.Route@45c3a881, com.hexaware.fastx_busticketsystem.entities.Route@3aa5db1, com.hexaware.fastx_busticketsystem.entities.Route@24ebd9c2, com.hexaware.fastx_busticketsystem.entities.Route@60adbd4e, com.hexaware.fastx_busticketsystem.entities.Route@79b35295, com.hexaware.fastx_busticketsystem.entities.Route@33225a50, com.hexaware.fastx_busticketsystem.entities.Route@5e20955d, com.hexaware.fastx_busticketsystem.entities.Route@110af8ac, com.hexaware.fastx_busticketsystem.entities.Route@2bd9d4f, com.hexaware.fastx_busticketsystem.entities.Route@47f6128b, com.hexaware.fastx_busticketsystem.entities.Route@4061ae48, com.hexaware.fastx_busticketsystem.entities.Route@f10145a]]
+[32m2025-09-09 19:40:51.930[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed 200 OK
+[32m2025-09-09 19:40:51.930[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Securing GET /route/getall
+[32m2025-09-09 19:40:51.935[0;39m [DEBUG] org.springframework.security.web.authentication.AnonymousAuthenticationFilter [http-nio-8080-exec-2] Set SecurityContextHolder to anonymous SecurityContext
+[32m2025-09-09 19:40:51.935[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Secured GET /route/getall
+[32m2025-09-09 19:40:51.935[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] GET "/route/getall", parameters={}
+[32m2025-09-09 19:40:51.935[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-2] Mapped to com.hexaware.fastx_busticketsystem.controller.RouteController#getAllRoutes()
+[32m2025-09-09 19:40:51.955[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-2] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 19:40:51.955[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-2] Writing [[com.hexaware.fastx_busticketsystem.entities.Route@75d744ec, com.hexaware.fastx_busticketsystem.entities.Route@f04f3cf, com.hexaware.fastx_busticketsystem.entities.Route@43e49d56, com.hexaware.fastx_busticketsystem.entities.Route@49180bc6, com.hexaware.fastx_busticketsystem.entities.Route@639404a2, com.hexaware.fastx_busticketsystem.entities.Route@65dcdd36, com.hexaware.fastx_busticketsystem.entities.Route@548ea196, com.hexaware.fastx_busticketsystem.entities.Route@7d8eb651, com.hexaware.fastx_busticketsystem.entities.Route@5c3c9028, com.hexaware.fastx_busticketsystem.entities.Route@4d9920c1, com.hexaware.fastx_busticketsystem.entities.Route@776c15ef, com.hexaware.fastx_busticketsystem.entities.Route@120ab079, com.hexaware.fastx_busticketsystem.entities.Route@49ed888c]]
+[32m2025-09-09 19:40:51.964[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Completed 200 OK
+[32m2025-09-09 19:41:15.002[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Securing OPTIONS /auth/login/user
+[32m2025-09-09 19:41:15.009[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Securing POST /auth/login/user
+[32m2025-09-09 19:41:15.009[0;39m [DEBUG] org.springframework.security.web.authentication.AnonymousAuthenticationFilter [http-nio-8080-exec-6] Set SecurityContextHolder to anonymous SecurityContext
+[32m2025-09-09 19:41:15.013[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Secured POST /auth/login/user
+[32m2025-09-09 19:41:15.013[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] POST "/auth/login/user", parameters={}
+[32m2025-09-09 19:41:15.013[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-6] Mapped to com.hexaware.fastx_busticketsystem.controller.AuthController#loginUser(JwtRequest)
+[32m2025-09-09 19:41:15.116[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-6] Read "application/json;charset=UTF-8" to [com.hexaware.fastx_busticketsystem.dto.JwtRequest@1f0f6030]
+[32m2025-09-09 19:41:15.491[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-6] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 19:41:15.491[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-6] Writing [{userId=21, token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sInN1YiI6Ikdvd3JpIiwiaWF0IjoxNzU3NDI3MDc1LCJleHAiOjE3NTc0MzA2NzV9.4nEY_lDVJh0eq9SrprvmzlU8cFCHI8cxLK3UmB9kanU}]
+[32m2025-09-09 19:41:15.491[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] Completed 200 OK
+[32m2025-09-09 19:41:15.505[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-7] Securing OPTIONS /userdata/getuser/21
+[32m2025-09-09 19:41:15.513[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-8] Securing GET /userdata/getuser/21
+[32m2025-09-09 19:41:15.687[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-8] Secured GET /userdata/getuser/21
+[32m2025-09-09 19:41:15.687[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-8] GET "/userdata/getuser/21", parameters={}
+[32m2025-09-09 19:41:15.694[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-8] Mapped to com.hexaware.fastx_busticketsystem.controller.UserDataController#getUserById(int)
+[32m2025-09-09 19:41:15.698[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-8] Authorizing method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.dto.UserDataDto com.hexaware.fastx_busticketsystem.controller.UserDataController.getUserById(int) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 19:41:15.747[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-8] Authorized method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.dto.UserDataDto com.hexaware.fastx_busticketsystem.controller.UserDataController.getUserById(int) throws com.hexaware.fastx_busticketsystem.exception.UserNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.UserDataController]
+[32m2025-09-09 19:41:15.784[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-8] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 19:41:15.800[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-8] Writing [UserDataDto(userdataId=21, userId=21, name=Gowri , gender=Female, dateOfBirth=2008-06-10, email=gowri@gmail.com, contactNumber=8890123456, address=Kolkata)]
+[32m2025-09-09 19:41:15.802[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-8] Completed 200 OK
+[32m2025-09-09 19:41:17.807[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Securing OPTIONS /booking/user/21/summary
+[32m2025-09-09 19:41:17.813[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-10] Securing OPTIONS /booking/user/21/summary
+[32m2025-09-09 19:41:17.813[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Securing GET /booking/user/21/summary
+[32m2025-09-09 19:41:17.846[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Secured GET /booking/user/21/summary
+[32m2025-09-09 19:41:17.846[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] GET "/booking/user/21/summary", parameters={}
+[32m2025-09-09 19:41:17.854[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-1] Mapped to com.hexaware.fastx_busticketsystem.controller.BookingController#getBookingSummary(int)
+[32m2025-09-09 19:41:17.854[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-1] Authorizing method invocation ReflectiveMethodInvocation: public java.util.List com.hexaware.fastx_busticketsystem.controller.BookingController.getBookingSummary(int); target is of class [com.hexaware.fastx_busticketsystem.controller.BookingController]
+[32m2025-09-09 19:41:17.854[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-1] Authorized method invocation ReflectiveMethodInvocation: public java.util.List com.hexaware.fastx_busticketsystem.controller.BookingController.getBookingSummary(int); target is of class [com.hexaware.fastx_busticketsystem.controller.BookingController]
+[32m2025-09-09 19:41:18.011[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-1] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 19:41:18.011[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-1] Writing [[com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@306e518d, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@4726208c, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@1d0da1e9, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@7a80bf7e, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@38a07b9a, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@4ef41e42, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@3e86fc9c, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@4102cf7d, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@7a45006c, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@14ad1768, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@1dc66b7d]]
+[32m2025-09-09 19:41:18.023[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed 200 OK
+[32m2025-09-09 19:41:18.027[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Securing GET /booking/user/21/summary
+[32m2025-09-09 19:41:18.044[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Secured GET /booking/user/21/summary
+[32m2025-09-09 19:41:18.052[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] GET "/booking/user/21/summary", parameters={}
+[32m2025-09-09 19:41:18.052[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-2] Mapped to com.hexaware.fastx_busticketsystem.controller.BookingController#getBookingSummary(int)
+[32m2025-09-09 19:41:18.052[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-2] Authorizing method invocation ReflectiveMethodInvocation: public java.util.List com.hexaware.fastx_busticketsystem.controller.BookingController.getBookingSummary(int); target is of class [com.hexaware.fastx_busticketsystem.controller.BookingController]
+[32m2025-09-09 19:41:18.052[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-2] Authorized method invocation ReflectiveMethodInvocation: public java.util.List com.hexaware.fastx_busticketsystem.controller.BookingController.getBookingSummary(int); target is of class [com.hexaware.fastx_busticketsystem.controller.BookingController]
+[32m2025-09-09 19:41:18.167[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-2] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 19:41:18.167[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-2] Writing [[com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@67b740ac, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@1db130c7, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@2a7380ca, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@30bdf78f, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@6dd26314, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@79f14161, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@4fb2fb45, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@106c6cb3, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@6ed86769, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@1d51d99a, com.hexaware.fastx_busticketsystem.dto.BookingSummaryDTO@456161a6]]
+[32m2025-09-09 19:41:18.174[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Completed 200 OK
+[32m2025-09-09 20:19:27.936[0;39m [INFO] org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [main] Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+[32m2025-09-09 20:19:27.939[0;39m [WARN] org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [main] Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+[32m2025-09-09 20:19:28.282[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.AdminController:
+	{GET [/admin/pending]}: getPendingBusOperators()
+	{POST [/admin/register]}: registerAdmin(AdminLoginDto)
+	{POST [/admin/login]}: loginAdmin(String,String)
+	{PUT [/admin/approve/{busOpId}]}: approveBusOperator(int)
+	{PUT [/admin/reject/{busOpId}]}: rejectBusOperator(int)
+[32m2025-09-09 20:19:28.299[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.AuthController:
+	{POST [/auth/forgot-password/busoperator]}: forgotPasswordBusOperator(Map)
+	{POST [/auth/register/busoperator]}: registerBusOperator(BusOpLoginDto)
+	{POST [/auth/reset-password/busoperator]}: resetPasswordBusOperator(Map)
+	{POST [/auth/forgot-password/admin]}: forgotPasswordAdmin(Map)
+	{POST [/auth/register/admin]}: registerAdmin(AdminLoginDto)
+	{POST [/auth/login/admin]}: loginAdmin(JwtRequest)
+	{POST [/auth/login/user]}: loginUser(JwtRequest)
+	{POST [/auth/register/user]}: registerUser(UserLoginDto)
+	{POST [/auth/login/busoperator]}: loginBusOperator(JwtRequest)
+	{POST [/auth/forgot-password/user]}: forgotPasswordUser(Map)
+	{POST [/auth/reset-password/user]}: resetPasswordUser(Map)
+	{POST [/auth/reset-password/admin]}: resetPasswordAdmin(Map)
+[32m2025-09-09 20:19:28.311[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BookingController:
+	{GET [/booking/operator/{operatorId}]}: getBookingsByOperator(int)
+	{PUT [/booking/refund/{bookingId}]}: refundBookingByOperator(int)
+	{GET [/booking/bookings/summary]}: getAllBookingSummaries()
+	{POST [/booking/add]}: addBooking(BookingDto)
+	{GET [/booking/get/{bookingId}]}: getBookingById(int)
+	{GET [/booking/bookings]}: getAllBookings()
+	{DELETE [/booking/cancel/{bookingId}]}: cancelBooking(int)
+	{GET [/booking/user/{userId}]}: getBookingsByUser(int)
+	{POST [/booking/book-seat]}: bookSeats(BookingDto)
+	{GET [/booking/user/{userId}/summary]}: getBookingSummary(int)
+[32m2025-09-09 20:19:28.316[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BusAmenityController:
+	{GET [/busamenity/getbybusid/{busId}]}: getAmenitiesByBusId(int)
+	{GET [/busamenity/all]}: getAllBusAmenities()
+	{DELETE [/busamenity/remove/{id}]}: removeBusAmenity(int)
+	{POST [/busamenity/add]}: addBusAmenity(BusAmenityDto)
+	{PUT [/busamenity/update]}: updateBusAmenity(BusAmenityDto)
+	{GET [/busamenity/getbyid/{id}]}: getBusAmenityById(int)
+[32m2025-09-09 20:19:28.320[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BusController:
+	{GET [/bus/getbusbyoperator/{operatorId}]}: getBusesByOperatorId(int)
+	{POST [/bus/add]}: addBus(BusDto)
+	{PUT [/bus/update]}: updateBus(BusDto)
+	{DELETE [/bus/delete/{id}]}: deleteBus(int)
+	{GET [/bus/getbusbyid/{id}]}: getBusById(int)
+	{GET [/bus/getallbus]}: getAllBuses()
+	{GET [/bus/available-seats/{tripId}]}: getAvailableSeats(int)
+	{GET [/bus/search/{origin}/{destination}/{date}]}: searchBuses(String,String,LocalDate)
+[32m2025-09-09 20:19:28.326[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BusOpDataController:
+	{GET [/busopdata/getall]}: getAllOperators()
+	{DELETE [/busopdata/delete/{operatorId}]}: deleteOperator(int)
+	{GET [/busopdata/getbyid/{operatorId}]}: getOperatorById(int)
+	{POST [/busopdata/add]}: addOperatorData(BusOpDataDto)
+	{PUT [/busopdata/update]}: updateOperator(BusOpDataDto)
+[32m2025-09-09 20:19:28.330[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.BusOpLoginController:
+	{POST [/busoplogin/register]}: register(BusOpLoginDto)
+	{GET [/busoplogin/getbyname/{username}]}: getOperatorByUsername(String)
+	{POST [/busoplogin/login]}: login(BusOpLoginDto)
+	{GET [/busoplogin/exists/{username}]}: existsByUsername(String)
+[32m2025-09-09 20:19:28.332[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.PaymentController:
+	{GET [/payment/booking/{bookingId}]}: getPaymentByBookingId(int)
+	{POST [/payment/make]}: makePayment(PaymentDto)
+	{GET [/payment/getbyid/{paymentId}]}: getPaymentById(int)
+	{PUT [/payment/refund/{paymentId}]}: refundPayment(int)
+[32m2025-09-09 20:19:28.334[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.RouteController:
+	{GET [/route/getbyoperator]}: getRoutesByOperatorId(Authentication)
+	{DELETE [/route/delete/{id}]}: deleteRoute(int)
+	{GET [/route/getall]}: getAllRoutes()
+	{PUT [/route/update]}: updateRoute(RouteDto,Authentication)
+	{GET [/route/getbyid/{id}]}: getRouteById(int)
+	{POST [/route/add]}: addRoute(RouteDto,Authentication)
+[32m2025-09-09 20:19:28.339[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.TicketController:
+	{POST [/ticket/generate/{bookingId}]}: generateTicketFromBooking(int)
+	{DELETE [/ticket/cancel-booking/{bookingId}]}: cancelBookingAndTickets(int)
+	{GET [/ticket/booking/{bookingId}]}: getTicketsByBookingId(int)
+	{GET [/ticket/all]}: getAllTickets()
+	{GET [/ticket/{ticketId}]}: getTicketById(int)
+[32m2025-09-09 20:19:28.342[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.TripController:
+	{POST [/trip/addtrip]}: addTrip(TripDto)
+	{GET [/trip/route/{routeId}]}: getTripsByRoute(int)
+	{PUT [/trip/updatetrip]}: updateTrip(TripDto)
+	{GET [/trip/getbyid/{tripId}]}: getTripById(int)
+	{GET [/trip/by-operator]}: getTripsByOperator(Authentication)
+	{GET [/trip/getalltrips]}: getAllTrips()
+	{DELETE [/trip/delete/{tripId}]}: deleteTrip(int)
+[32m2025-09-09 20:19:28.344[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.UserDataController:
+	{POST [/userdata/createuser]}: createUser(UserDataDto)
+	{GET [/userdata/allusers]}: getAllUsers()
+	{DELETE [/userdata/deleteuser/{userId}]}: deleteUser(int)
+	{PUT [/userdata/updateuser]}: updateUser(UserDataDto)
+	{GET [/userdata/getuser/{userId}]}: getUserById(int)
+[32m2025-09-09 20:19:28.348[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	c.h.f.c.UserLoginController:
+	{POST [/userlogin/register]}: register(UserLoginDto)
+	{POST [/userlogin/login]}: login(String,String)
+	{GET [/userlogin/id/{username}]}: getUserId(String)
+[32m2025-09-09 20:19:28.353[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+[32m2025-09-09 20:19:28.363[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+	{GET [/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+[32m2025-09-09 20:19:28.365[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger]}: redirectToUi(HttpServletRequest)
+[32m2025-09-09 20:19:28.367[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+[32m2025-09-09 20:19:28.369[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [main] 86 mappings in 'requestMappingHandlerMapping'
+[32m2025-09-09 20:19:28.472[0;39m [DEBUG] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+[32m2025-09-09 20:19:28.520[0;39m [DEBUG] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtAuthFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+[32m2025-09-09 20:19:28.604[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+[32m2025-09-09 20:19:28.651[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+[32m2025-09-09 20:19:48.492[0;39m [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+[32m2025-09-09 20:19:48.493[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected StandardServletMultipartResolver
+[32m2025-09-09 20:19:48.493[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected AcceptHeaderLocaleResolver
+[32m2025-09-09 20:19:48.493[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected FixedThemeResolver
+[32m2025-09-09 20:19:48.494[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@ab2ac08
+[32m2025-09-09 20:19:48.495[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Detected org.springframework.web.servlet.support.SessionFlashMapManager@14fe2e62
+[32m2025-09-09 20:19:48.495[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+[32m2025-09-09 20:19:48.495[0;39m [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 2 ms
+[32m2025-09-09 20:19:48.521[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Securing OPTIONS /auth/login/busoperator
+[32m2025-09-09 20:19:48.545[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Securing POST /auth/login/busoperator
+[32m2025-09-09 20:19:48.551[0;39m [DEBUG] org.springframework.security.web.authentication.AnonymousAuthenticationFilter [http-nio-8080-exec-2] Set SecurityContextHolder to anonymous SecurityContext
+[32m2025-09-09 20:19:48.552[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Secured POST /auth/login/busoperator
+[32m2025-09-09 20:19:48.556[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] POST "/auth/login/busoperator", parameters={}
+[32m2025-09-09 20:19:48.558[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-2] Mapped to com.hexaware.fastx_busticketsystem.controller.AuthController#loginBusOperator(JwtRequest)
+[32m2025-09-09 20:19:48.636[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-2] Read "application/json;charset=UTF-8" to [com.hexaware.fastx_busticketsystem.dto.JwtRequest@4ef8efe9]
+[32m2025-09-09 20:19:49.009[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-2] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 20:19:49.011[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-2] Writing [{token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJST0xFX0JVU19PUEVSQVRPUiJ9XSwic3ViIjoiU29uYW0iLCJpYXQiOjE3NTc0MjkzODgsImV4cCI6MTc1NzQzMjk4OH0.2DphOS-nQmxnAWTT6OZGdN8XqHhd8myB-fizSqGTAx8, busOpId=16, username=Sonam}]
+[32m2025-09-09 20:19:49.025[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Completed 200 OK
+[32m2025-09-09 20:19:51.763[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-3] Securing OPTIONS /trip/by-operator
+[32m2025-09-09 20:19:51.763[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Securing OPTIONS /trip/by-operator
+[32m2025-09-09 20:19:51.767[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-7] Securing GET /trip/by-operator
+[32m2025-09-09 20:19:51.854[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-7] Secured GET /trip/by-operator
+[32m2025-09-09 20:19:51.855[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-7] GET "/trip/by-operator", parameters={}
+[32m2025-09-09 20:19:51.855[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-7] Mapped to com.hexaware.fastx_busticketsystem.controller.TripController#getTripsByOperator(Authentication)
+[32m2025-09-09 20:19:51.896[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-7] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 20:19:51.896[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-7] Writing [[com.hexaware.fastx_busticketsystem.entities.Trip@46f6bf28, com.hexaware.fastx_busticketsystem.entities.Trip@19856e63, com.hexaware.fastx_busticketsystem.entities.Trip@60d02b2e, com.hexaware.fastx_busticketsystem.entities.Trip@213825cb, com.hexaware.fastx_busticketsystem.entities.Trip@3fecd23a]]
+[32m2025-09-09 20:19:51.902[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-7] Completed 200 OK
+[32m2025-09-09 20:19:51.905[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Securing GET /trip/by-operator
+[32m2025-09-09 20:19:51.921[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Secured GET /trip/by-operator
+[32m2025-09-09 20:19:51.921[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-9] GET "/trip/by-operator", parameters={}
+[32m2025-09-09 20:19:51.921[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-9] Mapped to com.hexaware.fastx_busticketsystem.controller.TripController#getTripsByOperator(Authentication)
+[32m2025-09-09 20:19:51.950[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-9] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 20:19:51.950[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-9] Writing [[com.hexaware.fastx_busticketsystem.entities.Trip@60b049, com.hexaware.fastx_busticketsystem.entities.Trip@1abe6a8, com.hexaware.fastx_busticketsystem.entities.Trip@1d39f2, com.hexaware.fastx_busticketsystem.entities.Trip@588776b4, com.hexaware.fastx_busticketsystem.entities.Trip@3844071d]]
+[32m2025-09-09 20:19:51.952[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-9] Completed 200 OK
+[32m2025-09-09 20:20:01.135[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-4] Securing OPTIONS /trip/updatetrip
+[32m2025-09-09 20:20:01.141[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Securing PUT /trip/updatetrip
+[32m2025-09-09 20:20:01.162[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Secured PUT /trip/updatetrip
+[32m2025-09-09 20:20:01.162[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-5] PUT "/trip/updatetrip", parameters={}
+[32m2025-09-09 20:20:01.162[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-5] Mapped to com.hexaware.fastx_busticketsystem.controller.TripController#updateTrip(TripDto)
+[32m2025-09-09 20:20:01.181[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-5] Read "application/json;charset=UTF-8" to [TripDto(tripId=152, date=2025-09-12, departureTime=12:21, arrivalTime=14:22, fare=200.0, status=Completed, busId=52, routeId=52)]
+[32m2025-09-09 20:20:01.246[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-5] Authorizing method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.entities.Trip com.hexaware.fastx_busticketsystem.controller.TripController.updateTrip(com.hexaware.fastx_busticketsystem.dto.TripDto) throws com.hexaware.fastx_busticketsystem.exception.TripNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.TripController]
+[32m2025-09-09 20:20:01.260[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-5] Authorized method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.entities.Trip com.hexaware.fastx_busticketsystem.controller.TripController.updateTrip(com.hexaware.fastx_busticketsystem.dto.TripDto) throws com.hexaware.fastx_busticketsystem.exception.TripNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.TripController]
+[32m2025-09-09 20:20:01.356[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-5] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 20:20:01.356[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-5] Writing [com.hexaware.fastx_busticketsystem.entities.Trip@65773c8f]
+[32m2025-09-09 20:20:01.358[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-5] Completed 200 OK
+[32m2025-09-09 20:20:02.779[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-8] Securing OPTIONS /trip/by-operator
+[32m2025-09-09 20:20:02.779[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-10] Securing OPTIONS /trip/by-operator
+[32m2025-09-09 20:20:02.786[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Securing GET /trip/by-operator
+[32m2025-09-09 20:20:02.804[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Secured GET /trip/by-operator
+[32m2025-09-09 20:20:02.804[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] GET "/trip/by-operator", parameters={}
+[32m2025-09-09 20:20:02.804[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-1] Mapped to com.hexaware.fastx_busticketsystem.controller.TripController#getTripsByOperator(Authentication)
+[32m2025-09-09 20:20:02.839[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-1] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 20:20:02.839[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-1] Writing [[com.hexaware.fastx_busticketsystem.entities.Trip@6d21c759, com.hexaware.fastx_busticketsystem.entities.Trip@bf090e3, com.hexaware.fastx_busticketsystem.entities.Trip@51c9d5e4, com.hexaware.fastx_busticketsystem.entities.Trip@7c538f1e, com.hexaware.fastx_busticketsystem.entities.Trip@59d2ba30]]
+[32m2025-09-09 20:20:02.844[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed 200 OK
+[32m2025-09-09 20:20:02.846[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Securing GET /trip/by-operator
+[32m2025-09-09 20:20:02.865[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Secured GET /trip/by-operator
+[32m2025-09-09 20:20:02.865[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] GET "/trip/by-operator", parameters={}
+[32m2025-09-09 20:20:02.865[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-2] Mapped to com.hexaware.fastx_busticketsystem.controller.TripController#getTripsByOperator(Authentication)
+[32m2025-09-09 20:20:02.897[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-2] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 20:20:02.899[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-2] Writing [[com.hexaware.fastx_busticketsystem.entities.Trip@971e601, com.hexaware.fastx_busticketsystem.entities.Trip@ac008f8, com.hexaware.fastx_busticketsystem.entities.Trip@5e300670, com.hexaware.fastx_busticketsystem.entities.Trip@3e189552, com.hexaware.fastx_busticketsystem.entities.Trip@255531b0]]
+[32m2025-09-09 20:20:02.900[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Completed 200 OK
+[32m2025-09-09 20:20:13.987[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Securing OPTIONS /trip/by-operator
+[32m2025-09-09 20:20:13.987[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-7] Securing OPTIONS /trip/by-operator
+[32m2025-09-09 20:20:13.991[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-4] Securing GET /trip/by-operator
+[32m2025-09-09 20:20:14.008[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-4] Secured GET /trip/by-operator
+[32m2025-09-09 20:20:14.008[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-4] GET "/trip/by-operator", parameters={}
+[32m2025-09-09 20:20:14.009[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-4] Mapped to com.hexaware.fastx_busticketsystem.controller.TripController#getTripsByOperator(Authentication)
+[32m2025-09-09 20:20:14.035[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-4] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 20:20:14.035[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-4] Writing [[com.hexaware.fastx_busticketsystem.entities.Trip@3c1b9843, com.hexaware.fastx_busticketsystem.entities.Trip@552272b1, com.hexaware.fastx_busticketsystem.entities.Trip@78228679, com.hexaware.fastx_busticketsystem.entities.Trip@742b989b, com.hexaware.fastx_busticketsystem.entities.Trip@146f7708]]
+[32m2025-09-09 20:20:14.036[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-4] Completed 200 OK
+[32m2025-09-09 20:20:14.038[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Securing GET /trip/by-operator
+[32m2025-09-09 20:20:14.055[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-5] Secured GET /trip/by-operator
+[32m2025-09-09 20:20:14.056[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-5] GET "/trip/by-operator", parameters={}
+[32m2025-09-09 20:20:14.056[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-5] Mapped to com.hexaware.fastx_busticketsystem.controller.TripController#getTripsByOperator(Authentication)
+[32m2025-09-09 20:20:14.082[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-5] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 20:20:14.082[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-5] Writing [[com.hexaware.fastx_busticketsystem.entities.Trip@580ee91b, com.hexaware.fastx_busticketsystem.entities.Trip@68647470, com.hexaware.fastx_busticketsystem.entities.Trip@21ec9b5e, com.hexaware.fastx_busticketsystem.entities.Trip@251d46e9, com.hexaware.fastx_busticketsystem.entities.Trip@264282bd]]
+[32m2025-09-09 20:20:14.083[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-5] Completed 200 OK
+[32m2025-09-09 20:20:29.072[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-1] Securing OPTIONS /trip/updatetrip
+[32m2025-09-09 20:20:29.079[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Securing PUT /trip/updatetrip
+[32m2025-09-09 20:20:29.104[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-2] Secured PUT /trip/updatetrip
+[32m2025-09-09 20:20:29.104[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] PUT "/trip/updatetrip", parameters={}
+[32m2025-09-09 20:20:29.105[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-2] Mapped to com.hexaware.fastx_busticketsystem.controller.TripController#updateTrip(TripDto)
+[32m2025-09-09 20:20:29.106[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-2] Read "application/json;charset=UTF-8" to [TripDto(tripId=152, date=2025-09-12, departureTime=12:21, arrivalTime=14:22, fare=200.0, status=Scheduled, busId=52, routeId=52)]
+[32m2025-09-09 20:20:29.107[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-2] Authorizing method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.entities.Trip com.hexaware.fastx_busticketsystem.controller.TripController.updateTrip(com.hexaware.fastx_busticketsystem.dto.TripDto) throws com.hexaware.fastx_busticketsystem.exception.TripNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.TripController]
+[32m2025-09-09 20:20:29.108[0;39m [DEBUG] org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor [http-nio-8080-exec-2] Authorized method invocation ReflectiveMethodInvocation: public com.hexaware.fastx_busticketsystem.entities.Trip com.hexaware.fastx_busticketsystem.controller.TripController.updateTrip(com.hexaware.fastx_busticketsystem.dto.TripDto) throws com.hexaware.fastx_busticketsystem.exception.TripNotFoundException; target is of class [com.hexaware.fastx_busticketsystem.controller.TripController]
+[32m2025-09-09 20:20:29.138[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-2] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 20:20:29.138[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor [http-nio-8080-exec-2] Writing [com.hexaware.fastx_busticketsystem.entities.Trip@6e48cd26]
+[32m2025-09-09 20:20:29.139[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Completed 200 OK
+[32m2025-09-09 20:20:30.481[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-3] Securing OPTIONS /trip/by-operator
+[32m2025-09-09 20:20:30.481[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-6] Securing OPTIONS /trip/by-operator
+[32m2025-09-09 20:20:30.488[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Securing GET /trip/by-operator
+[32m2025-09-09 20:20:30.510[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Secured GET /trip/by-operator
+[32m2025-09-09 20:20:30.510[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-9] GET "/trip/by-operator", parameters={}
+[32m2025-09-09 20:20:30.510[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-9] Mapped to com.hexaware.fastx_busticketsystem.controller.TripController#getTripsByOperator(Authentication)
+[32m2025-09-09 20:20:30.601[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-9] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 20:20:30.601[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-9] Writing [[com.hexaware.fastx_busticketsystem.entities.Trip@2e6f43fd, com.hexaware.fastx_busticketsystem.entities.Trip@5d49279a, com.hexaware.fastx_busticketsystem.entities.Trip@51cfa003, com.hexaware.fastx_busticketsystem.entities.Trip@9cd4f26, com.hexaware.fastx_busticketsystem.entities.Trip@5143e84]]
+[32m2025-09-09 20:20:30.602[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-9] Completed 200 OK
+[32m2025-09-09 20:20:30.604[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Securing GET /trip/by-operator
+[32m2025-09-09 20:20:30.622[0;39m [DEBUG] org.springframework.security.web.FilterChainProxy [http-nio-8080-exec-9] Secured GET /trip/by-operator
+[32m2025-09-09 20:20:30.972[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-9] GET "/trip/by-operator", parameters={}
+[32m2025-09-09 20:20:30.973[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [http-nio-8080-exec-9] Mapped to com.hexaware.fastx_busticketsystem.controller.TripController#getTripsByOperator(Authentication)
+[32m2025-09-09 20:20:31.012[0;39m [DEBUG] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-9] Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+[32m2025-09-09 20:20:31.013[0;39m [TRACE] org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor [http-nio-8080-exec-9] Writing [[com.hexaware.fastx_busticketsystem.entities.Trip@a684452, com.hexaware.fastx_busticketsystem.entities.Trip@6e7a0abb, com.hexaware.fastx_busticketsystem.entities.Trip@6a5a4f24, com.hexaware.fastx_busticketsystem.entities.Trip@3fe77ec1, com.hexaware.fastx_busticketsystem.entities.Trip@65cafe7c]]
+[32m2025-09-09 20:20:31.014[0;39m [DEBUG] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-9] Completed 200 OK

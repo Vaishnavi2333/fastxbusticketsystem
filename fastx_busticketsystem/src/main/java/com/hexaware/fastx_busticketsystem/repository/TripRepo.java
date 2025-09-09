@@ -20,10 +20,6 @@ public interface TripRepo extends JpaRepository<Trip,Integer> {
 	
 	List<Trip> findByBusBusId(int busId);
 	
-	/*@Query("SELECT t FROM Trip t JOIN t.bus b WHERE b.busOpData.busOpDataId = :operatorId")
-	List<Trip> findTripsByOperatorId(@Param("operatorId") int operatorId); 
-	*/
-	
 	    @Query("SELECT t FROM Trip t JOIN FETCH t.bus b JOIN FETCH b.route")
 	    List<Trip> findAllWithBusAndRoute();
 

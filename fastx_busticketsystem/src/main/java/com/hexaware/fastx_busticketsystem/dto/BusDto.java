@@ -60,7 +60,7 @@ public class BusDto {
     
      private LocalTime arrivalTime;
      
-   // @NotEmpty(message = "Amenities list cannot be empty")
+ 
      private List<BusAmenityDto> amenities;
     
     

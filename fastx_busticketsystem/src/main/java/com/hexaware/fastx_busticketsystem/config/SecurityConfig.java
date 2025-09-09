@@ -30,7 +30,7 @@ import com.hexaware.fastx_busticketsystem.service.AppUserDetailsService;
 
 
 /*Author:Vaishnavi Suresh Vaidyanath
-Modified Date:13-Aug-2025
+Modified Date:05-Sept-2025
 Description:Security Config Class*/
 
 @Configuration

@@ -23,7 +23,7 @@ Description:Dto Class for Route
 @Data
 public class RouteDto {
 	
-	    //@Positive(message = "Route ID should be a positive value")
+	   
 	    private int routeId;
 
 	    @NotBlank(message = "Route name should be valid and not blank")

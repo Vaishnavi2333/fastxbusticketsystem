@@ -49,9 +49,13 @@ public class BookingDto {
     private Boolean paymentDone;
     
     private String busName;
+    
     private String busType;
+    
     private String busNumber;
+    
     private String departureTime;
+    
     private String arrivalTime;
 
 }
